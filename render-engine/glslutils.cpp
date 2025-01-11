@@ -1,13 +1,11 @@
-#ifndef SHADERCOMPILIER_H
-#define SHADERCOMPILIER_H
-#include<GL/glew.h>
-#include<iostream>
+#include "glslutils.h";
 
 GLuint shaderProgram;
 
-GLuint compileShader(GLenum shaderType, const char* shaderSource)
+
+GLuint compileShader(GLenum glShaderType, const char* shaderSource)
 {
-	GLuint shader = glCreateShader(shaderType);
+	GLuint shader = glCreateShader(glShaderType);
 	glShaderSource(shader, 1, &shaderSource, NULL);
 	glCompileShader(shader);
 	//check for errors
@@ -27,7 +25,7 @@ void initProgram(GLuint vertexShader, GLuint fragmentShader)
 {
 	shaderProgram = glCreateProgram();
 	glAttachShader(shaderProgram, vertexShader);
-	glAttachShader(fragmentShader, vertexShader);
+	glAttachShader(shaderProgram, fragmentShader);
 	glLinkProgram(shaderProgram);
 
 	//check for errors
@@ -41,10 +39,7 @@ void initProgram(GLuint vertexShader, GLuint fragmentShader)
 	}
 }
 
-void loadShader()
+void loadShader(const char* vertexShaderPath, const char* fragmentShaderPath)
 {
 
 }
-
-#endif // SHADERCOMPILIER_H
-

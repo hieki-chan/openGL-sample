@@ -1,6 +1,6 @@
 #version core 300
 
-in vec4 vPosition;
+layout (location = 0) in vec3 vPosition;
 
 int main()
 {

@@ -18,6 +18,15 @@
     <ClCompile Include="gltest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="cube.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="triangle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="glslutils.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="vShader.glsl">
@@ -28,7 +37,16 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ShaderCompilier.h">
+    <ClInclude Include="glslutils.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cube.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="triangle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="openGL.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
