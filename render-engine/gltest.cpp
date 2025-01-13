@@ -23,7 +23,8 @@ void display()
 	//glClearColor(0.1f, 0.2f, 0.2f, 1.0f);
 	//glClear(GL_COLOR_BUFFER_BIT);
 
-	drawTriangle();
+	//drawTriangle();
+	drawCube();
 
 	//glutSwapBuffers();
 }
@@ -53,10 +54,11 @@ int main(int argc, char** argv)
 
 	glutDisplayFunc(display);
 	glutKeyboardFunc(input);
-	drawCube();
+	
 	glutMainLoop();
 
-	deleteTriangle();
+	//deleteTriangle();
+	deleteCube();
 
 	return 0;
 }

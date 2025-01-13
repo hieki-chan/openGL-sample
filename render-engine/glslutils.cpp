@@ -1,7 +1,5 @@
 #include "glslutils.h";
 
-GLuint shaderProgram;
-
 
 GLuint compileShader(GLenum glShaderType, const char* shaderSource)
 {
@@ -21,9 +19,9 @@ GLuint compileShader(GLenum glShaderType, const char* shaderSource)
 	return shader;
 }
 
-void initProgram(GLuint vertexShader, GLuint fragmentShader)
+GLuint initProgram(GLuint vertexShader, GLuint fragmentShader)
 {
-	shaderProgram = glCreateProgram();
+	GLuint shaderProgram = glCreateProgram();
 	glAttachShader(shaderProgram, vertexShader);
 	glAttachShader(shaderProgram, fragmentShader);
 	glLinkProgram(shaderProgram);
@@ -37,9 +35,13 @@ void initProgram(GLuint vertexShader, GLuint fragmentShader)
 		glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
 		std::cout << infoLog << std::endl;
 	}
+
+	return shaderProgram;
 }
 
-void loadShader(const char* vertexShaderPath, const char* fragmentShaderPath)
+GLuint initProgram(const char* vertexShaderPath, const char* fragmentShaderPath)
 {
+	GLuint program;
 
+	return 1;
 }

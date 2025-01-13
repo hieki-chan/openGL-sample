@@ -3,10 +3,10 @@
 #include<GL/glew.h>
 #include<iostream>
 
-extern GLuint shaderProgram;
+//extern GLuint shaderProgram;
  
 GLuint compileShader(GLenum glShaderType, const char* shaderSource);
 
-void initProgram(GLuint vertexShader, GLuint fragmentShader);
+GLuint initProgram(GLuint vertexShader, GLuint fragmentShader);
 
-void loadShader(const char* vertexShaderPath, const char* fragmentShaderPath);
+GLuint initProgram(const char* vertexShaderPath, const char* fragmentShaderPath);

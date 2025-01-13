@@ -49,21 +49,23 @@ void main()
 )";
 
 
-void initShader()
+GLuint initShader()
 {
 	GLuint vertexShader = compileShader(GL_VERTEX_SHADER, vertexShaderSource);
 	GLuint fragmentShader = compileShader(GL_FRAGMENT_SHADER, fragmentShaderSource);
 
-	initProgram(vertexShader, fragmentShader);
+	GLuint shaderProgram = initProgram(vertexShader, fragmentShader);
 
 	glDeleteShader(vertexShader);
 	glDeleteShader(fragmentShader);
+
+	return shaderProgram;
 }
 
 void drawTriangle()
 {
 	initGPUBuffers();
-	initShader();
+	GLuint shaderProgram = initShader();
 
 	glClearColor(0.1f, 0.2f, 0.2f, 1.0f);
 	glClear(GL_COLOR_BUFFER_BIT);

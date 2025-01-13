@@ -22,6 +22,7 @@
     <ClCompile Include="cube.cpp" />
     <ClCompile Include="glslutils.cpp" />
     <ClCompile Include="gltest.cpp" />
+    <ClCompile Include="mesh.cpp" />
     <ClCompile Include="triangle.cpp" />
   </ItemGroup>
   <ItemGroup>
