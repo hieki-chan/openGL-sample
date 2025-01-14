@@ -22,18 +22,29 @@
     <ClCompile Include="cube.cpp" />
     <ClCompile Include="glslutils.cpp" />
     <ClCompile Include="gltest.cpp" />
-    <ClCompile Include="mesh.cpp" />
+    <ClCompile Include="InitShader.cpp" />
+    <ClCompile Include="openGL.cpp" />
+    <ClCompile Include="rectangle.cpp" />
+    <ClCompile Include="textfile.cpp" />
     <ClCompile Include="triangle.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="cube_fshader.glsl" />
+    <None Include="cube_vshader.glsl" />
     <None Include="fShader.glsl" />
     <None Include="vShader.glsl" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Angel.h" />
+    <ClInclude Include="CheckError.h" />
     <ClInclude Include="cube.h" />
+    <ClInclude Include="mat.h" />
     <ClInclude Include="openGL.h" />
     <ClInclude Include="glslutils.h" />
+    <ClInclude Include="rectangle.h" />
+    <ClInclude Include="textfile.h" />
     <ClInclude Include="triangle.h" />
+    <ClInclude Include="vec.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

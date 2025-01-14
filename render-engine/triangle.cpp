@@ -74,8 +74,6 @@ void drawTriangle()
 	glBindVertexArray(VAO);
 	glDrawArrays(GL_TRIANGLE_STRIP, 0, 3);
 	//glBindVertexArray(0);
-
-	glutSwapBuffers();
 }
 
 void deleteTriangle()

@@ -4,6 +4,7 @@
 
 #include "cube.h"
 #include "triangle.h"
+#include "rectangle.h"
 
 
 void initBuffers()
@@ -26,7 +27,15 @@ void display()
 	//drawTriangle();
 	drawCube();
 
-	//glutSwapBuffers();
+	//drawRectangle();
+
+	glutSwapBuffers();
+}
+
+void idle()
+{
+	display();
+	glutPostRedisplay();
 }
 
 void input(unsigned char c, int a, int b)
@@ -40,7 +49,7 @@ int main(int argc, char** argv)
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH);
 	glutInitWindowSize(600, 600);
-	glutInitWindowPosition(200, 200);
+	glutInitWindowPosition(250, 250);
 	glutCreateWindow("Render Engine");
 
     GLenum err = glewInit();
@@ -53,6 +62,7 @@ int main(int argc, char** argv)
 	shader();
 
 	glutDisplayFunc(display);
+	glutIdleFunc(idle);
 	glutKeyboardFunc(input);
 	
 	glutMainLoop();
