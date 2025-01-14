@@ -5,6 +5,7 @@
 #include "cube.h"
 #include "triangle.h"
 #include "rectangle.h"
+#include "pyramid.h"
 
 
 void initBuffers()
@@ -25,16 +26,17 @@ void display()
 	//glClear(GL_COLOR_BUFFER_BIT);
 
 	//drawTriangle();
-	drawCube();
+	//drawCube();
 
 	//drawRectangle();
+	drawPyramid();
 
 	glutSwapBuffers();
 }
 
 void idle()
 {
-	display();
+	
 	glutPostRedisplay();
 }
 
@@ -61,6 +63,9 @@ int main(int argc, char** argv)
 	initBuffers();
 	shader();
 
+	//initCubeBuff();
+	initPyramid();
+
 	glutDisplayFunc(display);
 	glutIdleFunc(idle);
 	glutKeyboardFunc(input);
@@ -68,7 +73,7 @@ int main(int argc, char** argv)
 	glutMainLoop();
 
 	//deleteTriangle();
-	deleteCube();
+	//deleteCube();
 
 	return 0;
 }

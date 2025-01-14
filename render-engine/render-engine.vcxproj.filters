@@ -25,6 +25,9 @@
     <Filter Include="Source Files\cube">
       <UniqueIdentifier>{d0c5d956-eb78-451f-b2ba-0b5cf47ac732}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\pyramid">
+      <UniqueIdentifier>{94a2b930-0bea-4478-a037-3af82141b45e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gltest.cpp">
@@ -51,6 +54,9 @@
     <ClCompile Include="textfile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="pyramid.cpp">
+      <Filter>Source Files\pyramid</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="vShader.glsl">
@@ -64,6 +70,12 @@
     </None>
     <None Include="cube_vshader.glsl">
       <Filter>Source Files\cube</Filter>
+    </None>
+    <None Include="p_vshader.glsl">
+      <Filter>Source Files\pyramid</Filter>
+    </None>
+    <None Include="p_fshader.glsl">
+      <Filter>Source Files\pyramid</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -96,6 +108,9 @@
     </ClInclude>
     <ClInclude Include="textfile.h">
       <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="pyramid.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

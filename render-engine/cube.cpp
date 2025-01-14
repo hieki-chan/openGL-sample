@@ -61,6 +61,7 @@ void generateGeometry()
 }
 
 float rotX = 10l;
+
 void initCubeBuffers()
 {
 	GLuint VAO, VBO;
@@ -93,22 +94,24 @@ void initCubeBuffers()
 	glEnable(GL_DEPTH_TEST);
 
 	glUseProgram(program);
+}
 
-	rotX += 10;
-	mat4 instance = Translate(0, 0, 0) * Scale(1, 0.8f, 1) * Angel::RotateY(10) * RotateX(rotX);
+void initCubeBuff()
+{
+	generateGeometry();
+	initCubeBuffers();	
+}
+
+
+void drawCube()
+{
+	rotX += .02f;
+	mat4 instance = Translate(0, 0, 0) * Scale(1, 0.8f, 1) * Angel::RotateY(rotX) * RotateX(rotX);
 	glUniformMatrix4fv(loc_modelMatrix, 1, GL_TRUE, instance);
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	glDrawArrays(GL_TRIANGLES, 0, CUBE_VERTEX_COUNT);
-}
-
-
-
-void drawCube()
-{
-	generateGeometry();
-	initCubeBuffers();
 }
 
 void deleteCube()

@@ -24,6 +24,7 @@
     <ClCompile Include="gltest.cpp" />
     <ClCompile Include="InitShader.cpp" />
     <ClCompile Include="openGL.cpp" />
+    <ClCompile Include="pyramid.cpp" />
     <ClCompile Include="rectangle.cpp" />
     <ClCompile Include="textfile.cpp" />
     <ClCompile Include="triangle.cpp" />
@@ -32,6 +33,8 @@
     <None Include="cube_fshader.glsl" />
     <None Include="cube_vshader.glsl" />
     <None Include="fShader.glsl" />
+    <None Include="p_fshader.glsl" />
+    <None Include="p_vshader.glsl" />
     <None Include="vShader.glsl" />
   </ItemGroup>
   <ItemGroup>
@@ -41,6 +44,7 @@
     <ClInclude Include="mat.h" />
     <ClInclude Include="openGL.h" />
     <ClInclude Include="glslutils.h" />
+    <ClInclude Include="pyramid.h" />
     <ClInclude Include="rectangle.h" />
     <ClInclude Include="textfile.h" />
     <ClInclude Include="triangle.h" />

@@ -5,6 +5,7 @@
 
 #include<Windows.h>			//for MS-windows
 
+#define TRIANGLES GL_TRIANGLES
 
 #define Deg2Rad Angel::DegreesToRadians
 #define Rad2Deg = 1.0f / Deg2Rad;
