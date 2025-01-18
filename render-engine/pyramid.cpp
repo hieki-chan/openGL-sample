@@ -5,9 +5,9 @@ GLuint loc_m;
 
 void initPyramid()
 {
-	vec4 veritces[] =
+	vec4 vertices[] =
 	{
-		vec4(-0.5f, -0.5f, 0.5f, 1.0f)  ,	//1
+		vec4(-0.5f, -0.5f, 0.5f, 1.0f)  ,//1
 		vec4(0.5f, -0.5f, 0.5f, 1.0f),	//2
 		vec4(-0.5f, -0.5f, -0.5f, 1.0f),//4
 
@@ -36,9 +36,9 @@ void initPyramid()
 	GLuint VAO, VBO;
 
 	VAO = initVAO();
-	VBO = initVBO(sizeof(veritces), veritces, GL_STATIC_DRAW);
+	VBO = initVBO(sizeof(vertices), vertices, GL_STATIC_DRAW);
 
-	GLuint programShader = InitShader("p_vshader.glsl", "p_fshader.glsl");
+	GLuint programShader = INIT_PROGRAM("p_vshader.glsl", "p_fshader.glsl");
 
 
 	GLuint loc_v = glGetAttribLocation(programShader, "vPosition");
@@ -67,5 +67,5 @@ void drawPyramid()
 
 	glUniformMatrix4fv(loc_m, 1, GL_TRUE, m);
 
-	glDrawArrays(TRIANGLES, 0, 24);
+	glDrawArrays(GL_LINE_LOOP, 0, 24);
 }

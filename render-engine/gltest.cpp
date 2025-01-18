@@ -1,23 +1,18 @@
-﻿#include<GL\glew.h>
-#include<GL\freeglut.h>
-#include<iostream>
+﻿#include "openGL.h"
 
 #include "cube.h"
 #include "triangle.h"
 #include "rectangle.h"
 #include "pyramid.h"
+#include "table.h"
 
 
-void initBuffers()
+void resize(int w, int h)
 {
-	
+	glutInitWindowSize(w, h);
 }
 
 
-void shader()
-{
-	
-}
 
 void display()
 {
@@ -34,16 +29,34 @@ void display()
 	glutSwapBuffers();
 }
 
+bool stopIdle = FALSE;
+
 void idle()
 {
-	
+	if (stopIdle)
+		return;
 	glutPostRedisplay();
 }
 
-void input(unsigned char c, int a, int b)
+void timer(int value)
 {
-	if (c == 27)
+	//glutPostRedisplay();
+	glutTimerFunc(.02f, timer, value++);
+}
+
+void input(unsigned char key, int mouseX, int mouseY)
+{
+	if (key == 27)
 		exit(0);
+}
+
+void mouseInput(int button, int state, int x, int y)
+{
+	if (button == GLUT_MIDDLE_BUTTON
+		&& state == GLUT_UP)
+	{
+		stopIdle = !stopIdle;
+	}
 }
 
 int main(int argc, char** argv)
@@ -60,15 +73,17 @@ int main(int argc, char** argv)
         return -1;
     }
 
-	initBuffers();
-	shader();
-
 	//initCubeBuff();
-	initPyramid();
+	//initPyramid();
+
+	//table table = createTable();
 
 	glutDisplayFunc(display);
+	glutReshapeFunc(resize);
 	glutIdleFunc(idle);
+	glutTimerFunc(200, timer, 0);
 	glutKeyboardFunc(input);
+	glutMouseFunc(mouseInput);
 	
 	glutMainLoop();
 

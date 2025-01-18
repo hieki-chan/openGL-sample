@@ -5,10 +5,13 @@
 
 #include<Windows.h>			//for MS-windows
 
-#define TRIANGLES GL_TRIANGLES
+#include "glObject.h"
 
 #define Deg2Rad Angel::DegreesToRadians
 #define Rad2Deg = 1.0f / Deg2Rad;
+
+
+#define INIT_PROGRAM Angel::InitShader
 
 
 #pragma region GL INIT FUNCTIONS

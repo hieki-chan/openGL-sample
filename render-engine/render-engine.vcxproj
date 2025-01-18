@@ -20,12 +20,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cube.cpp" />
+    <ClCompile Include="glObject.cpp" />
     <ClCompile Include="glslutils.cpp" />
     <ClCompile Include="gltest.cpp" />
     <ClCompile Include="InitShader.cpp" />
     <ClCompile Include="openGL.cpp" />
     <ClCompile Include="pyramid.cpp" />
     <ClCompile Include="rectangle.cpp" />
+    <ClCompile Include="table.cpp" />
     <ClCompile Include="textfile.cpp" />
     <ClCompile Include="triangle.cpp" />
   </ItemGroup>
@@ -41,11 +43,13 @@
     <ClInclude Include="Angel.h" />
     <ClInclude Include="CheckError.h" />
     <ClInclude Include="cube.h" />
+    <ClInclude Include="glObject.h" />
     <ClInclude Include="mat.h" />
     <ClInclude Include="openGL.h" />
     <ClInclude Include="glslutils.h" />
     <ClInclude Include="pyramid.h" />
     <ClInclude Include="rectangle.h" />
+    <ClInclude Include="table.h" />
     <ClInclude Include="textfile.h" />
     <ClInclude Include="triangle.h" />
     <ClInclude Include="vec.h" />
