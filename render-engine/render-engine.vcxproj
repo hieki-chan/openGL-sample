@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="camera.cpp" />
     <ClCompile Include="cube.cpp" />
     <ClCompile Include="glObject.cpp" />
     <ClCompile Include="glslutils.cpp" />
@@ -35,6 +36,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Angel.h" />
+    <ClInclude Include="camera.h" />
     <ClInclude Include="CheckError.h" />
     <ClInclude Include="cube.h" />
     <ClInclude Include="glObject.h" />

@@ -51,6 +51,9 @@
     <ClCompile Include="textfile.cpp">
       <Filter>Source Files\core</Filter>
     </ClCompile>
+    <ClCompile Include="camera.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="vShader.glsl">
@@ -92,6 +95,9 @@
       <Filter>Header Files\core</Filter>
     </ClInclude>
     <ClInclude Include="glslutils.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="camera.h">
       <Filter>Header Files\core</Filter>
     </ClInclude>
   </ItemGroup>
