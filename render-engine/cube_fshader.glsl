@@ -5,7 +5,6 @@ in vec4 color;
 
 uniform vec4 mainColor;
 
-
 void main()
 {
 	fColor = mainColor;
