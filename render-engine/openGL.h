@@ -14,6 +14,7 @@
 #define INIT_PROGRAM Angel::InitShader
 
 typedef vec4 color;
+typedef vec4 point4;
 
 
 #pragma region GL INIT FUNCTIONS
