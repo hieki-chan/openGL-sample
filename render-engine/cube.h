@@ -8,7 +8,3 @@ void initCubeBuff();
 void drawCube();
 
 void deleteCube();
-
-class cube
-{
-};
