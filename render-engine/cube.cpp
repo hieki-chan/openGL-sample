@@ -1,12 +1,12 @@
 ﻿#include "cube.h"
+#include "camera.h"
 #include<iostream>
 
 const int CUBE_VERTEX_COUNT = 36;
-typedef vec4 point4;
 
 point4 points[CUBE_VERTEX_COUNT];
 point4 vertices[8];
-GLuint program, loc_modelMatrix;
+GLuint program;
 
 mat4 ctm;
 
@@ -49,6 +49,9 @@ void generateGeometry()
 
 float rotX = 10l;
 
+GLuint mloc, vloc, ploc;
+
+
 void initCubeBuffers()
 {
 	GLuint VAO, VBO;
@@ -72,10 +75,11 @@ void initCubeBuffers()
 	glVertexAttribPointer(loc_vColor, 4, GL_FLOAT, GL_FALSE, 0,
 		BUFFER_OFFSET(sizeof(points)));*/
 
+	mloc = glGetUniformLocation(program, "model");
+	vloc = glGetUniformLocation(program, "view");
+	ploc = glGetUniformLocation(program, "projection");
 
-	auto loc_modelMatrix = glGetUniformLocation(program, "model");
-	//std::cout << loc_vPos;
-	//std::cout << loc_modelMatrix;
+
 	glEnable(GL_DEPTH_TEST);
 
 	glUseProgram(program);
@@ -92,7 +96,7 @@ void drawCube()
 {
 	rotX += .02f;
 	mat4 instance = Translate(0, 0, 0) * Scale(1, 0.8f, 1) * Angel::RotateY(rotX) * RotateX(rotX);
-	glUniformMatrix4fv(loc_modelMatrix, 1, GL_TRUE, instance);
+	glUniformMatrix4fv(mloc, 1, GL_TRUE, instance);
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -109,21 +113,20 @@ void setVec4(const std::string& name, vec4 value)
 	glUniform4fv(glGetUniformLocation(program, name.c_str()), 1, &value[0]);
 }
 
-void drawCube(vec3 position, vec3 rotaton, vec3 scale, color color)
+void drawCube(vec3 position, vec3 rotation, vec3 scale, color color)
 {
+
 	setVec4("mainColor", color);
 
 
+	useCameraMatrix(vloc, ploc);
+
+
 	rotX += .02f;
-	mat4 instance = Translate(position) * Scale(scale) * Angel::RotateY(rotX) * RotateX(rotX);
-	glUniformMatrix4fv(loc_modelMatrix, 1, GL_TRUE, instance);
-
-	//GLuint loc_vColor = glGetAttribLocation(program, "mainColor");
-	//glUniform4fv(loc_vColor, 1, color);
+	mat4 instance = Translate(position) * Scale(scale) * RotateX(rotX);
+	glUniformMatrix4fv(mloc, 1, GL_TRUE, instance);
 
 
-
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
 	glDrawArrays(GL_TRIANGLES, 0, CUBE_VERTEX_COUNT);
 }

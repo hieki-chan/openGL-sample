@@ -25,6 +25,7 @@
     <ClCompile Include="glslutils.cpp" />
     <ClCompile Include="gltest.cpp" />
     <ClCompile Include="InitShader.cpp" />
+    <ClCompile Include="main.cpp" />
     <ClCompile Include="openGL.cpp" />
     <ClCompile Include="textfile.cpp" />
   </ItemGroup>
