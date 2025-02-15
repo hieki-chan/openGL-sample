@@ -21,10 +21,14 @@ void display()
 	//glClear(GL_COLOR_BUFFER_BIT);
 
 	//drawTriangle();
-	//drawCube();
+<<<<<<< HEAD
+	drawCube();
+=======
+	drawCube(vec3(), vec3(), vec3(1, 1, 1), color(0, 1, 1, 1));
+>>>>>>> 4fba4f9e7f4f39e46d04bda66aca455cc99ea762
 
 	//drawRectangle();
-	drawPyramid();
+	//drawPyramid();
 
 	glutSwapBuffers();
 }
@@ -73,7 +77,7 @@ int main(int argc, char** argv)
         return -1;
     }
 
-	//initCubeBuff();
+	initCube();
 	//initPyramid();
 
 	//table table = createTable();

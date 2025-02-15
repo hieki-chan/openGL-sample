@@ -3,7 +3,7 @@
 
 #include "openGL.h"
 
-void initCubeBuff();
+void initCube();
 
 void drawCube();
 
