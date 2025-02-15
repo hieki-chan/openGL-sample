@@ -13,7 +13,6 @@
 
 #define INIT_PROGRAM Angel::InitShader
 
-
 typedef vec4 color;
 
 
