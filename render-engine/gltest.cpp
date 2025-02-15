@@ -21,10 +21,10 @@ void display()
 	//glClear(GL_COLOR_BUFFER_BIT);
 
 	//drawTriangle();
-	//drawCube();
+	drawCube();
 
 	//drawRectangle();
-	drawPyramid();
+	//drawPyramid();
 
 	glutSwapBuffers();
 }
