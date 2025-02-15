@@ -19,12 +19,6 @@
     <Filter Include="Header Files\core">
       <UniqueIdentifier>{69345479-d11a-46b7-9e61-f7eeed85269f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\pyramid">
-      <UniqueIdentifier>{94a2b930-0bea-4478-a037-3af82141b45e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\table">
-      <UniqueIdentifier>{4b6c93a0-1d49-4dc5-9939-8a4f3f44c253}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Header Files\objects">
       <UniqueIdentifier>{358391b4-e8b5-45df-aecb-72ffc2d1ab3f}</UniqueIdentifier>
     </Filter>
@@ -34,25 +28,13 @@
     <Filter Include="Source Files\objects\cube">
       <UniqueIdentifier>{d0c5d956-eb78-451f-b2ba-0b5cf47ac732}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\objects\NewFilter1">
-      <UniqueIdentifier>{0cb76b48-c2f5-433e-926b-00533fa337e9}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="gltest.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="glslutils.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="rectangle.cpp">
-      <Filter>Source Files\objects</Filter>
-    </ClCompile>
     <ClCompile Include="openGL.cpp">
       <Filter>Source Files\core</Filter>
-    </ClCompile>
-    <ClCompile Include="triangle.cpp">
-      <Filter>Source Files\objects</Filter>
     </ClCompile>
     <ClCompile Include="cube.cpp">
       <Filter>Source Files\objects\cube</Filter>
@@ -60,16 +42,13 @@
     <ClCompile Include="InitShader.cpp">
       <Filter>Source Files\core</Filter>
     </ClCompile>
-    <ClCompile Include="textfile.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="pyramid.cpp">
-      <Filter>Source Files\pyramid</Filter>
-    </ClCompile>
-    <ClCompile Include="table.cpp">
-      <Filter>Source Files\table</Filter>
-    </ClCompile>
     <ClCompile Include="glObject.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="glslutils.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="textfile.cpp">
       <Filter>Source Files\core</Filter>
     </ClCompile>
   </ItemGroup>
@@ -85,12 +64,6 @@
     </None>
     <None Include="cube_vshader.glsl">
       <Filter>Source Files\objects\cube</Filter>
-    </None>
-    <None Include="p_vshader.glsl">
-      <Filter>Source Files\pyramid</Filter>
-    </None>
-    <None Include="p_fshader.glsl">
-      <Filter>Source Files\pyramid</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -113,18 +86,6 @@
       <Filter>Header Files\core</Filter>
     </ClInclude>
     <ClInclude Include="cube.h">
-      <Filter>Header Files\objects</Filter>
-    </ClInclude>
-    <ClInclude Include="pyramid.h">
-      <Filter>Header Files\objects</Filter>
-    </ClInclude>
-    <ClInclude Include="triangle.h">
-      <Filter>Header Files\objects</Filter>
-    </ClInclude>
-    <ClInclude Include="rectangle.h">
-      <Filter>Header Files\objects</Filter>
-    </ClInclude>
-    <ClInclude Include="table.h">
       <Filter>Header Files\objects</Filter>
     </ClInclude>
     <ClInclude Include="glObject.h">
