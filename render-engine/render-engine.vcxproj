@@ -25,7 +25,6 @@
     <ClCompile Include="core\InitShader.cpp" />
     <ClCompile Include="core\openGL.cpp" />
     <ClCompile Include="core\textfile.cpp" />
-    <ClCompile Include="gltest.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="objects\cube\cube.cpp" />
     <ClCompile Include="core\ui.cpp" />
