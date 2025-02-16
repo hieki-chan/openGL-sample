@@ -1,4 +1,4 @@
-#include "glObject.h"
+#include "core/glObject.h"
 
 
 glObject::glObject(vec4* vertices, unsigned int* triangles) : vertices(vertices), triangles(triangles)

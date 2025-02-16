@@ -1,15 +1,14 @@
-﻿#include "cube.h"
+﻿#include "objects/cube.h"
+#include "core/camera.h"
 #include<iostream>
 
 const int CUBE_VERTEX_COUNT = 36;
-typedef vec4 point4;
 
 point4 points[CUBE_VERTEX_COUNT];
 point4 vertices[8];
-GLuint program, loc_modelMatrix;
+GLuint cube_program;
 
 mat4 ctm;
-
 
 void createCube()
 {
@@ -49,20 +48,22 @@ void generateGeometry()
 
 float rotX = 10l;
 
+GLuint cube_mloc, cube_vloc, cube_ploc;
+GLuint cube_VAO, cube_VBO;
+
 void initCubeBuffers()
 {
-	GLuint VAO, VBO;
 	//vertex array object
-	VAO = initVAO();
+	cube_VAO = initVAO();
 
 	//vertex buffer object
-	VBO = initVBO(sizeof(points), points, GL_STATIC_DRAW);
+	cube_VBO = initVBO(sizeof(points), points, GL_STATIC_DRAW);
 
 	//program
-	program = InitShader("cube_vshader.glsl", "cube_fshader.glsl");
+	cube_program = InitShader("objects/cube/cube_vshader.glsl", "objects/cube/cube_fshader.glsl");
 
 	// v position
-	GLuint loc_vPos = glGetAttribLocation(program, "vPosition");
+	GLuint loc_vPos = glGetAttribLocation(cube_program, "vPosition");
 
 	glEnableVertexAttribArray(loc_vPos);
 	glVertexAttribPointer(loc_vPos, sizeof(float), GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(0));
@@ -72,13 +73,14 @@ void initCubeBuffers()
 	glVertexAttribPointer(loc_vColor, 4, GL_FLOAT, GL_FALSE, 0,
 		BUFFER_OFFSET(sizeof(points)));*/
 
+	cube_mloc = glGetUniformLocation(cube_program, "model");
+	cube_vloc = glGetUniformLocation(cube_program, "view");
+	cube_ploc = glGetUniformLocation(cube_program, "projection");
 
-	auto loc_modelMatrix = glGetUniformLocation(program, "model");
-	//std::cout << loc_vPos;
-	//std::cout << loc_modelMatrix;
+
 	glEnable(GL_DEPTH_TEST);
 
-	glUseProgram(program);
+	glUseProgram(cube_program);
 }
 
 void initCube()
@@ -92,7 +94,7 @@ void drawCube()
 {
 	rotX += .02f;
 	mat4 instance = Translate(0, 0, 0) * Scale(1, 0.8f, 1) * Angel::RotateY(rotX) * RotateX(rotX);
-	glUniformMatrix4fv(loc_modelMatrix, 1, GL_TRUE, instance);
+	glUniformMatrix4fv(cube_mloc, 1, GL_TRUE, instance);
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -104,27 +106,24 @@ void deleteCube()
 
 }
 
-void setVec4(const std::string& name, vec4 value)
+void drawCube(vec3 position, vec3 rotation, vec3 scale, color color)
 {
-	glUniform4fv(glGetUniformLocation(program, name.c_str()), 1, &value[0]);
-}
+	//unbind VAO and program
+	bind(cube_program, cube_VAO);
 
-void drawCube(vec3 position, vec3 rotaton, vec3 scale, color color)
-{
-	setVec4("mainColor", color);
+	//use camera matrix
+	useCameraMatrix(cube_vloc, cube_ploc);
 
-
-	rotX += .02f;
-	mat4 instance = Translate(position) * Scale(scale) * Angel::RotateY(rotX) * RotateX(rotX);
-	glUniformMatrix4fv(loc_modelMatrix, 1, GL_TRUE, instance);
-
-	//GLuint loc_vColor = glGetAttribLocation(program, "mainColor");
-	//glUniform4fv(loc_vColor, 1, color);
+	//
+	mat4 instance = TRS(position, rotation, scale);
+	glUniformMatrix4fv(cube_mloc, 1, GL_TRUE, instance);
 
 
-
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	setUniformVec4(cube_program, "mainColor", color);
 
 	glDrawArrays(GL_TRIANGLES, 0, CUBE_VERTEX_COUNT);
+
+	//unbind VAO and program
+	unbind();
 }
 
