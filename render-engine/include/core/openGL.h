@@ -1,14 +1,14 @@
 #pragma once
 
 #include "Angel.h"			//Angel lib
-#include "glslutils.h"		//gl shader utils
+#include<iostream>
 
 #include<Windows.h>			//for MS-windows
 
 #include "glObject.h"
 
 #define Deg2Rad Angel::DegreesToRadians
-#define Rad2Deg = 1.0f / Deg2Rad;
+#define Rad2Deg = (1.0f / Deg2Rad);
 
 
 #define INIT_PROGRAM Angel::InitShader
@@ -45,8 +45,34 @@ void vertexAttribPointer(GLuint index, GLint size, GLsizei stride, const void* p
 
 GLuint initEBO(GLsizeiptr size, const void* data, GLenum usage);
 
-void unbind(GLuint VAO, GLuint VBO);
+void bind(GLuint program, GLuint VAO);
+
+void unbind(GLuint VAO = 0, GLuint program = 0);
 
 #pragma endregion
+
+
+#pragma region MATH UTILS
+
+mat4 TRS(vec3 position, vec3 rotation, vec3 scale);
+
+#pragma endregion
+
+
+
+#pragma region SHADERS
+
+GLuint compileShader(GLenum glShaderType, const char* shaderSource);
+
+GLuint initProgram(GLuint vertexShader, GLuint fragmentShader);
+
+GLuint initProgram(const char* vertexShaderPath, const char* fragmentShaderPath);
+
+void setUniformVec3(GLuint program, const std::string& name, const vec3& value);
+
+void setUniformVec4(GLuint program, const std::string& name, const vec4& value);
+
+#pragma endregion
+
 
 

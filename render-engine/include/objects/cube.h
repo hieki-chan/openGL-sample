@@ -1,7 +1,7 @@
 #pragma once
 
 
-#include "openGL.h"
+#include "core/openGL.h"
 
 void initCube();
 

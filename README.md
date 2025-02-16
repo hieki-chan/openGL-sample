@@ -7,13 +7,13 @@ best way to lean OpenGL : ```https://learnopengl.com```
 
 ```C++
 // dùng cube: core/cube.h
-include "cube.h"
+include "objects/cube.h"
 ```
 
 ```C++
 // vẽ 1 cube tại position với góc xoay rotation tỉ lệ scale và màu color
 // color là typedef vec4
-void drawCube(vec3 position, vec3 rotation, vec3 scale, color color)
+void drawCube(vec3 position, vec3 rotation, vec3 scale, color color);
 ```
 
 ## INPUT
@@ -26,12 +26,7 @@ void drawCube(vec3 position, vec3 rotation, vec3 scale, color color)
 
 ```C++
 // camera định nghĩa trong header core/camera.h, triển khai trong core/camera.cpp
-include "camera.h"
-```
-
-```C++
-// truy cập vào main camera
-extern camera mainCamera;
+include "core/camera.h"
 ```
 
 ```C++
@@ -44,7 +39,7 @@ void useCameraMatrix(GLuint view_location, GLuint projection_location);
 
 ```C++
 // thay đổi tọa độ camera (eye)
-void setCamPos(vec4 position);
+void setCameraPos(const vec4& position);
 ```
 
 #### Zoom in/out
@@ -66,4 +61,20 @@ void setZoomSpeed(float zoomSpeed);
 void cameraMotion(int mouseX, int mouseY, int& lastMouseX, int& lastMouseY);
 ```
 
+## ENVIRONMENT
+
+```C++
+//init environment
+initEnvironment();
+//gọi trong hàm display để vẽ trục xyz
+drawAxes();
+```
+
 ## LIGHTING
+
+## UI
+
+```C++
+// vẽ text (times new roman) tại tọa độ màn hình (x, y) chiều sâu z
+void rasterText(const vec3& viewPort, const char* stringToDisplay);
+```

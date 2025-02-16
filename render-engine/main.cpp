@@ -1,6 +1,16 @@
-﻿#include "openGL.h"
+﻿// include core engine
 
-#include "cube.h"
+#include "core/openGL.h"		// open gl and utilities
+#include "core/camera.h"		// camera
+#include "core/environment.h"	// environment
+#include "core/ui.h"			// user interface
+
+// include objects
+
+#include "objects/cube.h"		
+
+#include <cmath>
+#include <cstring>
 
 
 void resize(int w, int h)
@@ -9,19 +19,35 @@ void resize(int w, int h)
 }
 
 
+void introScreen()
+{
+	glClear(GL_COLOR_BUFFER_BIT);
+
+	glColor3f(1.0, 1.0, 1.0);
+	rasterText(vec3(0, 0, 0), "Render Engine");
+	glColor3f(0.0, 0.0, 1.0);
+
+	//glFlush();
+	//glutSwapBuffers();
+}
+
 
 void display()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	//glClearColor(0.1f, 0.2f, 0.2f, 1.0f);
+	glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
 
+	introScreen();
 	//drawTriangle();
 
+	drawAxes();
 	drawCube(vec3(), vec3(), vec3(1, 1, 1), color(0, 1, 1, 1));
 
 	//drawRectangle();
 	//drawPyramid();
+
+	glEnable(GL_DEPTH_TEST);
 
 	glutSwapBuffers();
 }
@@ -56,7 +82,6 @@ void mouseInput(int button, int state, int x, int y)
 	}
 }
 
-#include "camera.h"
 
 void resharp(int w1, int h1)
 {
@@ -66,7 +91,6 @@ void resharp(int w1, int h1)
 	glutReshapeWindow(w1, h1);
 }
 
-#include <cmath>
 
 bool leftMouseButtonDown = false;
 int lastMouseX, lastMouseY;
@@ -102,6 +126,12 @@ void motion(int x, int y)
 	}
 }
 
+void initialize_before_display()
+{
+	initEnvironment();
+	initCube();
+}
+
 int main(int argc, char** argv)
 {
 	glutInit(&argc, argv);
@@ -116,11 +146,6 @@ int main(int argc, char** argv)
 		return -1;
 	}
 
-	initCube();
-	//initPyramid();
-
-	//table table = createTable();
-
 	glutDisplayFunc(display);
 	glutReshapeFunc(resize);
 	glutIdleFunc(idle);
@@ -131,10 +156,11 @@ int main(int argc, char** argv)
 	glutReshapeFunc(resharp);
 
 
-	glutMainLoop();
 
-	//deleteTriangle();
-	//deleteCube();
+	initialize_before_display();
+
+
+	glutMainLoop();
 
 	return 0;
 }

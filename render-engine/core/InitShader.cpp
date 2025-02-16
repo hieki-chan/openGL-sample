@@ -1,5 +1,5 @@
 ﻿
-#include "Angel.h"
+#include "core/Angel.h"
 
 void printShaderInfoLog(GLuint obj);     
 void printProgramInfoLog(GLuint obj);   

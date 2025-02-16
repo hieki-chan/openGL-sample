@@ -2,6 +2,7 @@
 
 #include "openGL.h"
 
+
 /// <summary>
 /// Perspective Camera
 /// </summary>
@@ -28,12 +29,10 @@ struct camera
 
 extern camera mainCamera;
 
-#define CAMERA_DIR (mainCamera.target_position - mainCamera.eye_position)
-#define CAMERA_POS (mainCamera.eye_position)
 
 void setupCamera(int window_width, int window_height, float zNear, float zFar);
 
-void setCameraPos(vec4 position);
+void setCameraPos(const vec4& position);
 
 void zoomCamera(float value);
 
