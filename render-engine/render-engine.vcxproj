@@ -28,6 +28,8 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="objects\cube\cube.cpp" />
     <ClCompile Include="core\ui.cpp" />
+    <ClCompile Include="objects\shelf\shelf.cpp" />
+    <ClCompile Include="shelf_test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="fShader.glsl" />
@@ -49,6 +51,7 @@
     <ClInclude Include="include\core\vec.h" />
     <ClInclude Include="include\objects\cube.h" />
     <ClInclude Include="include\core\ui.h" />
+    <ClInclude Include="include\objects\shelf.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
