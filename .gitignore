@@ -362,3 +362,5 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 /render-engine/shelf_test.cpp
+/render-engine/render-engine.vcxproj
+/render-engine/render-engine.vcxproj.filters
