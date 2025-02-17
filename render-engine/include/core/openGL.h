@@ -55,7 +55,7 @@ void unbind(GLuint VAO = 0, GLuint program = 0);
 
 #pragma region MATH UTILS
 
-mat4 TRS(vec3 position, vec3 rotation, vec3 scale);
+mat4 TRS(const vec3& position, const vec3& rotation, const vec3& scale);
 
 #pragma endregion
 
