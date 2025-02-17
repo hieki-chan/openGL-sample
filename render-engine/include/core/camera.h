@@ -8,8 +8,8 @@
 /// </summary>
 struct camera
 {
-	int window_width;
-	int window_height;
+	int window_width = 0;
+	int window_height = 0;
 
 	//Camera coordinate
 	vec4 eye_position = vec4(0, 0, 1, 1);
@@ -28,6 +28,9 @@ struct camera
 };
 
 extern camera mainCamera;
+
+#define CAM_POS_4 (mainCamera.eye_position)
+#define CAM_POS_3 vec3(CAM_POS_4.x, CAM_POS_4.y, CAM_POS_4.z)
 
 
 void setupCamera(int window_width, int window_height, float zNear, float zFar);

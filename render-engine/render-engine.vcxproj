@@ -25,6 +25,7 @@
     <ClCompile Include="core\InitShader.cpp" />
     <ClCompile Include="core\openGL.cpp" />
     <ClCompile Include="core\textfile.cpp" />
+    <ClCompile Include="core\lighting.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="objects\cube\cube.cpp" />
     <ClCompile Include="core\ui.cpp" />
@@ -52,6 +53,7 @@
     <ClInclude Include="include\objects\cube.h" />
     <ClInclude Include="include\core\ui.h" />
     <ClInclude Include="include\objects\shelf.h" />
+    <ClInclude Include="include\core\lighting.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
