@@ -53,6 +53,8 @@ void drawObject(vec3 position, vec3 rotation, vec3 scale)
 test-object.cpp
 
 ```C++
+#include "objects/object.h" 
+
 // day la file chua ham main, vao file main.cpp copy full code sau do uncomment code
 // trong do se co ham display
 
