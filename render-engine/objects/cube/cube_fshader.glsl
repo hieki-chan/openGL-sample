@@ -7,6 +7,12 @@ uniform vec4 mainColor;
 
 void main()
 {
-	fColor = mainColor;
+	vec3 lightColor = vec3(1, 1, 1);
+	float ambientStrength = 0.4;
+    vec3 ambient = ambientStrength * lightColor;
+	vec3 result = ambient * mainColor.xyz;
+
+	fColor = vec4(result, mainColor.w);
+	//fColor = mainColor;
 	//fColor = vec4(0, 0, 1, 1);
 }
