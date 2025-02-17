@@ -28,6 +28,9 @@
     <Filter Include="Source Files\objects\cube">
       <UniqueIdentifier>{e024b91b-6b74-42fb-88b7-329d0a7d93b7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\objects\cylinder">
+      <UniqueIdentifier>{e96b997f-4215-4445-b9b0-c039c13ec24b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -66,12 +69,15 @@
     <ClCompile Include="core\lighting.cpp">
       <Filter>Source Files\core</Filter>
     </ClCompile>
+    <ClCompile Include="objects\cylinder.cpp">
+      <Filter>Source Files\objects\cylinder</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="fShader.glsl">
+    <None Include="objects\fShader.glsl">
       <Filter>Source Files</Filter>
     </None>
-    <None Include="vShader.glsl">
+    <None Include="objects\vShader.glsl">
       <Filter>Source Files</Filter>
     </None>
     <None Include="objects\cube\cube_fshader.glsl">
@@ -126,6 +132,9 @@
     </ClInclude>
     <ClInclude Include="include\core\lighting.h">
       <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\objects\cylinder.h">
+      <Filter>Header Files\objects</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

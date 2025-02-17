@@ -26,6 +26,7 @@
     <ClCompile Include="core\openGL.cpp" />
     <ClCompile Include="core\textfile.cpp" />
     <ClCompile Include="core\lighting.cpp" />
+    <ClCompile Include="objects\cylinder.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="objects\cube\cube.cpp" />
     <ClCompile Include="core\ui.cpp" />
@@ -33,13 +34,14 @@
     <ClCompile Include="shelf_test.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="fShader.glsl" />
+    <None Include="objects\fShader.glsl" />
     <None Include="objects\cube\cube_fshader.glsl" />
     <None Include="objects\cube\cube_vshader.glsl" />
-    <None Include="vShader.glsl" />
+    <None Include="objects\vShader.glsl" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\mat_old_from_angel.h" />
+    <ClInclude Include="include\objects\cylinder.h" />
     <ClInclude Include="include\core\Angel.h" />
     <ClInclude Include="include\core\axes.h" />
     <ClInclude Include="include\core\camera.h" />

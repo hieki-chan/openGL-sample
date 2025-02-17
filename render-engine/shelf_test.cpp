@@ -8,6 +8,7 @@
  //include objects
 
 #include "objects/cube.h"		
+#include "objects/cylinder.h"		
 #include "objects/shelf.h"		
 
 #include <cmath>
@@ -42,6 +43,8 @@ void display()
 
 	drawShelf(vec3(-2, -4, 4), vec3(0, 0, 0), vec3(1, .5f, 1));
 
+
+	drawCylinder(vec3(), vec3(), vec3(1, 1, 1), color(1, 0, 1, 1));
 
 	glEnable(GL_DEPTH_TEST);
 
@@ -129,6 +132,7 @@ void initialize_before_display()
 {
 	initEnvironment();
 	initCube();
+	initCylinder();
 }
 
 int main(int argc, char** argv)
