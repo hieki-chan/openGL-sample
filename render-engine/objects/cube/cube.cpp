@@ -54,8 +54,6 @@ void generateGeometry()
 	makeColorCube();
 }
 
-float rotX = 10l;
-
 GLuint cube_mloc, cube_vloc, cube_ploc;
 GLuint cube_VAO, cube_VBO;
 
@@ -102,18 +100,6 @@ void initCube()
 {
 	generateGeometry();
 	initCubeBuffers();
-}
-
-
-void drawCube()
-{
-	rotX += .02f;
-	mat4 instance = Translate(0, 0, 0) * Scale(1, 0.8f, 1) * Angel::RotateY(rotX) * RotateX(rotX);
-	glUniformMatrix4fv(cube_mloc, 1, GL_TRUE, instance);
-
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-	glDrawArrays(GL_TRIANGLES, 0, CUBE_VERTEX_COUNT);
 }
 
 mat4 cubeModelMatrix;

@@ -14,11 +14,6 @@
 #include <cstring>
 
 
-void resize(int w, int h)
-{
-	glutInitWindowSize(w, h);
-}
-
 
 void introScreen()
 {
@@ -86,12 +81,13 @@ void mouseInput(int button, int state, int x, int y)
 }
 
 
-void resharp(int w1, int h1)
+void resharp(int w, int h)
 {
-	setupCamera(w1, h1, 0.1f, 1000);
+	setupCamera(w, h, 0.1f, 1000);
 
 
-	glutReshapeWindow(w1, h1);
+	glutReshapeWindow(w, h);
+	glViewport(0, 0, w, h);
 }
 
 
@@ -150,13 +146,12 @@ int main(int argc, char** argv)
 	}
 
 	glutDisplayFunc(display);
-	glutReshapeFunc(resize);
+	glutReshapeFunc(resharp);
 	glutIdleFunc(idle);
 	glutTimerFunc(200, timer, 0);
 	glutKeyboardFunc(input);
 	glutMouseFunc(mouse);
 	glutMotionFunc(motion);
-	glutReshapeFunc(resharp);
 
 
 
