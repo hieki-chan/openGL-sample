@@ -42,7 +42,10 @@ void display()
 	introScreen();
 
 	drawAxes();
+
 	drawShelf(vec3(1, 1, 1), vec3(0, 90, 0), vec3(1, .5f, 1));
+
+	drawShelf(vec3(-2, -4, 4), vec3(0, 0, 0), vec3(1, .5f, 1));
 
 
 	glEnable(GL_DEPTH_TEST);
@@ -67,6 +70,8 @@ void timer(int value)
 
 void input(unsigned char key, int mouseX, int mouseY)
 {
+	shelfKeyboard(key, mouseX, mouseY);
+
 	if (key == 27)
 		exit(0);
 }
