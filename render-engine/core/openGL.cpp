@@ -49,7 +49,7 @@ void unbind(GLuint VAO, GLuint program)
 }
 
 
-mat4 TRS(vec3 position, vec3 rotation, vec3 scale)
+mat4 TRS(const vec3& position, const vec3& rotation, const vec3& scale)
 {
 	return Translate(position) * RotateX(rotation.x) * RotateY(rotation.y) * RotateZ(rotation.z) * Scale(scale);
 }

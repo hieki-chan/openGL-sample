@@ -42,7 +42,7 @@ void display()
 	introScreen();
 
 	drawAxes();
-	drawShelf(vec3(), vec3(), vec3(1, 1, 1));
+	drawShelf(vec3(1, 1, 1), vec3(0, 90, 0), vec3(1, .5f, 1));
 
 
 	glEnable(GL_DEPTH_TEST);
