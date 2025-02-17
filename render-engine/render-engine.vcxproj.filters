@@ -33,9 +33,6 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="gltest.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="objects\cube\cube.cpp">
       <Filter>Source Files\objects\cube</Filter>
     </ClCompile>
@@ -58,6 +55,15 @@
       <Filter>Source Files\core</Filter>
     </ClCompile>
     <ClCompile Include="core\axes.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\shelf\shelf.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="shelf_test.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\lighting.cpp">
       <Filter>Source Files\core</Filter>
     </ClCompile>
   </ItemGroup>
@@ -113,6 +119,12 @@
       <Filter>Header Files\core</Filter>
     </ClInclude>
     <ClInclude Include="core\mat_old_from_angel.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\objects\shelf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\core\lighting.h">
       <Filter>Header Files\core</Filter>
     </ClInclude>
   </ItemGroup>
