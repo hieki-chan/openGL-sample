@@ -116,10 +116,8 @@ void drawCube()
 	glDrawArrays(GL_TRIANGLES, 0, CUBE_VERTEX_COUNT);
 }
 
-void deleteCube()
-{
+mat4 cubeModelMatrix;
 
-}
 
 void drawCube(vec3 position, vec3 rotation, vec3 scale, color color)
 {
@@ -131,7 +129,7 @@ void drawCube(vec3 position, vec3 rotation, vec3 scale, color color)
 
 	//model matrix
 	mat4 instance = TRS(position, rotation, scale);
-	glUniformMatrix4fv(cube_mloc, 1, GL_TRUE, instance);
+	glUniformMatrix4fv(cube_mloc, 1, GL_TRUE, cubeModelMatrix * instance);
 
 	//set object color
 	setUniformVec4(cube_program, "mainColor", color);
@@ -143,5 +141,21 @@ void drawCube(vec3 position, vec3 rotation, vec3 scale, color color)
 
 	//unbind VAO and program
 	unbind();
+}
+
+
+mat4 cubeTransformMatrix(mat4 matrix)
+{
+	return cubeModelMatrix = matrix;
+}
+
+mat4 cubeTransform(const vec3& position, const vec3& rotation, const vec3& scale)
+{
+	return cubeModelMatrix = TRS(position, rotation, scale);
+}
+
+void cubeReset()
+{
+	cubeModelMatrix = identity();
 }
 
