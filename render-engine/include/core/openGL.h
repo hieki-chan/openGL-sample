@@ -14,6 +14,7 @@
 #define INIT_PROGRAM Angel::InitShader
 
 typedef vec4 color;
+typedef vec3 color3;
 typedef vec4 point4;
 
 
