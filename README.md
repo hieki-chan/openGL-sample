@@ -217,7 +217,7 @@ void cameraMotion(int mouseX, int mouseY, int& lastMouseX, int& lastMouseY);
 
 ## INPUT
 
-#### Keyboard
+> Not supported
 
 ## ENVIRONMENT
 
@@ -230,9 +230,62 @@ drawAxes();
 
 ## LIGHTING
 
+#### Create a new light
+```C++
+// tao 1 light moi va them vao lighting list
+light addLight(const vec3& position, const color3& color);
+```
+
 ## UI
 
+#### Init UI
 ```C++
-// vẽ text (times new roman) tại tọa độ màn hình (x, y) chiều sâu z
-void rasterText(const vec3& viewPort, const char* stringToDisplay);
+// gọi hàm mỗi khi thay đổi window width và window height
+void ui::screenChange(int width, int height);
+```
+
+#### Render Text
+```C++
+// vẽ text với tại tọa độ màn (x,y)
+void text2D(const char* text, int fontSize, int x, int y, color color = Angel::vec4(1, 1, 1, 1));
+```
+
+#### Render Button
+```C++
+// tạo button
+button button2D(const char* text, int fontSize, int sizeX, int sizeY, int x, int y, color buttonColor = Angel::vec4(0, 0, 1, 1), color textColor = Angel::vec4(1, 1, 1, 1));
+```
+
+#### Render text and button example
+
+```C++
+void onGUI()
+{
+	ui::text2D("Render Engine", 10, 10, ui::window_height - 20, color(1, 1, 0, 1));
+
+	btnAxes = ui::button2D("Axes", 14, 80, 40, ui::window_width - 90, ui::window_height - 50, color(1, 1, 0, 1), color(0, 0, 0, 1));
+	// doSomething se duoc goi neu click trong ham onEvent()
+	btnAxes.callback = doSomethingOnClick;
+}
+
+void display()
+{
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
+
+	// DRAW 3D objects  here
+
+	// ON GUI
+	onGUI();
+
+
+	glEnable(GL_DEPTH_TEST);
+	glutSwapBuffers();
+}
+
+// sau khi render button, gọi button trong hàm mouse func
+void mouse(int button, int state, int x, int y)
+{
+	btnAxes.onEvent(button, state, x, y);
+}
 ```

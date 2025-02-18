@@ -25,12 +25,24 @@ struct camera
 
 	//motion speed
 	float motionSpeed = 0.5f;
+
+	vec3 forward();
+
+	vec3 up();
+
+	vec3 right();
 };
 
 extern camera mainCamera;
 
 #define CAM_POS_4 (mainCamera.eye_position)
 #define CAM_POS_3 vec3(CAM_POS_4.x, CAM_POS_4.y, CAM_POS_4.z)
+
+#define CAM_DIR_4 (mainCamera.target_position - mainCamera.eye_position)
+
+#define CAM_FORWARD mainCamera.forward()
+#define CAM_UP mainCamera.up()
+#define CAM_RIGHT mainCamera.right()
 
 
 void setupCamera(int window_width, int window_height, float zNear, float zFar);

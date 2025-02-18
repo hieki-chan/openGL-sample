@@ -26,6 +26,7 @@
     <ClCompile Include="core\openGL.cpp" />
     <ClCompile Include="core\textfile.cpp" />
     <ClCompile Include="core\lighting.cpp" />
+    <ClCompile Include="objects\airplane.cpp" />
     <ClCompile Include="objects\cylinder.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="objects\cube\cube.cpp" />
@@ -43,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="core\mat_old_from_angel.h" />
+    <ClInclude Include="include\objects\airplane.h" />
     <ClInclude Include="include\objects\cylinder.h" />
     <ClInclude Include="include\core\Angel.h" />
     <ClInclude Include="include\core\axes.h" />

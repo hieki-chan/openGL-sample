@@ -81,6 +81,9 @@
     <ClCompile Include="objects\plane2.cpp">
       <Filter>Source Files\objects\plane</Filter>
     </ClCompile>
+    <ClCompile Include="objects\airplane.cpp">
+      <Filter>Source Files\objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="objects\fShader.glsl">
@@ -149,6 +152,9 @@
       <Filter>Header Files\objects</Filter>
     </ClInclude>
     <ClInclude Include="include\objects\plane2.h">
+      <Filter>Header Files\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="include\objects\airplane.h">
       <Filter>Header Files\objects</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,4 +1,6 @@
-﻿ //include core engine
+﻿#pragma warning(disable : 4244)		//disable truncated double to float (currently we dont care about performace :D )
+
+//include core engine
 
 #include "core/openGL.h"		// open gl and utilities
 #include "core/camera.h"		// camera
@@ -11,10 +13,9 @@
 #include "objects/plane.h"
 #include "objects/plane2.h"
 #include "objects/cylinder.h"		
-#include "objects/shelf.h"		
+#include "objects/shelf.h"	
 
-#include <cmath>
-#include <cstring>
+#include "objects/airplane.h"
 
 
 ui::button btnAxes;
@@ -54,11 +55,13 @@ void display()
 
 	//drawShelf(vec3(1, 1, 1), vec3(0, 90, 0), vec3(1, .5f, 1));
 
-	drawPlane(vec3(2, 0, 0), vec3(0, 0, 0), vec3(1.25f, 0.25f, 2), color(0, 1, 1, 1));
+	//drawPlane(vec3(2, 0, 0), vec3(0, 0, 0), vec3(1.25f, 0.25f, 2), color(0, 1, 1, 1));
 
-	drawPlane2(vec3(4, 0, 0), vec3(0, 0, 0), vec3(1.25f, 0.25f, 2), color(0, 0.2, 1, 1));
+	//drawPlane2(vec3(4, 0, 0), vec3(0, 0, 0), vec3(1.25f, 0.25f, 2), color(0, 0.2, 1, 1));
 
-	drawCylinder(vec3(), vec3(), vec3(1, 1, 1), color(1, 0, 0, 1));
+	//drawCylinder(vec3(), vec3(), vec3(1, 1, 1), color(1, 0, 0, 1));
+
+	drawAirplane(vec3(0, 5, 0), vec3(), vec3(1, 1, 1));
 
 	onGUI();
 
@@ -77,7 +80,7 @@ void idle()
 void timer(int value)
 {
 	glutPostRedisplay();
-	glutTimerFunc(.02f, timer, value++);
+	glutTimerFunc(200, timer, value++);
 }
 
 void input(unsigned char key, int mouseX, int mouseY)
@@ -130,9 +133,7 @@ void mouse(int button, int state, int x, int y)
 void motion(int x, int y)
 {
 	if (leftMouseButtonDown)
-	{
 		cameraMotion(x, y, lastMouseX, lastMouseY);
-	}
 }
 
 void initialize_before_display()
@@ -148,7 +149,7 @@ int main(int argc, char** argv)
 {
 	glutInit(&argc, argv);
 	glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH);
-	glutInitWindowSize(600, 600);
+	glutInitWindowSize(840, 600);
 	glutInitWindowPosition(250, 250);
 	glutCreateWindow("Render Engine");
 
