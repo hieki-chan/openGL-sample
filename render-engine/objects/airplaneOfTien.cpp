@@ -41,7 +41,8 @@ void drawAirplaneOfTien(vec3 position, vec3 rotation, vec3 scale)
 	drawCylinder(vec3(0, 0, 2), vec3(0, 0, -25), vec3(1.5, .5, 2.6), color(0.33, 0.27, 0.93, 1));
 	drawCylinder(vec3(0, 0, 2), vec3(0, 0, 60), vec3(1.5, .5, 2.6), color(0.33, 0.27, 0.93, 1));
 	drawCylinder(vec3(0, 0, 2), vec3(0, 0, -60), vec3(1.5, .5, 2.6), color(0.33, 0.27, 0.93, 1));
-	drawCylinder(vec3(0, 0, 1.7), vec3(0, 0, 90), vec3(1.5, .5, 3.5), color(0.33, 0.27, 0.93, 1));
+	drawCylinder(vec3(0, 0, 2), vec3(0, 0, 90), vec3(1.5, .5, 2.6), color(0.33, 0.27, 0.93, 1));
+	drawCylinder(vec3(0, .25, 1.1), vec3(0, 0, 90), vec3(1.5, .7, 2.6), color(0.92, 0.77, 0.59, 1));
 
 	// wings
 	mat4 wingMatrix = plane2TransformMatrix(globalTransformMatrix * Translate(0, 0.2, 0));
