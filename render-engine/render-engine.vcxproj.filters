@@ -39,6 +39,9 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="gltest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="objects\cube\cube.cpp">
       <Filter>Source Files\objects\cube</Filter>
     </ClCompile>
