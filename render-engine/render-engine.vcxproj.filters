@@ -39,9 +39,6 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="gltest.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="objects\cube\cube.cpp">
       <Filter>Source Files\objects\cube</Filter>
     </ClCompile>
@@ -83,6 +80,18 @@
     </ClCompile>
     <ClCompile Include="objects\plane2.cpp">
       <Filter>Source Files\objects\plane</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\airplane.cpp">
+      <Filter>Source Files\objects</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\cabinet.cpp">
+      <Filter>Source Files\objects</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\computer.cpp">
+      <Filter>Source Files\objects</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\table.cpp">
+      <Filter>Source Files\objects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -152,6 +161,18 @@
       <Filter>Header Files\objects</Filter>
     </ClInclude>
     <ClInclude Include="include\objects\plane2.h">
+      <Filter>Header Files\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="include\objects\airplane.h">
+      <Filter>Header Files\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="include\objects\cabinet.h">
+      <Filter>Header Files\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="include\objects\computer.h">
+      <Filter>Header Files\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="include\objects\table.h">
       <Filter>Header Files\objects</Filter>
     </ClInclude>
   </ItemGroup>

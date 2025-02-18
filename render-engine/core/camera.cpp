@@ -4,19 +4,13 @@ camera mainCamera;
 
 #pragma region CAMERA LOCAL TRANSFORM
 
-#define CAM_DIR_4 (mainCamera.target_position - mainCamera.eye_position)
-
-#define CAM_FORWARD forward()
-#define CAM_UP up()
-#define CAM_RIGHT right()
-
-static vec3 forward()
+vec3 camera::forward()
 {
 	vec4 forward4 = (mainCamera.target_position - mainCamera.eye_position);
 	return vec3(forward4.x, forward4.y, forward4.z);
 }
 
-static vec3 up()
+vec3 camera::up()
 {
 	vec3 globalCamRight = normalize(cross(mainCamera.up_direction, normalize(CAM_FORWARD)));
 
@@ -25,7 +19,7 @@ static vec3 up()
 	return camUp;
 }
 
-static vec3 right()
+vec3 camera::right()
 {
 	vec3 camRight = normalize(cross(CAM_UP, normalize(CAM_FORWARD)));
 
@@ -122,7 +116,6 @@ void cameraMotion(int mouseX, int mouseY, int& lastMouseX, int& lastMouseY)
 	//std::cout << pitchAngle << std::endl;
 	setCameraPos(vertical);
 	
-
 	lastMouseX = mouseX;
 	lastMouseY = mouseY;
 }

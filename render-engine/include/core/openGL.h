@@ -1,8 +1,10 @@
 #pragma once
 
 #include "Angel.h"			//Angel lib
-#include<iostream>
 
+#include<iostream>
+#include <cmath>
+#include <cstring>
 #include<Windows.h>			//for MS-windows
 
 #include "glObject.h"
@@ -17,6 +19,7 @@ typedef vec4 color;
 typedef vec3 color3;
 typedef vec4 point4;
 
+#define WHITE color(1, 1, 1, 1)
 
 #pragma region GL INIT FUNCTIONS
 

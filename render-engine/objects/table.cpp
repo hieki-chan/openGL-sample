@@ -21,3 +21,12 @@ void drawTable(vec3 position, vec3 rotation, vec3 scale)
 	drawCube(vec3(0.48, -0.5, -0.0025), vec3(), vec3(.05, .05, .505), color(0.76, 0.60, 0.42, 1));
 	drawCube(vec3(-0.48, -0.5, -0.0025), vec3(), vec3(.05, .05, .505), color(0.76, 0.60, 0.42, 1));
 }
+
+void tableKeyboard(unsigned char key, int mouseX, int mouseY)
+{
+	switch (key)
+	{
+	default:
+		break;
+	}
+}

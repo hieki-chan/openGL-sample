@@ -4,7 +4,7 @@
 #include <iostream>
 #include <cmath>
 
-const int CYLINDER_SIDES = 128;
+const int CYLINDER_SIDES = 256;
 const int CYLINDER_VERTEX_COUNT = CYLINDER_SIDES * 6 + CYLINDER_SIDES * 3 * 2;
 
 point4 cylinder_points[CYLINDER_VERTEX_COUNT];
