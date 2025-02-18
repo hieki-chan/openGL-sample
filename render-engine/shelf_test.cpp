@@ -1,4 +1,4 @@
- //include core engine
+﻿ //include core engine
 
 #include "core/openGL.h"		// open gl and utilities
 #include "core/camera.h"		// camera
@@ -8,6 +8,8 @@
  //include objects
 
 #include "objects/cube.h"		
+#include "objects/plane.h"
+#include "objects/plane2.h"
 #include "objects/cylinder.h"		
 #include "objects/shelf.h"		
 
@@ -15,17 +17,29 @@
 #include <cstring>
 
 
+ui::button btnAxes;
+bool enableAxes = true;
 
-void introScreen()
+void toggleAxes()
 {
-	glClear(GL_COLOR_BUFFER_BIT);
+	enableAxes = !enableAxes;
+}
 
+void onGUI()
+{
 	glColor3f(1.0, 1.0, 1.0);
-	rasterText(vec3(0, 0, 0), "Render Engine");
-	glColor3f(0.0, 0.0, 1.0);
 
-	//glFlush();
-	//glutSwapBuffers();
+	ui::text2D("Render Engine", 10, 10, ui::window_height - 20, color(1, 1, 0, 1));
+
+	ui::text2D("middle mouse - zoom in/out", 14, 10, ui::window_height - 50);
+	ui::text2D("left mouse - rotate camera", 14, 10, ui::window_height - 70);
+
+	//ui::renderText2D("s - move right", 10, 10, ui::window_height - 60);
+	//ui::renderText2D("d - move right", 10, 10, ui::window_height - 70);
+	//ui::renderText2D("w - move right", 10, 10, ui::window_height - 80);
+
+	btnAxes = ui::button2D("Axes", 14, 80, 40, ui::window_width - 90, ui::window_height - 50, color(1, 1, 0, 1), color(0, 0, 0, 1));
+	btnAxes.callback = toggleAxes;
 }
 
 
@@ -35,28 +49,28 @@ void display()
 
 	glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
 
-	introScreen();
 
-	drawAxes();
+	if(enableAxes) drawAxes();
 
-	drawShelf(vec3(1, 1, 1), vec3(0, 90, 0), vec3(1, .5f, 1));
+	//drawShelf(vec3(1, 1, 1), vec3(0, 90, 0), vec3(1, .5f, 1));
 
-	drawShelf(vec3(-2, -4, 4), vec3(0, 0, 0), vec3(1, .5f, 1));
+	drawPlane(vec3(2, 0, 0), vec3(0, 0, 0), vec3(1.25f, 0.25f, 2), color(0, 1, 1, 1));
 
+	drawPlane2(vec3(4, 0, 0), vec3(0, 0, 0), vec3(1.25f, 0.25f, 2), color(0, 0.2, 1, 1));
 
-	drawCylinder(vec3(), vec3(), vec3(1, 1, 1), color(1, 0, 1, 1));
+	drawCylinder(vec3(), vec3(), vec3(1, 1, 1), color(1, 0, 0, 1));
+
+	onGUI();
+
 
 	glEnable(GL_DEPTH_TEST);
 
 	glutSwapBuffers();
 }
 
-bool stopIdle = FALSE;
 
 void idle()
 {
-	if (stopIdle)
-		return;
 	glutPostRedisplay();
 }
 
@@ -74,20 +88,11 @@ void input(unsigned char key, int mouseX, int mouseY)
 		exit(0);
 }
 
-void mouseInput(int button, int state, int x, int y)
-{
-	if (button == GLUT_MIDDLE_BUTTON
-		&& state == GLUT_UP)
-	{
-		stopIdle = !stopIdle;
-	}
-}
-
 
 void resharp(int w, int h)
 {
 	setupCamera(w, h, 0.1f, 1000);
-
+	ui::screenChange(w, h);
 
 	glutReshapeWindow(w, h);
 	glViewport(0, 0, w, h);
@@ -99,6 +104,8 @@ int lastMouseX, lastMouseY;
 
 void mouse(int button, int state, int x, int y)
 {
+	btnAxes.onEvent(button, state, x, y);
+
 	if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
 	{
 		leftMouseButtonDown = true;
@@ -132,6 +139,8 @@ void initialize_before_display()
 {
 	initEnvironment();
 	initCube();
+	initPlane();
+	initPlane2();
 	initCylinder();
 }
 

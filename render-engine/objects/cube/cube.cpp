@@ -15,37 +15,39 @@ GLuint cube_program;
 
 void createCube()
 {
-	cube_vertices[0] = point4(-0.5, -0.5, 0.5, 1.0);
-	cube_vertices[1] = point4(-0.5, 0.5, 0.5, 1.0);
-	cube_vertices[2] = point4(0.5, 0.5, 0.5, 1.0);
-	cube_vertices[3] = point4(0.5, -0.5, 0.5, 1.0);
-	cube_vertices[4] = point4(-0.5, -0.5, -0.5, 1.0);
-	cube_vertices[5] = point4(-0.5, 0.5, -0.5, 1.0);
-	cube_vertices[6] = point4(0.5, 0.5, -0.5, 1.0);
-	cube_vertices[7] = point4(0.5, -0.5, -0.5, 1.0);
+	cube_vertices[0] = point4(-0.5, -0.5, 0.5, 1.0);  // Bottom-left front
+	cube_vertices[1] = point4(-0.5, 0.5, 0.5, 1.0);   // Top-left front
+	cube_vertices[2] = point4(0.5, 0.5, 0.5, 1.0);    // Top-right front
+	cube_vertices[3] = point4(0.5, -0.5, 0.5, 1.0);   // Bottom-right front
+
+	cube_vertices[4] = point4(-0.5, -0.5, -0.5, 1.0); // Bottom-left back
+	cube_vertices[5] = point4(-0.5, 0.5, -0.5, 1.0);  // Top-left back
+	cube_vertices[6] = point4(0.5, 0.5, -0.5, 1.0);   // Top-right back
+	cube_vertices[7] = point4(0.5, -0.5, -0.5, 1.0);  // Bottom-right back
+
 }
-int Index = 0;
-void quad(int a, int b, int c, int d)
+int cube_index = 0;
+void cube_quad(int a, int b, int c, int d)
 {
 	vec4 u = cube_vertices[b] - cube_vertices[a];
 	vec4 v = cube_vertices[c] - cube_vertices[b];
 	vec3 normal = normalize(cross(u, v));
 
-	cube_normals[Index] = normal; cube_points[Index] = cube_vertices[a]; Index++;
-	cube_normals[Index] = normal; cube_points[Index] = cube_vertices[b]; Index++;
-	cube_normals[Index] = normal; cube_points[Index] = cube_vertices[c]; Index++;
-	cube_normals[Index] = normal; cube_points[Index] = cube_vertices[a]; Index++;
-	cube_normals[Index] = normal; cube_points[Index] = cube_vertices[c]; Index++;
-	cube_normals[Index] = normal; cube_points[Index] = cube_vertices[d]; Index++;
+	cube_normals[cube_index] = normal; cube_points[cube_index] = cube_vertices[a]; cube_index++;
+	cube_normals[cube_index] = normal; cube_points[cube_index] = cube_vertices[b]; cube_index++;
+	cube_normals[cube_index] = normal; cube_points[cube_index] = cube_vertices[c]; cube_index++;
+	cube_normals[cube_index] = normal; cube_points[cube_index] = cube_vertices[a]; cube_index++;
+	cube_normals[cube_index] = normal; cube_points[cube_index] = cube_vertices[c]; cube_index++;
+	cube_normals[cube_index] = normal; cube_points[cube_index] = cube_vertices[d]; cube_index++;
 }
 void makeColorCube()
 {
-	quad(1, 0, 3, 2);
-	quad(2, 3, 7, 6);
-	quad(3, 0, 4, 7);
-	quad(6, 5, 1, 2);
-	quad(4, 5, 6, 7);
-	quad(5, 4, 0, 1);
+	cube_quad(1, 0, 3, 2);
+	cube_quad(2, 3, 7, 6);
+	cube_quad(3, 0, 4, 7);
+	cube_quad(6, 5, 1, 2);
+	cube_quad(4, 5, 6, 7);
+	cube_quad(5, 4, 0, 1);
 }
 
 

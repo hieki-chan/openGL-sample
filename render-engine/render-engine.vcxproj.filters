@@ -31,6 +31,9 @@
     <Filter Include="Source Files\objects\cylinder">
       <UniqueIdentifier>{e96b997f-4215-4445-b9b0-c039c13ec24b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\objects\plane">
+      <UniqueIdentifier>{4535ea74-245f-463b-ab74-646a9819485b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -60,9 +63,6 @@
     <ClCompile Include="core\axes.cpp">
       <Filter>Source Files\core</Filter>
     </ClCompile>
-    <ClCompile Include="objects\shelf\shelf.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="shelf_test.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -71,6 +71,15 @@
     </ClCompile>
     <ClCompile Include="objects\cylinder.cpp">
       <Filter>Source Files\objects\cylinder</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\plane.cpp">
+      <Filter>Source Files\objects\plane</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\shelf.cpp">
+      <Filter>Source Files\objects</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\plane2.cpp">
+      <Filter>Source Files\objects\plane</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -127,13 +136,19 @@
     <ClInclude Include="core\mat_old_from_angel.h">
       <Filter>Header Files\core</Filter>
     </ClInclude>
-    <ClInclude Include="include\objects\shelf.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\core\lighting.h">
       <Filter>Header Files\core</Filter>
     </ClInclude>
     <ClInclude Include="include\objects\cylinder.h">
+      <Filter>Header Files\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="include\objects\plane.h">
+      <Filter>Header Files\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="include\objects\shelf.h">
+      <Filter>Header Files\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="include\objects\plane2.h">
       <Filter>Header Files\objects</Filter>
     </ClInclude>
   </ItemGroup>

@@ -30,7 +30,9 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="objects\cube\cube.cpp" />
     <ClCompile Include="core\ui.cpp" />
-    <ClCompile Include="objects\shelf\shelf.cpp" />
+    <ClCompile Include="objects\plane.cpp" />
+    <ClCompile Include="objects\plane2.cpp" />
+    <ClCompile Include="objects\shelf.cpp" />
     <ClCompile Include="shelf_test.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -54,8 +56,10 @@
     <ClInclude Include="include\core\vec.h" />
     <ClInclude Include="include\objects\cube.h" />
     <ClInclude Include="include\core\ui.h" />
-    <ClInclude Include="include\objects\shelf.h" />
     <ClInclude Include="include\core\lighting.h" />
+    <ClInclude Include="include\objects\plane.h" />
+    <ClInclude Include="include\objects\plane2.h" />
+    <ClInclude Include="include\objects\shelf.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
