@@ -7,54 +7,49 @@
 
 const int CUBE_VERTEX_COUNT = 36;
 
-point4 points[CUBE_VERTEX_COUNT];
-point4 vertices[8];
-vec3 normals[CUBE_VERTEX_COUNT];
+point4 cube_points[CUBE_VERTEX_COUNT];
+point4 cube_vertices[8];
+vec3 cube_normals[CUBE_VERTEX_COUNT];
 GLuint cube_program;
 
-mat4 ctm;
 
 void createCube()
 {
-	vertices[0] = point4(-0.5, -0.5, 0.5, 1.0);
-	vertices[1] = point4(-0.5, 0.5, 0.5, 1.0);
-	vertices[2] = point4(0.5, 0.5, 0.5, 1.0);
-	vertices[3] = point4(0.5, -0.5, 0.5, 1.0);
-	vertices[4] = point4(-0.5, -0.5, -0.5, 1.0);
-	vertices[5] = point4(-0.5, 0.5, -0.5, 1.0);
-	vertices[6] = point4(0.5, 0.5, -0.5, 1.0);
-	vertices[7] = point4(0.5, -0.5, -0.5, 1.0);
+	cube_vertices[0] = point4(-0.5, -0.5, 0.5, 1.0);  // Bottom-left front
+	cube_vertices[1] = point4(-0.5, 0.5, 0.5, 1.0);   // Top-left front
+	cube_vertices[2] = point4(0.5, 0.5, 0.5, 1.0);    // Top-right front
+	cube_vertices[3] = point4(0.5, -0.5, 0.5, 1.0);   // Bottom-right front
+
+	cube_vertices[4] = point4(-0.5, -0.5, -0.5, 1.0); // Bottom-left back
+	cube_vertices[5] = point4(-0.5, 0.5, -0.5, 1.0);  // Top-left back
+	cube_vertices[6] = point4(0.5, 0.5, -0.5, 1.0);   // Top-right back
+	cube_vertices[7] = point4(0.5, -0.5, -0.5, 1.0);  // Bottom-right back
+
 }
-int Index = 0;
-void quad(int a, int b, int c, int d)
+int cube_index = 0;
+void cube_quad(int a, int b, int c, int d)
 {
-	vec4 u = vertices[b] - vertices[a];
-	vec4 v = vertices[c] - vertices[b];
+	vec4 u = cube_vertices[b] - cube_vertices[a];
+	vec4 v = cube_vertices[c] - cube_vertices[b];
 	vec3 normal = normalize(cross(u, v));
 
-	normals[Index] = normal; points[Index] = vertices[a]; Index++;
-	normals[Index] = normal; points[Index] = vertices[b]; Index++;
-	normals[Index] = normal; points[Index] = vertices[c]; Index++;
-	normals[Index] = normal; points[Index] = vertices[a]; Index++;
-	normals[Index] = normal; points[Index] = vertices[c]; Index++;
-	normals[Index] = normal; points[Index] = vertices[d]; Index++;
+	cube_normals[cube_index] = normal; cube_points[cube_index] = cube_vertices[a]; cube_index++;
+	cube_normals[cube_index] = normal; cube_points[cube_index] = cube_vertices[b]; cube_index++;
+	cube_normals[cube_index] = normal; cube_points[cube_index] = cube_vertices[c]; cube_index++;
+	cube_normals[cube_index] = normal; cube_points[cube_index] = cube_vertices[a]; cube_index++;
+	cube_normals[cube_index] = normal; cube_points[cube_index] = cube_vertices[c]; cube_index++;
+	cube_normals[cube_index] = normal; cube_points[cube_index] = cube_vertices[d]; cube_index++;
 }
 void makeColorCube()
 {
-	quad(1, 0, 3, 2);
-	quad(2, 3, 7, 6);
-	quad(3, 0, 4, 7);
-	quad(6, 5, 1, 2);
-	quad(4, 5, 6, 7);
-	quad(5, 4, 0, 1);
-}
-void generateGeometry()
-{
-	createCube();
-	makeColorCube();
+	cube_quad(1, 0, 3, 2);
+	cube_quad(2, 3, 7, 6);
+	cube_quad(3, 0, 4, 7);
+	cube_quad(6, 5, 1, 2);
+	cube_quad(4, 5, 6, 7);
+	cube_quad(5, 4, 0, 1);
 }
 
-float rotX = 10l;
 
 GLuint cube_mloc, cube_vloc, cube_ploc;
 GLuint cube_VAO, cube_VBO;
@@ -65,8 +60,8 @@ void initCubeBuffers()
 	cube_VAO = initVAO();
 
 	//vertex buffer object
-	cube_VBO = initVBO(sizeof(points) + sizeof(normals), points, GL_STATIC_DRAW);
-	glBufferSubData(GL_ARRAY_BUFFER, sizeof(points), sizeof(normals), normals);
+	cube_VBO = initVBO(sizeof(cube_points) + sizeof(cube_normals), cube_points, GL_STATIC_DRAW);
+	glBufferSubData(GL_ARRAY_BUFFER, sizeof(cube_points), sizeof(cube_normals), cube_normals);
 
 
 	//program
@@ -78,7 +73,7 @@ void initCubeBuffers()
 	//normal location
 	GLuint loc_vNormal = glGetAttribLocation(cube_program, "vNormal");
 	glEnableVertexAttribArray(loc_vNormal);
-	glVertexAttribPointer(loc_vNormal, 3, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(sizeof(points)));
+	glVertexAttribPointer(loc_vNormal, 3, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(sizeof(cube_points)));
 
 	glEnableVertexAttribArray(loc_vPos);
 	glVertexAttribPointer(loc_vPos, sizeof(float), GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(0));
@@ -100,20 +95,9 @@ void initCubeBuffers()
 
 void initCube()
 {
-	generateGeometry();
+	createCube();
+	makeColorCube();
 	initCubeBuffers();
-}
-
-
-void drawCube()
-{
-	rotX += .02f;
-	mat4 instance = Translate(0, 0, 0) * Scale(1, 0.8f, 1) * Angel::RotateY(rotX) * RotateX(rotX);
-	glUniformMatrix4fv(cube_mloc, 1, GL_TRUE, instance);
-
-	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-	glDrawArrays(GL_TRIANGLES, 0, CUBE_VERTEX_COUNT);
 }
 
 mat4 cubeModelMatrix;

@@ -143,32 +143,4 @@ void drawAxes()
 
 	glBindVertexArray(0);
 	glUseProgram(0);
-
-	return;
-	vec3 x = vec3(1, 0, 0);
-	vec3 y = vec3(0, 1, 0);
-	vec3 z = vec3(0, 0, 1);
-
-	drawLine(x, axis_length, xColor);
-	drawLine(y, axis_length, yColor);
-	drawLine(z, axis_length, zColor);
-
-	return;
-	glBegin(GL_LINES);
-	// X Axis
-	glColor3f(1.0, 0.0, 0.0);
-	glVertex3f(-5, 0.0, 0.0);
-	glVertex3f(5, 0.0, 0.0);
-
-	// Y Axis
-	glColor3f(0.0, 1.0, 0.0);
-	glVertex3f(0.0, -5, 0.0);
-	glVertex3f(0.0, 5, 0.0);
-
-	// Z Axis
-	glColor4f(0.0, 0.0, 1.0, 1.0f);
-	glVertex3f(0.0, 0.0, -5);
-	glVertex3f(0.0, 0.0, 5);
-
-	glEnd();
 }
