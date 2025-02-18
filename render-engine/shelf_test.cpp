@@ -17,6 +17,7 @@
 #include "objects/computer.h"	
 #include "objects/cabinet.h"	
 #include "objects/table.h"	
+#include "objects/airplaneOfTien.h"	
 
 #include "objects/airplane.h"
 
@@ -72,7 +73,10 @@ void display()
 
 	//drawComputer(vec3(), vec3(), vec3(1, 1, 1));
 
-	drawCylinder(vec3(), vec3(), vec3(1, .1, 1), WHITE);
+	//drawCylinder(vec3(), vec3(), vec3(1, .1, 1), WHITE);
+	
+	drawAirplaneOfTien(vec3(0, 0, 0), vec3(), vec3(1, 1, 1));
+
 
 
 	onGUI();

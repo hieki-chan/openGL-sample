@@ -93,6 +93,9 @@
     <ClCompile Include="objects\table.cpp">
       <Filter>Source Files\objects</Filter>
     </ClCompile>
+    <ClCompile Include="objects\airplaneOfTien.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="objects\fShader.glsl">
@@ -174,6 +177,9 @@
     </ClInclude>
     <ClInclude Include="include\objects\table.h">
       <Filter>Header Files\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="include\objects\airplaneOfTien.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
