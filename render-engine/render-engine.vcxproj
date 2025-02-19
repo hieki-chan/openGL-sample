@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="objects\lamp.cpp" />
     <ClCompile Include="objects\airplaneOfDuyen.cpp" />
     <ClCompile Include="objects\airplaneOfTien.cpp" />
     <ClCompile Include="core\axes.cpp" />
@@ -72,6 +73,7 @@
     <ClInclude Include="include\objects\shelf.h" />
     <ClInclude Include="include\objects\sphere.h" />
     <ClInclude Include="include\objects\table.h" />
+    <ClInclude Include="include\objects\lamp.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

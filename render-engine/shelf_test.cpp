@@ -23,6 +23,7 @@
 
 #include "objects/airplane.h"
 #include <objects/airplaneOfDuyen.h>
+#include <objects/lamp.h>
 
 
 ui::button btnAxes;
@@ -80,7 +81,7 @@ void display()
 	
 	//drawAirplaneOfTien(vec3(0, 2, 1), vec3(), vec3(1, 1, 1));
 
-	drawAirplaneOfDuyen(vec3(0, 0, 0), vec3(), vec3(1, 1, 1));
+	//drawAirplaneOfDuyen(vec3(0, 0, 0), vec3(), vec3(1, 1, 1));
 
 	//drawSphere(vec3(0, 0, 1), vec3(), vec3(1, 1, 1), WHITE);
 
@@ -88,7 +89,7 @@ void display()
 
 	//drawSphere(vec3(-2, 2, 5), vec3(), vec3(1, 1, 1), WHITE);
 
-
+	drawLamp(vec3(0, 0, 0), vec3(), vec3(1, 1, 1));
 
 	onGUI();
 
