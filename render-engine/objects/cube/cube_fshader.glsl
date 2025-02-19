@@ -10,6 +10,10 @@ in vec3 Normal;
 uniform vec3 lightPosition;
 uniform vec3 lightColor;
 
+uniform float constant;
+uniform float linear;
+uniform float quadratic;
+
 //camera
 uniform vec3 viewPosition;
 
@@ -35,12 +39,18 @@ void main()
 	vec3 reflectDir = reflect(-lightDir, normal); 
 
 	float specularStrength = 0.5f;
-	float shininess = 32;
+	float shininess = 64;
 	float spec = pow(max(dot(viewDir, reflectDir), 0.0), shininess);
 	vec3 specular = specularStrength * spec * lightColor;  
 
+
+	//point light
+	float distance = length(lightPosition - FragPos);
+	float attenuation = 1.0 / (constant + linear * distance + 
+    		    quadratic * (distance * distance));    
+
 	//final color
-	vec3 result = (ambient + diffuse + specular) * mainColor.xyz;
+	vec3 result = (ambient + diffuse + specular) * attenuation * mainColor.xyz;
 
 
 	fColor = vec4(result, mainColor.w);

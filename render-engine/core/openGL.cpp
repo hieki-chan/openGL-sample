@@ -103,6 +103,11 @@ GLuint initProgram(const char* vertexShaderPath, const char* fragmentShaderPath)
 	return 1;
 }
 
+void setUniformFloat(GLuint program, const std::string& name, const float* value)
+{
+	glUniform1fv(glGetUniformLocation(program, name.c_str()), 1, value);
+}
+
 void setUniformVec3(GLuint program, const std::string& name, const vec3& value)
 {
 	glUniform3fv(glGetUniformLocation(program, name.c_str()), 1, value);

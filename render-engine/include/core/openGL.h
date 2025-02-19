@@ -2,12 +2,10 @@
 
 #include "Angel.h"			//Angel lib
 
-#include<iostream>
+#include <iostream>
 #include <cmath>
 #include <cstring>
-#include<Windows.h>			//for MS-windows
-
-#include "glObject.h"
+#include <Windows.h>			//for MS-windows
 
 #define Deg2Rad Angel::DegreesToRadians
 #define Rad2Deg = (1.0f / Deg2Rad);
@@ -71,6 +69,8 @@ GLuint compileShader(GLenum glShaderType, const char* shaderSource);
 GLuint initProgram(GLuint vertexShader, GLuint fragmentShader);
 
 GLuint initProgram(const char* vertexShaderPath, const char* fragmentShaderPath);
+
+void setUniformFloat(GLuint program, const std::string& name, const float* value);
 
 void setUniformVec3(GLuint program, const std::string& name, const vec3& value);
 

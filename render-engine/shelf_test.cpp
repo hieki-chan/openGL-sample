@@ -5,6 +5,7 @@
 #include "core/openGL.h"		// open gl and utilities
 #include "core/camera.h"		// camera
 #include "core/environment.h"	// environment
+#include "core/lighting.h"		// lighting
 #include "core/ui.h"			// user interface
 
  //include objects
@@ -13,6 +14,7 @@
 #include "objects/plane.h"
 #include "objects/plane2.h"
 #include "objects/cylinder.h"		
+#include "objects/sphere.h"		
 #include "objects/shelf.h"	
 #include "objects/computer.h"	
 #include "objects/cabinet.h"	
@@ -75,9 +77,13 @@ void display()
 
 	//drawCylinder(vec3(), vec3(), vec3(1, .1, 1), WHITE);
 	
-	drawAirplaneOfTien(vec3(0, 0, 0), vec3(), vec3(1, 1, 1));
+	//drawAirplaneOfTien(vec3(0, 2, 1), vec3(), vec3(1, 1, 1));
 
+	drawSphere(vec3(0, 0, 1), vec3(), vec3(1, 1, 1), WHITE);
 
+	drawSphere(vec3(4, -2, 1), vec3(), vec3(1, 1, 1), WHITE);
+
+	drawSphere(vec3(-2, 2, 5), vec3(), vec3(1, 1, 1), WHITE);
 
 	onGUI();
 
@@ -155,13 +161,22 @@ void motion(int x, int y)
 		cameraMotion(x, y, lastMouseX, lastMouseY);
 }
 
+void initLights()
+{
+	light l = addDirectionalLight(vec3(1, 10, 2), vec3(20), color3(1, 1, 1));
+
+	addPointLight(vec3(0, 1, 0), color3(1, 1, 1));
+}
+
 void initialize_before_display()
 {
 	initEnvironment();
+	initLights();
 	initCube();
 	initPlane();
 	initPlane2();
 	initCylinder();
+	initSphere();
 }
 
 int main(int argc, char** argv)

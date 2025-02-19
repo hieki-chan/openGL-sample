@@ -1,8 +1,6 @@
 ﻿#include "objects/cylinder.h"
 #include "core/camera.h"
 #include "core/lighting.h"
-#include <iostream>
-#include <cmath>
 
 const int CYLINDER_SIDES = 256;
 const int CYLINDER_VERTEX_COUNT = CYLINDER_SIDES * 6 + CYLINDER_SIDES * 3 * 2;

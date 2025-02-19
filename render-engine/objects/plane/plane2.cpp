@@ -3,8 +3,6 @@
 #include "core/camera.h"
 #include "core/lighting.h"
 
-#include<iostream>
-
 const int PLANE2_VERTEX_COUNT = 36;
 
 point4 plane2_points[PLANE2_VERTEX_COUNT];
