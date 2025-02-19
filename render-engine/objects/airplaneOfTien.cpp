@@ -60,7 +60,7 @@ void drawAirplaneOfTien(vec3 position, vec3 rotation, vec3 scale)
 	drawCylinder(vec3(-1, 0.5, 3.5), vec3(0, 0, 90), vec3(.5, 1, .5), vec4(0.91, 0.36, 0.39, 1));
 
 	// tail
-	plane2TransformMatrix(globalTransformMatrix);
+	planeTransformMatrix(globalTransformMatrix);
 
 	drawPlane(vec3(0, 1, -1.5), vec3(90, 0, 90), vec3(1, .1, 1.5), vec4(0.92, 0.77, 0.59, 1));
 	drawPlane(vec3(.5, 1, -1.64), vec3(0, -90, 0), vec3(.7, .1, 1), vec4(0.91, 0.36, 0.39, 1));
