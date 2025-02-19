@@ -7,6 +7,7 @@ void drawAirplaneOfDuyen(vec3 position, vec3 rotation, vec3 scale)
     color bodyColor = color(0.33, 0.27, 0.93, 1);
     mat4 globalTransformMatrix = cubeTransform(position, rotation, scale);
     plane2Transform(position, rotation, scale);
+    planeTransform(position, rotation, scale);
     cylinderTransform(position, rotation, scale);
 
     // Thân trực thăng

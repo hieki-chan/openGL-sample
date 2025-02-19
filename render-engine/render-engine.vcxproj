@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="objects\airplaneOfDuyen.cpp" />
     <ClCompile Include="objects\airplaneOfTien.cpp" />
     <ClCompile Include="core\axes.cpp" />
     <ClCompile Include="core\camera.cpp" />
@@ -47,6 +48,7 @@
     <None Include="objects\vShader.glsl" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\objects\airplaneOfDuyen.h" />
     <ClInclude Include="include\objects\airplaneOfTien.h" />
     <ClInclude Include="core\mat_old_from_angel.h" />
     <ClInclude Include="include\objects\airplane.h" />
