@@ -1,5 +1,9 @@
 # OpenGL Project Example
 
+<p align="center">
+	<img src="resources/sphere.jpeg" alt="Sphere Image">
+</p>
+
 best way to lean OpenGL : ```https://learnopengl.com```
 
 
