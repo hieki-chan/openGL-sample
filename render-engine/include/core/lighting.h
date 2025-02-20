@@ -1,23 +1,32 @@
 #pragma once
 #include "openGL.h"
 
-class light
+struct light
 {
 public:
-	vec3 lightPos = vec3(5, 10, 5);
-	color3 lightColor = color3(1, 1, 1);
+	vec3 lightPos = vec3(0, 0, 0);
+
+	//color3 lightColor = color3(1, 1, 1);
+
+	color3 ambient = color3(1, 1, 1);
+	color3 diffuse = color3(1, 1, 1);
+	color3 specular = color3(1, 1, 1);
+
+
 
 	void setPosition(vec3 position);
+
+	void setTransformMatrix(mat4 matrix);
 };
 
-class directionalLight : public light
+struct directionalLight : public light
 {
 public:
 	vec3 lightDir;
 };
 
 
-class pointLight : public light
+struct pointLight : public light
 {
 public:
 	float constant = 1.0f;
@@ -25,11 +34,11 @@ public:
 	float quadratic = 0.032f;
 };
 
-light addLight(const vec3& position, const color3& color);
+directionalLight* oneDirectionalLight(const vec3& position, const vec3& direction);
 
-directionalLight addDirectionalLight(const vec3& position, const vec3& direction, const color3& color);
-
-pointLight addPointLight(const vec3& position, const color3& color);
+pointLight* addPointLight(const vec3& position);
 
 void useLights(GLuint shader_program, const char* lightPositionName, const char* lightColorName,
 	const char* viewPositionName, const vec3& cameraPosition);
+
+void disposeLights();

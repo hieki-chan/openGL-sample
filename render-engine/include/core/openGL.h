@@ -70,6 +70,8 @@ GLuint initProgram(GLuint vertexShader, GLuint fragmentShader);
 
 GLuint initProgram(const char* vertexShaderPath, const char* fragmentShaderPath);
 
+void setUniformInt(GLuint program, const std::string& name, const int* value);
+
 void setUniformFloat(GLuint program, const std::string& name, const float* value);
 
 void setUniformVec3(GLuint program, const std::string& name, const vec3& value);

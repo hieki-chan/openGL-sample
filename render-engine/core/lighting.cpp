@@ -1,5 +1,6 @@
-#include "core/lighting.h"
-
+﻿#include "core/lighting.h"
+//#include<vector>
+#include<string>
 
 //LIGHT CLASS
 void light::setPosition(vec3 position)
@@ -7,58 +8,91 @@ void light::setPosition(vec3 position)
 	this->lightPos = position;
 }
 
+void light::setTransformMatrix(mat4 matrix)
+{
+	vec4 transform = matrix * vec4(0, 0, 0, 1);
+	this->lightPos = vec3(transform.x, transform.y, transform.z);
+
+	//std::cout << this->lightPos;
+}
+
 //=======================================\\
 
-light lights = light();
 
-directionalLight dLight = directionalLight();
+directionalLight* dirLight = new directionalLight();
 
-pointLight pLight = pointLight();
+#define MAX_POINT_LIGHT_COUNT 10
+//std::vector<pointLight> pointLights = {}
+pointLight* pointLights;
 
-light addLight(const vec3& position, const color3& color)
+int pointLightCount;
+
+directionalLight* oneDirectionalLight(const vec3& position, const vec3& direction)
 {
-	light l = light();
-	l.lightPos = position;
-	l.lightColor = color;
+	directionalLight* dl = new directionalLight();
+	dl->lightPos = position;
+	dl->lightDir = direction;
 
-	lights = l;
-
-	return l;
+	return 	dirLight = dl;
 }
 
-directionalLight addDirectionalLight(const vec3& position, const vec3& direction, const color3& color)
+pointLight* addPointLight(const vec3& position)
 {
-	directionalLight l = directionalLight();
-	l.lightPos = position;
-	l.lightColor = color;
-	l.lightDir = direction;
+	if (pointLights == nullptr)
+	{
+		pointLights = new pointLight[MAX_POINT_LIGHT_COUNT];
+	}
 
-	dLight = l;
+	if (pointLightCount >= MAX_POINT_LIGHT_COUNT)
+	{
+		std::cerr << "Max point light count reached!" << std::endl;
+		return nullptr;
+	}
 
-	return l;
+	pointLights[pointLightCount].lightPos = position;
+
+	return &pointLights[pointLightCount++];
 }
 
-pointLight addPointLight(const vec3& position, const color3& color)
-{
-	pointLight l = pointLight();
-	l.lightPos = position;
-	l.lightColor = color;
 
-	pLight = l;
-
-	return l;
-}
-
-void useLights(GLuint shader_program, const char* lightPositionName, const char* lightColorName, 
+void useLights(GLuint shader_program, const char* lightPositionName, const char* lightColorName,
 	const char* viewPositionName, const vec3& cameraPosition)
 {
-	//std::cout << lights.lightPos;
-	setUniformVec3(shader_program, lightPositionName, pLight.lightPos);
-	setUniformVec3(shader_program, lightColorName, pLight.lightColor);
-
 	setUniformVec3(shader_program, viewPositionName, cameraPosition);
 
-	setUniformFloat(shader_program, "constant", &pLight.constant);
-	setUniformFloat(shader_program, "linear", &pLight.linear);
-	setUniformFloat(shader_program, "quadratic", &pLight.quadratic);
+	//directional light(s)
+	std::string dlightName = "directionalLight.";
+	setUniformVec3(shader_program, dlightName + "direction", (dirLight)->lightDir);
+	//setUniformVec3(shader_program, dlightName + "color", (dirLight)->lightColor);
+	setUniformVec3(shader_program, dlightName + "ambient", (dirLight)->ambient);
+	setUniformVec3(shader_program, dlightName + "specular", (dirLight)->specular);
+
+	//int pointLightCount = pointLights.size();
+	setUniformInt(shader_program, "pointLightCount", &pointLightCount);
+
+	//point lights
+	for (int i = 0; i < pointLightCount; i++)
+	{
+		//std::cout << (pointLights + i)->lightPos << std::endl;
+		std::string pointLightIndex = std::string("pointLights[") + std::to_string(i) + "].";
+
+		//setUniformVec3(shader_program, lightPositionName, pointLights[i].lightPos);
+		//setUniformVec3(shader_program, lightColorName, pointLights[i].lightColor);
+
+		setUniformVec3(shader_program, pointLightIndex + "position", (pointLights + i)->lightPos);
+
+		//setUniformVec3(shader_program, pointLightIndex + "color", (pointLights + i)->lightColor);
+		setUniformVec3(shader_program, pointLightIndex + "ambient", (pointLights + i)->ambient);
+		setUniformVec3(shader_program, pointLightIndex + "diffuse", (pointLights + i)->diffuse);
+		setUniformVec3(shader_program, pointLightIndex + "specular", (pointLights + i)->specular);
+
+		setUniformFloat(shader_program, pointLightIndex + "constant", &pointLights[i].constant);
+		setUniformFloat(shader_program, pointLightIndex + "linear", &(pointLights + i)->linear);
+		setUniformFloat(shader_program, pointLightIndex + "quadratic", &(pointLights + i)->quadratic);
+	}
+}
+
+void disposeLights()
+{
+	delete[] pointLights;
 }

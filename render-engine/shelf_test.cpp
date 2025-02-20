@@ -83,11 +83,11 @@ void display()
 
 	//drawAirplaneOfDuyen(vec3(0, 0, 0), vec3(), vec3(1, 1, 1));
 
-	//drawSphere(vec3(0, 0, 1), vec3(), vec3(1, 1, 1), WHITE);
+	drawSphere(vec3(0, 0, 1), vec3(), vec3(1, 1, 1), WHITE);
 
-	//drawSphere(vec3(4, -2, 1), vec3(), vec3(1, 1, 1), WHITE);
+	drawSphere(vec3(4, -2, 1), vec3(), vec3(1, 1, 1), WHITE);
 
-	//drawSphere(vec3(-2, 2, 5), vec3(), vec3(1, 1, 1), WHITE);
+	drawSphere(vec3(-2, 2, 5), vec3(), vec3(1, 1, 1), WHITE);
 
 	drawLamp(vec3(0, 0, 0), vec3(), vec3(1, 1, 1));
 
@@ -108,7 +108,7 @@ void idle()
 void timer(int value)
 {
 	glutPostRedisplay();
-	glutTimerFunc(200, timer, value++);
+	glutTimerFunc(20, timer, value++);
 }
 
 void input(unsigned char key, int mouseX, int mouseY)
@@ -116,6 +116,8 @@ void input(unsigned char key, int mouseX, int mouseY)
 	shelfKeyboard(key, mouseX, mouseY);
 
 	cabinetKeyboard(key, mouseX, mouseY);
+
+	lampKeyboard(key, mouseX, mouseY);
 
 	if (key == 27)
 		exit(0);
@@ -169,9 +171,10 @@ void motion(int x, int y)
 
 void initLights()
 {
-	light l = addDirectionalLight(vec3(1, 10, 2), vec3(20), color3(1, 1, 1));
-
-	addPointLight(vec3(0, 1, 0), color3(1, 1, 1));
+	directionalLight* dirLight = oneDirectionalLight(vec3(1, 10, 2), vec3(0, 1, -1));
+	dirLight->ambient = 
+	dirLight->diffuse = 
+	dirLight->specular = color3(1, 1, 1);
 }
 
 void initialize_before_display()
@@ -202,7 +205,7 @@ int main(int argc, char** argv)
 	glutDisplayFunc(display);
 	glutReshapeFunc(resharp);
 	glutIdleFunc(idle);
-	glutTimerFunc(200, timer, 0);
+	glutTimerFunc(20, timer, 0);
 	glutKeyboardFunc(input);
 	glutMouseFunc(mouse);
 	glutMotionFunc(motion);
@@ -213,6 +216,8 @@ int main(int argc, char** argv)
 
 
 	glutMainLoop();
+
+	disposeLights();
 
 	return 0;
 }

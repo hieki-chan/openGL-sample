@@ -19,9 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="objects\lamp.cpp" />
-    <ClCompile Include="objects\airplaneOfDuyen.cpp" />
-    <ClCompile Include="objects\airplaneOfTien.cpp" />
     <ClCompile Include="core\axes.cpp" />
     <ClCompile Include="core\camera.cpp" />
     <ClCompile Include="core\InitShader.cpp" />
@@ -29,16 +26,19 @@
     <ClCompile Include="core\textfile.cpp" />
     <ClCompile Include="core\lighting.cpp" />
     <ClCompile Include="objects\airplane.cpp" />
+    <ClCompile Include="objects\airplaneOfDuyen.cpp" />
+    <ClCompile Include="objects\airplaneOfTien.cpp" />
     <ClCompile Include="objects\cabinet.cpp" />
     <ClCompile Include="objects\computer.cpp" />
-    <ClCompile Include="objects\cylinder\cylinder.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="objects\cube\cube.cpp" />
     <ClCompile Include="core\ui.cpp" />
+    <ClCompile Include="objects\cylinder\cylinder.cpp" />
+    <ClCompile Include="objects\lamp.cpp" />
     <ClCompile Include="objects\plane\plane.cpp" />
     <ClCompile Include="objects\plane\plane2.cpp" />
     <ClCompile Include="objects\shelf.cpp" />
-    <ClCompile Include="objects\sphere.cpp" />
+    <ClCompile Include="objects\sphere\sphere.cpp" />
     <ClCompile Include="objects\table.cpp" />
     <ClCompile Include="shelf_test.cpp" />
   </ItemGroup>

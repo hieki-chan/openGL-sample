@@ -34,6 +34,9 @@
     <Filter Include="Source Files\objects\plane">
       <UniqueIdentifier>{4535ea74-245f-463b-ab74-646a9819485b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\objects\sphere">
+      <UniqueIdentifier>{a9aedf0d-211c-44ad-a691-09550187d47c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -43,9 +46,6 @@
       <Filter>Source Files\objects\cube</Filter>
     </ClCompile>
     <ClCompile Include="core\InitShader.cpp">
-      <Filter>Source Files\core</Filter>
-    </ClCompile>
-    <ClCompile Include="core\glObject.cpp">
       <Filter>Source Files\core</Filter>
     </ClCompile>
     <ClCompile Include="core\camera.cpp">
@@ -69,17 +69,8 @@
     <ClCompile Include="core\lighting.cpp">
       <Filter>Source Files\core</Filter>
     </ClCompile>
-    <ClCompile Include="objects\cylinder.cpp">
-      <Filter>Source Files\objects\cylinder</Filter>
-    </ClCompile>
-    <ClCompile Include="objects\plane.cpp">
-      <Filter>Source Files\objects\plane</Filter>
-    </ClCompile>
     <ClCompile Include="objects\shelf.cpp">
       <Filter>Source Files\objects</Filter>
-    </ClCompile>
-    <ClCompile Include="objects\plane2.cpp">
-      <Filter>Source Files\objects\plane</Filter>
     </ClCompile>
     <ClCompile Include="objects\airplane.cpp">
       <Filter>Source Files\objects</Filter>
@@ -93,8 +84,26 @@
     <ClCompile Include="objects\table.cpp">
       <Filter>Source Files\objects</Filter>
     </ClCompile>
+    <ClCompile Include="objects\cylinder\cylinder.cpp">
+      <Filter>Source Files\objects\cylinder</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\plane\plane.cpp">
+      <Filter>Source Files\objects\plane</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\plane\plane2.cpp">
+      <Filter>Source Files\objects\plane</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\airplaneOfDuyen.cpp">
+      <Filter>Source Files\objects</Filter>
+    </ClCompile>
     <ClCompile Include="objects\airplaneOfTien.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\objects</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\lamp.cpp">
+      <Filter>Source Files\objects</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\sphere\sphere.cpp">
+      <Filter>Source Files\objects\sphere</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -125,9 +134,6 @@
       <Filter>Header Files\core</Filter>
     </ClInclude>
     <ClInclude Include="include\core\CheckError.h">
-      <Filter>Header Files\core</Filter>
-    </ClInclude>
-    <ClInclude Include="include\core\glObject.h">
       <Filter>Header Files\core</Filter>
     </ClInclude>
     <ClInclude Include="include\core\mat.h">
@@ -179,6 +185,15 @@
       <Filter>Header Files\objects</Filter>
     </ClInclude>
     <ClInclude Include="include\objects\airplaneOfTien.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\objects\airplaneOfDuyen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\objects\sphere.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\objects\lamp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
