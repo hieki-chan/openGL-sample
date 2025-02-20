@@ -2,6 +2,9 @@
 
 #include "core/openGL.h"
 
-void initAxes();
+namespace engine
+{
+	void initAxes();
 
-void drawAxes();
+	void drawAxes();
+}

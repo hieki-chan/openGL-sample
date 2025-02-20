@@ -28,6 +28,7 @@
 #include <objects/chair.h>
 #include <objects/chair1.h>
 
+using namespace engine;
 
 ui::button btnAxes;
 bool enableAxes = true;

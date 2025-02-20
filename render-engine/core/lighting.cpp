@@ -27,7 +27,7 @@ pointLight* pointLights;
 
 int pointLightCount;
 
-directionalLight* oneDirectionalLight(const vec3& position, const vec3& direction)
+directionalLight* engine::oneDirectionalLight(const vec3& position, const vec3& direction)
 {
 	directionalLight* dl = new directionalLight();
 	dl->lightPos = position;
@@ -36,7 +36,7 @@ directionalLight* oneDirectionalLight(const vec3& position, const vec3& directio
 	return 	dirLight = dl;
 }
 
-pointLight* addPointLight(const vec3& position)
+pointLight* engine::addPointLight(const vec3& position)
 {
 	if (pointLights == nullptr)
 	{
@@ -55,7 +55,7 @@ pointLight* addPointLight(const vec3& position)
 }
 
 
-void useLights(GLuint shader_program, const char* lightPositionName, const char* lightColorName,
+void engine::useLights(GLuint shader_program, const char* lightPositionName, const char* lightColorName,
 	const char* viewPositionName, const vec3& cameraPosition)
 {
 	setUniformVec3(shader_program, viewPositionName, cameraPosition);
@@ -93,7 +93,7 @@ void useLights(GLuint shader_program, const char* lightPositionName, const char*
 	}
 }
 
-void disposeLights()
+void engine::disposeLights()
 {
 	delete[] pointLights;
 }

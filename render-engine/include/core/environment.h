@@ -2,7 +2,11 @@
 
 #include "axes.h"
 
-void initEnvironment()
+namespace engine
 {
-	initAxes();
+	void initEnvironment()
+	{
+		initAxes();
+	}
 }
+

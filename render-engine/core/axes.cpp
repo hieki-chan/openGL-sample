@@ -40,7 +40,7 @@ GLuint axes_program;
 GLuint transform_location;
 GLuint axes_VAO, axes_VBO[2], axes_EBO;
 
-void initAxes()
+void engine::initAxes()
 {
 	const float axis_vertices[] = {
 		// Vị trí
@@ -125,7 +125,7 @@ void drawLine(const vec3& dir, float length, const color& color)
 	//glBindVertexArray(0);
 }
 
-void drawAxes()
+void engine::drawAxes()
 {
 	glUseProgram(axes_program);
 	glBindVertexArray(axes_VAO);

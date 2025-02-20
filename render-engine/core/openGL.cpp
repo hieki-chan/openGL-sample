@@ -1,6 +1,6 @@
 #include "core/openGL.h"
 
-GLuint initVAO()
+GLuint engine::initVAO()
 {
 	GLuint VAO;
 	glGenVertexArrays(1, &VAO);
@@ -9,7 +9,7 @@ GLuint initVAO()
 	return VAO;
 }
 
-GLuint initVBO(GLsizeiptr size, const void* data, GLenum usage)
+GLuint engine::initVBO(GLsizeiptr size, const void* data, GLenum usage)
 {
 	GLuint VBO;
 	glGenBuffers(1, &VBO);
@@ -19,7 +19,7 @@ GLuint initVBO(GLsizeiptr size, const void* data, GLenum usage)
 	return VBO;
 }
 
-GLuint initEBO(GLsizeiptr size, const void* data, GLenum usage)
+GLuint engine::initEBO(GLsizeiptr size, const void* data, GLenum usage)
 {
 	GLuint EBO;
 	glGenBuffers(1, &EBO);
@@ -29,27 +29,27 @@ GLuint initEBO(GLsizeiptr size, const void* data, GLenum usage)
 	return EBO;
 }
 
-void vertexAttribPointer(GLuint index, GLint size, GLsizei stride, const void* pointer)
+void engine::vertexAttribPointer(GLuint index, GLint size, GLsizei stride, const void* pointer)
 {
 	glVertexAttribPointer(index, size, GL_FLOAT, GL_FALSE, stride, pointer);
 	glEnableVertexAttribArray(index);
 }
 
-void bind(GLuint program, GLuint VAO)
+void engine::bind(GLuint program, GLuint VAO)
 {
 	glUseProgram(program);
 	glBindVertexArray(VAO);
 }
 
 
-void unbind(GLuint VAO, GLuint program)
+void engine::unbind(GLuint VAO, GLuint program)
 {
 	glBindVertexArray(VAO);
 	glUseProgram(program);
 }
 
 
-mat4 TRS(const vec3& position, const vec3& rotation, const vec3& scale)
+mat4 engine::TRS(const vec3& position, const vec3& rotation, const vec3& scale)
 {
 	return Translate(position) * RotateX(rotation.x) * RotateY(rotation.y) * RotateZ(rotation.z) * Scale(scale);
 }
@@ -58,7 +58,7 @@ mat4 TRS(const vec3& position, const vec3& rotation, const vec3& scale)
 
 #pragma region SHADERS
 
-GLuint compileShader(GLenum glShaderType, const char* shaderSource)
+GLuint engine::compileShader(GLenum glShaderType, const char* shaderSource)
 {
 	GLuint shader = glCreateShader(glShaderType);
 	glShaderSource(shader, 1, &shaderSource, NULL);
@@ -76,7 +76,7 @@ GLuint compileShader(GLenum glShaderType, const char* shaderSource)
 	return shader;
 }
 
-GLuint initProgram(GLuint vertexShader, GLuint fragmentShader)
+GLuint engine::initProgram(GLuint vertexShader, GLuint fragmentShader)
 {
 	GLuint shaderProgram = glCreateProgram();
 	glAttachShader(shaderProgram, vertexShader);
@@ -96,29 +96,29 @@ GLuint initProgram(GLuint vertexShader, GLuint fragmentShader)
 	return shaderProgram;
 }
 
-GLuint initProgram(const char* vertexShaderPath, const char* fragmentShaderPath)
+GLuint engine::initProgram(const char* vertexShaderPath, const char* fragmentShaderPath)
 {
 	GLuint program;
 
 	return 1;
 }
 
-void setUniformInt(GLuint program, const std::string& name, const int* value)
+void engine::setUniformInt(GLuint program, const std::string& name, const int* value)
 {
 	glUniform1iv(glGetUniformLocation(program, name.c_str()), 1, value);
 }
 
-void setUniformFloat(GLuint program, const std::string& name, const float* value)
+void engine::setUniformFloat(GLuint program, const std::string& name, const float* value)
 {
 	glUniform1fv(glGetUniformLocation(program, name.c_str()), 1, value);
 }
 
-void setUniformVec3(GLuint program, const std::string& name, const vec3& value)
+void engine::setUniformVec3(GLuint program, const std::string& name, const vec3& value)
 {
 	glUniform3fv(glGetUniformLocation(program, name.c_str()), 1, value);
 }
 
-void setUniformVec4(GLuint program, const std::string& name, const vec4& value)
+void engine::setUniformVec4(GLuint program, const std::string& name, const vec4& value)
 {
 	glUniform4fv(glGetUniformLocation(program, name.c_str()), 1, value);
 }

@@ -1,6 +1,8 @@
 ﻿#include "core/camera.h"
 
-camera mainCamera;
+using namespace engine;
+
+camera engine::mainCamera;
 
 #pragma region CAMERA LOCAL TRANSFORM
 
@@ -29,7 +31,7 @@ vec3 camera::right()
 #pragma endregion
 
 
-void setupCamera(int window_width, int window_height, float zNear, float zFar)
+void engine::setupCamera(int window_width, int window_height, float zNear, float zFar)
 {
 	mainCamera.window_width = window_width;
 	mainCamera.window_height = window_height;
@@ -37,12 +39,12 @@ void setupCamera(int window_width, int window_height, float zNear, float zFar)
 	mainCamera.zFar = zFar;
 }
 
-void setCameraPos(const vec4& position)
+void engine::setCameraPos(const vec4& position)
 {
 	mainCamera.eye_position = position;
 }
 
-void zoomCamera(float value)
+void engine::zoomCamera(float value)
 {
 	if (value > 0) // Scroll up
 	{
@@ -54,12 +56,12 @@ void zoomCamera(float value)
 	}
 }
 
-void setZoomSpeed(float speed)
+void engine::setZoomSpeed(float speed)
 {
 	mainCamera.zoomSpeed = speed;
 }
 
-void setCameraSpeed(float speed)
+void engine::setCameraSpeed(float speed)
 {
 	mainCamera.motionSpeed = speed;
 }
@@ -78,7 +80,7 @@ vec3 rotateAxis(const vec3& position, float angle, const vec3& axis)
 	return position * cosTheta + cross(a, position) * sinTheta + a * (dot(a, position) * (1 - cosTheta));
 }
 
-void cameraMotion(int mouseX, int mouseY, int& lastMouseX, int& lastMouseY)
+void engine::cameraMotion(int mouseX, int mouseY, int& lastMouseX, int& lastMouseY)
 {
 	int deltaX = mouseX - lastMouseX;
 	int deltaY = mouseY - lastMouseY;
@@ -120,7 +122,7 @@ void cameraMotion(int mouseX, int mouseY, int& lastMouseX, int& lastMouseY)
 	lastMouseY = mouseY;
 }
 
-void useCameraMatrix(GLuint view_location, GLuint projection_location)
+void engine::useCameraMatrix(GLuint view_location, GLuint projection_location)
 {
 	auto camView = LookAt(mainCamera.eye_position, mainCamera.target_position, mainCamera.up_direction);
 	glUniformMatrix4fv(view_location, 1, GL_TRUE, camView);
