@@ -65,6 +65,7 @@ void useLights(GLuint shader_program, const char* lightPositionName, const char*
 	setUniformVec3(shader_program, dlightName + "direction", (dirLight)->lightDir);
 	//setUniformVec3(shader_program, dlightName + "color", (dirLight)->lightColor);
 	setUniformVec3(shader_program, dlightName + "ambient", (dirLight)->ambient);
+	setUniformVec3(shader_program, dlightName + "diffuse", (dirLight)->diffuse);
 	setUniformVec3(shader_program, dlightName + "specular", (dirLight)->specular);
 
 	//int pointLightCount = pointLights.size();

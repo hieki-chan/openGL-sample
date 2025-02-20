@@ -24,6 +24,8 @@
 #include "objects/airplane.h"
 #include <objects/airplaneOfDuyen.h>
 #include <objects/lamp.h>
+#include <objects/chair.h>
+#include <objects/chair1.h>
 
 
 ui::button btnAxes;
@@ -89,7 +91,11 @@ void display()
 
 	drawSphere(vec3(-2, 2, 5), vec3(), vec3(1, 1, 1), WHITE);
 
-	drawLamp(vec3(0, 0, 0), vec3(), vec3(1, 1, 1));
+	drawLamp(vec3(0, 1, 0), vec3(), vec3(1, 1, 1));
+
+	//drawChair(vec3(0, 0, 0), vec3(), vec3(1, 1, 1));
+
+	drawChair1(vec3(0, 0, 0), vec3(), vec3(1, 1, 1));
 
 	onGUI();
 
@@ -171,7 +177,7 @@ void motion(int x, int y)
 
 void initLights()
 {
-	directionalLight* dirLight = oneDirectionalLight(vec3(1, 10, 2), vec3(0, 1, -1));
+	directionalLight* dirLight = oneDirectionalLight(vec3(1, 10, 2), vec3(-.5, -1, -.5));
 	dirLight->ambient = 
 	dirLight->diffuse = 
 	dirLight->specular = color3(1, 1, 1);
