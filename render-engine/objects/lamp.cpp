@@ -1,6 +1,7 @@
 ﻿#include "objects/lamp.h"
 
 #include "core/lighting.h"
+#include "core/shaders.h"
 
 pointLight* lamp_light = addPointLight(vec3());
 vec3 lamp_position;
@@ -24,7 +25,7 @@ void drawLamp(vec3 position, vec3 rotation, vec3 scale)
 	lamp_light->setTransformMatrix(transform * Translate(0, 0.5, 0));
 	lamp_light->ambient = color3(1, 1, 1);
 	lamp_light->diffuse = 
-	lamp_light->specular = color3(0, 0, 1);
+	lamp_light->specular = color3(1, 1, 0);
 
 	drawCylinder(vec3(0, 2.5, 0), vec3(0, 0, 0), vec3(0.4, 0.1, 0.4), metalColor);
 	drawCylinder(vec3(0, 2.55, 0), vec3(0, 0, 0), vec3(0.45, 0.02, 0.45), color(0.5, 0.5, 0.5, 1));
@@ -40,7 +41,7 @@ void drawLamp(vec3 position, vec3 rotation, vec3 scale)
 	drawCylinder(vec3(0, 0.52, 0), vec3(90, 0, 0), vec3(0.02, 0.1, 0.02), color(1, 0.8, 0.4, 1));
 	//drawSphere(vec3(0, 0.58, 0), vec3(), vec3(0.03, 0.03, 0.03), color(1, 0.7, 0.3, 1)); 
 
-	drawSphere(vec3(0, 0.5, 0), vec3(), vec3(0.6, 0.6, 0.6), glowColor);
+	drawSphere(vec3(0, 0.5, 0), vec3(), vec3(0.6, 0.6, 0.6), lamp_light->diffuse, engine::emissionShader);
 
 	drawCube(vec3(0, 1.2, 0), vec3(0, 0, 0), vec3(.4, .1, .4), vec4(0, 0, 0, 1));
 	drawPlane2(vec3(0, .8, .41), vec3(60, 0, 0), vec3(1, .1, 1), vec4(0, 0, 0, 1));

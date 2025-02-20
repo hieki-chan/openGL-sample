@@ -4,6 +4,7 @@
 
 #include "core/openGL.h"		// open gl and utilities
 #include "core/camera.h"		// camera
+#include "core/shaders.h"		// shaders
 #include "core/environment.h"	// environment
 #include "core/lighting.h"		// lighting
 #include "core/ui.h"			// user interface
@@ -187,6 +188,7 @@ void initialize_before_display()
 {
 	initEnvironment();
 	initLights();
+	engine::initDefaultShaders();
 	initCube();
 	initPlane();
 	initPlane2();

@@ -10,8 +10,6 @@ const int CUBE_VERTEX_COUNT = 36;
 point4 cube_points[CUBE_VERTEX_COUNT];
 point4 cube_vertices[8];
 vec3 cube_normals[CUBE_VERTEX_COUNT];
-GLuint cube_program;
-
 
 void createCube()
 {
@@ -51,7 +49,8 @@ void makeColorCube()
 }
 
 
-GLuint cube_mloc, cube_vloc, cube_ploc;
+//GLuint cube_mloc, cube_vloc, cube_ploc;
+//GLuint cube_program;
 GLuint cube_VAO, cube_VBO;
 
 void initCubeBuffers()
@@ -63,9 +62,9 @@ void initCubeBuffers()
 	cube_VBO = initVBO(sizeof(cube_points) + sizeof(cube_normals), cube_points, GL_STATIC_DRAW);
 	glBufferSubData(GL_ARRAY_BUFFER, sizeof(cube_points), sizeof(cube_normals), cube_normals);
 
-
 	//program
-	cube_program = InitShader("objects/cube/cube_vshader.glsl", "objects/cube/cube_fshader.glsl");
+	//cube_program = InitShader("objects/cube/cube_vshader.glsl", "objects/cube/cube_fshader.glsl");
+	GLuint cube_program = engine::defaultShader.program;
 
 	// v position
 	GLuint loc_vPos = glGetAttribLocation(cube_program, "vPosition");
@@ -83,14 +82,9 @@ void initCubeBuffers()
 	glVertexAttribPointer(loc_vColor, 4, GL_FLOAT, GL_FALSE, 0,
 		BUFFER_OFFSET(sizeof(points)));*/
 
-	cube_mloc = glGetUniformLocation(cube_program, "model");
-	cube_vloc = glGetUniformLocation(cube_program, "view");
-	cube_ploc = glGetUniformLocation(cube_program, "projection");
-
-
-	glEnable(GL_DEPTH_TEST);
-
-	glUseProgram(cube_program);
+	//cube_mloc = glGetUniformLocation(cube_program, "model");
+	//cube_vloc = glGetUniformLocation(cube_program, "view");
+	//cube_ploc = glGetUniformLocation(cube_program, "projection");
 }
 
 void initCube()
@@ -103,23 +97,23 @@ void initCube()
 mat4 cubeModelMatrix;
 
 
-void drawCube(vec3 position, vec3 rotation, vec3 scale, color color)
+void drawCube(const vec3& position, const vec3& rotation, const vec3& scale, const color& mainColor, engine::shader shader)
 {
 	//unbind VAO and program
-	bind(cube_program, cube_VAO);
+	bind(shader.program, cube_VAO);
 
 	//use camera matrix
-	useCameraMatrix(cube_vloc, cube_ploc);
+	useCameraMatrix(shader.vloc, shader.ploc);
 
 	//model matrix
 	mat4 instance = TRS(position, rotation, scale);
-	glUniformMatrix4fv(cube_mloc, 1, GL_TRUE, cubeModelMatrix * instance);
+	glUniformMatrix4fv(shader.mloc, 1, GL_TRUE, cubeModelMatrix * instance);
 
 	//set object color
-	setUniformVec4(cube_program, "mainColor", color);
+	setUniformVec4(shader.program, "mainColor", mainColor);
 
 	//set light position, light color and camera position
-	useLights(cube_program, "lightPosition", "lightColor", "viewPosition", CAM_POS_3);
+	useLights(shader.program, "lightPosition", "lightColor", "viewPosition", CAM_POS_3);
 
 	glDrawArrays(GL_TRIANGLES, 0, CUBE_VERTEX_COUNT);
 

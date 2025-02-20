@@ -8,7 +8,6 @@ const int PLANE_VERTEX_COUNT = 36;
 point4 plane_points[PLANE_VERTEX_COUNT];
 point4 plane_vertices[8];
 vec3 plane_normals[PLANE_VERTEX_COUNT];
-GLuint plane_program;
 
 void createPlane()
 {
@@ -49,7 +48,6 @@ void makeColorPlane()
 	plane_quad(5, 4, 0, 1);
 }
 
-GLuint plane_mloc, plane_vloc, plane_ploc;
 GLuint plane_VAO, plane_VBO;
 
 void initPlaneBuffers()
@@ -58,7 +56,7 @@ void initPlaneBuffers()
 	plane_VBO = initVBO(sizeof(plane_points) + sizeof(plane_normals), plane_points, GL_STATIC_DRAW);
 	glBufferSubData(GL_ARRAY_BUFFER, sizeof(plane_points), sizeof(plane_normals), plane_normals);
 
-	plane_program = InitShader("objects/cube/cube_vshader.glsl", "objects/cube/cube_fshader.glsl");
+	GLuint plane_program = engine::defaultShader.program;
 
 	GLuint loc_vPos = glGetAttribLocation(plane_program, "vPosition");
 	GLuint loc_vNormal = glGetAttribLocation(plane_program, "vNormal");
@@ -67,13 +65,6 @@ void initPlaneBuffers()
 
 	glEnableVertexAttribArray(loc_vPos);
 	glVertexAttribPointer(loc_vPos, sizeof(float), GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(0));
-
-	plane_mloc = glGetUniformLocation(plane_program, "model");
-	plane_vloc = glGetUniformLocation(plane_program, "view");
-	plane_ploc = glGetUniformLocation(plane_program, "projection");
-
-	glEnable(GL_DEPTH_TEST);
-	glUseProgram(plane_program);
 }
 
 void initPlane()
@@ -85,16 +76,16 @@ void initPlane()
 
 mat4 planeModelMatrix;
 
-void drawPlane(vec3 position, vec3 rotation, vec3 scale, color color)
+void drawPlane(const vec3& position, const vec3& rotation, const vec3& scale, const color& mainColor, engine::shader shader)
 {
-	bind(plane_program, plane_VAO);
-	useCameraMatrix(plane_vloc, plane_ploc);
+	bind(shader.program, plane_VAO);
+	useCameraMatrix(shader.vloc, shader.ploc);
 
 	mat4 instance = TRS(position, rotation, scale);
-	glUniformMatrix4fv(plane_mloc, 1, GL_TRUE, planeModelMatrix * instance);
+	glUniformMatrix4fv(shader.mloc, 1, GL_TRUE, planeModelMatrix * instance);
 
-	setUniformVec4(plane_program, "mainColor", color);
-	useLights(plane_program, "lightPosition", "lightColor", "viewPosition", CAM_POS_3);
+	setUniformVec4(shader.program, "mainColor", mainColor);
+	useLights(shader.program, "lightPosition", "lightColor", "viewPosition", CAM_POS_3);
 
 	glDrawArrays(GL_TRIANGLES, 0, PLANE_VERTEX_COUNT);
 	unbind();

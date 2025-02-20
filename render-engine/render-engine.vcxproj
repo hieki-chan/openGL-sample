@@ -42,6 +42,7 @@
     <ClCompile Include="objects\shelf.cpp" />
     <ClCompile Include="objects\sphere\sphere.cpp" />
     <ClCompile Include="objects\table.cpp" />
+    <ClCompile Include="core\shaders.cpp" />
     <ClCompile Include="shelf_test.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -51,6 +52,7 @@
     <None Include="objects\vShader.glsl" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\core\shaders.h" />
     <ClInclude Include="include\objects\chair1.h" />
     <ClInclude Include="include\objects\chair.h" />
     <ClInclude Include="include\objects\airplaneOfDuyen.h" />
