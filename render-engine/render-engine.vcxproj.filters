@@ -37,6 +37,9 @@
     <Filter Include="Source Files\objects\sphere">
       <UniqueIdentifier>{a9aedf0d-211c-44ad-a691-09550187d47c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\objects\airplanes">
+      <UniqueIdentifier>{37fa5be5-71fb-4a3c-a8a6-e8068543570c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -72,9 +75,6 @@
     <ClCompile Include="objects\shelf.cpp">
       <Filter>Source Files\objects</Filter>
     </ClCompile>
-    <ClCompile Include="objects\airplane.cpp">
-      <Filter>Source Files\objects</Filter>
-    </ClCompile>
     <ClCompile Include="objects\cabinet.cpp">
       <Filter>Source Files\objects</Filter>
     </ClCompile>
@@ -93,12 +93,6 @@
     <ClCompile Include="objects\plane\plane2.cpp">
       <Filter>Source Files\objects\plane</Filter>
     </ClCompile>
-    <ClCompile Include="objects\airplaneOfDuyen.cpp">
-      <Filter>Source Files\objects</Filter>
-    </ClCompile>
-    <ClCompile Include="objects\airplaneOfTien.cpp">
-      <Filter>Source Files\objects</Filter>
-    </ClCompile>
     <ClCompile Include="objects\lamp.cpp">
       <Filter>Source Files\objects</Filter>
     </ClCompile>
@@ -116,6 +110,18 @@
     </ClCompile>
     <ClCompile Include="objects\sign.cpp">
       <Filter>Source Files\objects</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\airplanes\airplane.cpp">
+      <Filter>Source Files\objects\airplanes</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\airplanes\airplaneOfDuyen.cpp">
+      <Filter>Source Files\objects\airplanes</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\airplanes\airplaneOfTien.cpp">
+      <Filter>Source Files\objects\airplanes</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\airplanes\biplane.cpp">
+      <Filter>Source Files\objects\airplanes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -222,6 +228,9 @@
     </ClInclude>
     <ClInclude Include="include\core\stb_image.h">
       <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\objects\biplane.h">
+      <Filter>Header Files\objects</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

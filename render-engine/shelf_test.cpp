@@ -16,14 +16,17 @@
 #include <objects/cylinder.h>		
 #include <objects/sphere.h>
 
+//air planes
+#include "objects/airplane.h"
+#include "objects/airplaneOfTien.h"	
+#include "objects/airplaneOfDuyen.h"
+#include "objects/biplane.h"
+
 //scene objects
 #include "objects/shelf.h"	
 #include "objects/computer.h"	
 #include "objects/cabinet.h"	
 #include "objects/table.h"	
-#include "objects/airplane.h"
-#include "objects/airplaneOfTien.h"	
-#include "objects/airplaneOfDuyen.h"
 #include "objects/lamp.h"
 #include "objects/chair.h"
 #include "objects/chair1.h"
@@ -40,6 +43,10 @@ void toggleAxes()
 	enableAxes = !enableAxes;
 }
 
+const char* defaultSelectedInfo = ">> None (Press to select) ";
+const char* selectedInfo = defaultSelectedInfo;
+int selectedIndex = -1;
+
 void onGUI()
 {
 	glColor3f(1.0, 1.0, 1.0);
@@ -49,64 +56,78 @@ void onGUI()
 	ui::text2D("middle mouse - zoom in/out", 14, 10, ui::window_height - 50);
 	ui::text2D("left mouse - rotate camera", 14, 10, ui::window_height - 70);
 
-	//ui::renderText2D("s - move right", 10, 10, ui::window_height - 60);
-	//ui::renderText2D("d - move right", 10, 10, ui::window_height - 70);
-	//ui::renderText2D("w - move right", 10, 10, ui::window_height - 80);
+	//ui::text2D("s - move right", 10, 10, ui::window_height - 60);
+	//ui::text2D("d - move right", 10, 10, ui::window_height - 70);
+	//ui::text2D("w - move right", 10, 10, ui::window_height - 80);
 
 	btnAxes = ui::button2D("Axes", 14, 80, 40, ui::window_width - 90, ui::window_height - 50, color(1, 1, 0, 1), color(0, 0, 0, 1));
 	btnAxes.callback = toggleAxes;
+
+	ui::text2D(selectedInfo, 14, 10, ui::window_height - 100);
+	ui::text2D("1 - airplane", 14, 15, ui::window_height - 120);
+	ui::text2D("2 - biplane", 14, 15, ui::window_height - 140);
+	ui::text2D("3", 14, 15, ui::window_height - 160);
+	ui::text2D("4", 14, 15, ui::window_height - 180);
+	ui::text2D("5", 14, 15, ui::window_height - 200);
+	ui::text2D("6 - None", 14, 15, ui::window_height - 220);
+}
+
+//LIGHTING
+
+directionalLight* sun_light;
+pointLight* lamp_light_1;
+pointLight* lamp_light_2;
+
+void initLights()
+{
+	sun_light = oneDirectionalLight(vec3(1, 10, 2), vec3(-.5, -1, -.5));
+	sun_light->ambient =
+		sun_light->diffuse =
+		sun_light->specular = color3(.1f, .1f, .1f);
+
+	lamp_light_1 = addPointLight(vec3());
+	lamp_light_1->ambient = color3(1, 1, 1);
+	lamp_light_1->diffuse =
+		lamp_light_1->specular = color3(1, 1, 0);
+
+	lamp_light_2 = addPointLight(vec3());
+	lamp_light_2->ambient = color3(1, 1, 1);
+	lamp_light_2->diffuse =
+		lamp_light_2->specular = color3(0, 1, 1);
+}
+
+void initialize_before_display()
+{
+	initEnvironment();
+	initLights();
+	engine::initDefaultShaders();
+	initCube();
+	initPlane();
+	initPlane2();
+	initCylinder();
+	initSphere();
+	initSign();
 }
 
 
 void display()
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
 	glClearColor(0.2f, 0.2f, 0.2f, 1.0f);
-
+	glEnable(GL_DEPTH_TEST);
 
 	if(enableAxes) drawAxes();
 
-	//drawShelf(vec3(1, 1, 1), vec3(0, 90, 0), vec3(1, .5f, 1));
+	drawLamp(vec3(-2, 2, 0), vec3(), vec3(1, 1, 1), lamp_light_1);
 
-	//drawPlane(vec3(2, 0, 0), vec3(0, 0, 0), vec3(1.25f, 0.25f, 2), color(0, 1, 1, 1));
+	drawLamp(vec3(2, 2, 0), vec3(), vec3(1, 1, 1), lamp_light_2);
 
-	//drawPlane2(vec3(4, 0, 0), vec3(0, 0, 0), vec3(1.25f, 0.25f, 2), color(0, 0.2, 1, 1));
+	//drawAirplane(vec3(0, 2, 0), vec3(), vec3(1, 1, 1));
+	drawBiplane(vec3(0, 0, 0), vec3(), vec3(.75f, .75f, .75f));
 
-	//drawCylinder(vec3(), vec3(), vec3(1, 1, 1), color(1, 0, 0, 1));
-
-	//drawAirplane(vec3(0, 5, 0), vec3(), vec3(.5, .5, .5));
-
-	//drawCabinet(vec3(), vec3(), vec3(1, 1, 1));
-
-	//drawTable(vec3(), vec3(), vec3(1, 1, 1));
-
-	//drawComputer(vec3(), vec3(), vec3(1, 1, 1));
-
-	//drawCylinder(vec3(), vec3(), vec3(1, .1, 1), WHITE);
-	
-	//drawAirplaneOfTien(vec3(0, 2, 1), vec3(), vec3(1, 1, 1));
-
-	//drawAirplaneOfDuyen(vec3(0, 0, 0), vec3(), vec3(1, 1, 1));
-
-	drawSphere(vec3(0, 0, 1), vec3(), vec3(1, 1, 1), WHITE);
-
-	drawSphere(vec3(4, -2, 1), vec3(), vec3(1, 1, 1), WHITE);
-
-	drawSphere(vec3(-2, 2, 5), vec3(), vec3(1, 1, 1), WHITE);
-
-	drawLamp(vec3(0, 1, 0), vec3(), vec3(1, 1, 1));
-
-	//drawChair(vec3(0, 0, 0), vec3(), vec3(1, 1, 1));
-
-	//drawChair1(vec3(0, 0, 0), vec3(), vec3(1, 1, 1));
-
-	drawSign(vec3(0, 1, 0), vec3(0, 0, 0), vec3(3, 1, 1), color(1, 1, 1, 1));
+	//drawSign(vec3(0, 1, 0), vec3(0, 0, 0), vec3(3, 1, 1), color(1, 1, 1, 1));
 
 	onGUI();
-
-
-	glEnable(GL_DEPTH_TEST);
 
 	glutSwapBuffers();
 }
@@ -131,8 +152,53 @@ void input(unsigned char key, int mouseX, int mouseY)
 
 	lampKeyboard(key, mouseX, mouseY);
 
-	if (key == 27)
+	switch (key)
+	{
+	case '1':
+		selectedInfo = ">> airplane";
+		selectedIndex = 1;
+		break;
+	case '2':
+		selectedInfo = ">> biplane";
+		selectedIndex = 2;
+		break;
+	case '3':
+		selectedInfo = ">> ";
+		selectedIndex = 3;
+		break;
+	case '4':
+		selectedInfo = ">> ";
+		selectedIndex = 4;
+		break;
+	case '5':
+		selectedInfo = ">> ";
+		selectedIndex = 5;
+		break;
+	case '6':
+		selectedInfo = defaultSelectedInfo;
+		selectedIndex = -1;
+		break;
+	case 27:
 		exit(0);
+		break;
+	}
+
+	switch (selectedIndex)
+	{
+	case 1:
+		break;
+	case 2:
+		break;
+	case 3:
+		break;
+	case 4:
+		break;
+	case 5:
+		break;
+	default:
+		break;
+	}
+
 	glutPostRedisplay();
 }
 
@@ -144,6 +210,7 @@ void resharp(int w, int h)
 
 	glutReshapeWindow(w, h);
 	glViewport(0, 0, w, h);
+	glutPostRedisplay();
 }
 
 
@@ -179,27 +246,6 @@ void motion(int x, int y)
 {
 	if (leftMouseButtonDown)
 		cameraMotion(x, y, lastMouseX, lastMouseY);
-}
-
-void initLights()
-{
-	directionalLight* dirLight = oneDirectionalLight(vec3(1, 10, 2), vec3(-.5, -1, -.5));
-	dirLight->ambient = 
-	dirLight->diffuse = 
-	dirLight->specular = color3(1, 1, 1);
-}
-
-void initialize_before_display()
-{
-	initEnvironment();
-	initLights();
-	engine::initDefaultShaders();
-	initCube();
-	initPlane();
-	initPlane2();
-	initCylinder();
-	initSphere();
-	initSign();
 }
 
 int main(int argc, char** argv)

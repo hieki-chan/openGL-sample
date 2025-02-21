@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="objects\airplanes\biplane.cpp" />
     <ClCompile Include="core\axes.cpp" />
     <ClCompile Include="core\camera.cpp" />
     <ClCompile Include="core\InitShader.cpp" />
@@ -26,9 +27,9 @@
     <ClCompile Include="core\textfile.cpp" />
     <ClCompile Include="core\lighting.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="objects\airplane.cpp" />
-    <ClCompile Include="objects\airplaneOfDuyen.cpp" />
-    <ClCompile Include="objects\airplaneOfTien.cpp" />
+    <ClCompile Include="objects\airplanes\airplane.cpp" />
+    <ClCompile Include="objects\airplanes\airplaneOfDuyen.cpp" />
+    <ClCompile Include="objects\airplanes\airplaneOfTien.cpp" />
     <ClCompile Include="objects\cabinet.cpp" />
     <ClCompile Include="objects\chair.cpp" />
     <ClCompile Include="objects\chair1.cpp" />
@@ -53,6 +54,7 @@
     <None Include="objects\vShader.glsl" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\objects\biplane.h" />
     <ClInclude Include="include\core\shaders.h" />
     <ClInclude Include="include\core\stb_image.h" />
     <ClInclude Include="include\objects\chair1.h" />

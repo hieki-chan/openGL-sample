@@ -3,11 +3,10 @@
 #include "core/lighting.h"
 #include "core/shaders.h"
 
-pointLight* lamp_light = addPointLight(vec3());
 vec3 lamp_position;
 vec3 lamp_rotation;
 
-void drawLamp(vec3 position, vec3 rotation, vec3 scale)
+void drawLamp(vec3 position, vec3 rotation, vec3 scale, pointLight* lamp_light)
 {
 	color metalColor = color(0.8, 0.8, 0.8, 1);  // Kim loại bạc sáng
 	color lampColor = color(0.2, 0.2, 0.2, 1);   // Chao đèn màu xám đậm
@@ -23,9 +22,6 @@ void drawLamp(vec3 position, vec3 rotation, vec3 scale)
 	cubeTransform(position, rotation, scale);
 
 	lamp_light->setTransformMatrix(transform * Translate(0, 0.5, 0));
-	lamp_light->ambient = color3(1, 1, 1);
-	lamp_light->diffuse = 
-	lamp_light->specular = color3(1, 1, 0);
 
 	drawCylinder(vec3(0, 2.5, 0), vec3(0, 0, 0), vec3(0.4, 0.1, 0.4), metalColor);
 	drawCylinder(vec3(0, 2.55, 0), vec3(0, 0, 0), vec3(0.45, 0.02, 0.45), color(0.5, 0.5, 0.5, 1));
