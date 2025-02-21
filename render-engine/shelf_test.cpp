@@ -26,6 +26,7 @@
 #include <objects/lamp.h>
 #include <objects/chair.h>
 #include <objects/chair1.h>
+#include <objects/testObject.h>
 
 
 ui::button btnAxes;
@@ -95,7 +96,9 @@ void display()
 
 	//drawChair(vec3(0, 0, 0), vec3(), vec3(1, 1, 1));
 
-	drawChair1(vec3(0, 0, 0), vec3(), vec3(1, 1, 1));
+	//drawChair1(vec3(0, 0, 0), vec3(), vec3(1, 1, 1));
+
+	drawTestObject(vec3(0, 0, 0), vec3(), vec3(1, 1, 1));
 
 	onGUI();
 

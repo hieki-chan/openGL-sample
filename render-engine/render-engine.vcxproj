@@ -43,6 +43,7 @@
     <ClCompile Include="objects\sphere.cpp" />
     <ClCompile Include="objects\table.cpp" />
     <ClCompile Include="shelf_test.cpp" />
+    <ClCompile Include="objects\testObject.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="objects\fShader.glsl" />
@@ -78,6 +79,7 @@
     <ClInclude Include="include\objects\sphere.h" />
     <ClInclude Include="include\objects\table.h" />
     <ClInclude Include="include\objects\lamp.h" />
+    <ClInclude Include="include\objects\testObject.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
