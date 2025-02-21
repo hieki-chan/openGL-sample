@@ -5,9 +5,7 @@
 #include <iostream>
 #include <cmath>
 #include <cstring>
-#include <Windows.h>			//for MS-windows
-
-
+#include <Windows.h>		//for MS-windows
 
 #define Deg2Rad Angel::DegreesToRadians
 #define Rad2Deg = (1.0f / Deg2Rad);

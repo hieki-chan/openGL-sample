@@ -105,19 +105,31 @@
     <ClCompile Include="objects\sphere\sphere.cpp">
       <Filter>Source Files\objects\sphere</Filter>
     </ClCompile>
+    <ClCompile Include="objects\chair.cpp">
+      <Filter>Source Files\objects</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\chair1.cpp">
+      <Filter>Source Files\objects</Filter>
+    </ClCompile>
+    <ClCompile Include="core\shaders.cpp">
+      <Filter>Source Files\core</Filter>
+    </ClCompile>
+    <ClCompile Include="objects\sign.cpp">
+      <Filter>Source Files\objects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="objects\fShader.glsl">
-      <Filter>Source Files</Filter>
-    </None>
-    <None Include="objects\vShader.glsl">
-      <Filter>Source Files</Filter>
-    </None>
     <None Include="objects\cube\cube_fshader.glsl">
       <Filter>Source Files\objects\cube</Filter>
     </None>
     <None Include="objects\cube\cube_vshader.glsl">
       <Filter>Source Files\objects\cube</Filter>
+    </None>
+    <None Include="objects\fShader.glsl">
+      <Filter>Source Files\objects</Filter>
+    </None>
+    <None Include="objects\vShader.glsl">
+      <Filter>Source Files\objects</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -184,17 +196,40 @@
     <ClInclude Include="include\objects\table.h">
       <Filter>Header Files\objects</Filter>
     </ClInclude>
-    <ClInclude Include="include\objects\airplaneOfTien.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="include\objects\chair.h">
+      <Filter>Header Files\objects</Filter>
     </ClInclude>
     <ClInclude Include="include\objects\airplaneOfDuyen.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\objects</Filter>
     </ClInclude>
     <ClInclude Include="include\objects\sphere.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="include\objects\airplaneOfTien.h">
+      <Filter>Header Files\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="include\objects\chair1.h">
+      <Filter>Header Files\objects</Filter>
     </ClInclude>
     <ClInclude Include="include\objects\lamp.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\objects</Filter>
     </ClInclude>
+    <ClInclude Include="include\core\shaders.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+    <ClInclude Include="include\objects\sign.h">
+      <Filter>Header Files\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="include\core\stb_image.h">
+      <Filter>Header Files\core</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\resources\sphere.jpeg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="wall.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

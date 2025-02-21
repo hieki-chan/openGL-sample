@@ -2,33 +2,35 @@
 
 //include core engine
 
-#include "core/openGL.h"		// open gl and utilities
-#include "core/camera.h"		// camera
-#include "core/shaders.h"		// shaders
-#include "core/environment.h"	// environment
-#include "core/lighting.h"		// lighting
-#include "core/ui.h"			// user interface
+#include <core/openGL.h>		// open gl and utilities
+#include <core/camera.h>		// camera
+#include <core/shaders.h>		// shaders
+#include <core/environment.h>	// environment
+#include <core/lighting.h>		// lighting
+#include <core/ui.h>			// user interface
 
- //include objects
+//include objects
+#include <objects/cube.h>		
+#include <objects/plane.h>
+#include <objects/plane2.h>
+#include <objects/cylinder.h>		
+#include <objects/sphere.h>
 
-#include "objects/cube.h"		
-#include "objects/plane.h"
-#include "objects/plane2.h"
-#include "objects/cylinder.h"		
-#include "objects/sphere.h"		
+//scene objects
 #include "objects/shelf.h"	
 #include "objects/computer.h"	
 #include "objects/cabinet.h"	
 #include "objects/table.h"	
-#include "objects/airplaneOfTien.h"	
-
 #include "objects/airplane.h"
-#include <objects/airplaneOfDuyen.h>
-#include <objects/lamp.h>
-#include <objects/chair.h>
-#include <objects/chair1.h>
+#include "objects/airplaneOfTien.h"	
+#include "objects/airplaneOfDuyen.h"
+#include "objects/lamp.h"
+#include "objects/chair.h"
+#include "objects/chair1.h"
+#include "objects/sign.h"
 
 using namespace engine;
+using namespace std;
 
 ui::button btnAxes;
 bool enableAxes = true;
@@ -97,7 +99,9 @@ void display()
 
 	//drawChair(vec3(0, 0, 0), vec3(), vec3(1, 1, 1));
 
-	drawChair1(vec3(0, 0, 0), vec3(), vec3(1, 1, 1));
+	//drawChair1(vec3(0, 0, 0), vec3(), vec3(1, 1, 1));
+
+	drawSign(vec3(0, 1, 0), vec3(0, 0, 0), vec3(3, 1, 1), color(1, 1, 1, 1));
 
 	onGUI();
 
@@ -195,6 +199,7 @@ void initialize_before_display()
 	initPlane2();
 	initCylinder();
 	initSphere();
+	initSign();
 }
 
 int main(int argc, char** argv)

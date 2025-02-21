@@ -46,6 +46,10 @@ uniform int pointLightCount;
 //color
 uniform vec4 mainColor;
 
+//texture
+in vec2 texCoord;
+uniform sampler2D mainTexture;
+
 //function prototype
 vec3 calculateDirectionalLights(DirectionalLight dlight);
 vec3 calculatePointLights(PointLight plight);
@@ -65,8 +69,15 @@ void main()
 		PointLight light = pointLights[i];
 		result += calculatePointLights(light);
 	}
-  
-	fColor = vec4(result, mainColor.w);
+	
+	//texture
+	vec4 textureColor = texture(mainTexture, texCoord);
+	if(texCoord.x < 0 || texCoord.y < 0 || textureColor == vec4(0, 0, 0, 1))
+	{
+		textureColor = vec4(1, 1, 1, 1);
+	}
+
+	fColor = textureColor * vec4(result, mainColor.w);
 	//fColor = mainColor;
 	//fColor = vec4(0, 0, 1, 1);
 }

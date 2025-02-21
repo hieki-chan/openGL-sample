@@ -44,6 +44,7 @@
     <ClCompile Include="objects\table.cpp" />
     <ClCompile Include="core\shaders.cpp" />
     <ClCompile Include="shelf_test.cpp" />
+    <ClCompile Include="objects\sign.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="objects\fShader.glsl" />
@@ -53,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\core\shaders.h" />
+    <ClInclude Include="include\core\stb_image.h" />
     <ClInclude Include="include\objects\chair1.h" />
     <ClInclude Include="include\objects\chair.h" />
     <ClInclude Include="include\objects\airplaneOfDuyen.h" />
@@ -77,9 +79,14 @@
     <ClInclude Include="include\objects\plane.h" />
     <ClInclude Include="include\objects\plane2.h" />
     <ClInclude Include="include\objects\shelf.h" />
+    <ClInclude Include="include\objects\sign.h" />
     <ClInclude Include="include\objects\sphere.h" />
     <ClInclude Include="include\objects\table.h" />
     <ClInclude Include="include\objects\lamp.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\resources\sphere.jpeg" />
+    <Image Include="wall.jpg" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

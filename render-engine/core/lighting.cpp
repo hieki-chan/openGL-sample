@@ -96,4 +96,5 @@ void engine::useLights(GLuint shader_program, const char* lightPositionName, con
 void engine::disposeLights()
 {
 	delete[] pointLights;
+	delete dirLight;
 }

@@ -137,7 +137,7 @@ void engine::drawAxes()
 
 	useCameraMatrix(vloc, ploc);
 
-	glUniformMatrix4fv(mloc, 1, GL_TRUE, Scale(100));
+	glUniformMatrix4fv(mloc, 1, GL_TRUE, Scale(1000));
 
 	glDrawElements(GL_LINES, 6, GL_UNSIGNED_INT, 0);
 

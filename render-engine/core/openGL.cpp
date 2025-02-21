@@ -83,6 +83,9 @@ GLuint engine::initProgram(GLuint vertexShader, GLuint fragmentShader)
 	glAttachShader(shaderProgram, fragmentShader);
 	glLinkProgram(shaderProgram);
 
+	glDeleteShader(vertexShader);
+	glDeleteShader(fragmentShader);
+
 	//check for errors
 	int status;
 	glGetProgramiv(shaderProgram, GL_LINK_STATUS, &status);
@@ -96,12 +99,7 @@ GLuint engine::initProgram(GLuint vertexShader, GLuint fragmentShader)
 	return shaderProgram;
 }
 
-GLuint engine::initProgram(const char* vertexShaderPath, const char* fragmentShaderPath)
-{
-	GLuint program;
 
-	return 1;
-}
 
 void engine::setUniformInt(GLuint program, const std::string& name, const int* value)
 {
