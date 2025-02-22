@@ -1,11 +1,13 @@
 #pragma once
 
-
 #include "core/openGL.h"
+#include "core/shaders.h"
 
 void initCylinder();
 
-void drawCylinder(vec3 position, vec3 rotation, vec3 scale, color color);
+void drawCylinder(const vec3& position, const vec3& rotation, const vec3& scale,
+	const color& mainColor,
+	engine::shader shader = engine::defaultShader);
 
 mat4 cylinderTransformMatrix(mat4 matrix);
 

@@ -2,28 +2,32 @@
 
 #include "core/openGL.h"
 
-namespace ui
+namespace engine
 {
-	extern int window_width, window_height;
-
-	struct button
+	namespace ui
 	{
-		int x, y;
-		int width, height;
-		void (*callback)();
+		extern int window_width, window_height;
 
-		void onEvent(int button, int state, int x, int y);
+		struct button
+		{
+			int x, y;
+			int width, height;
+			void (*callback)();
 
-		bool isInside(int mouseX, int mouseY) const;
-	};
+			void onEvent(int button, int state, int x, int y);
 
-	void screenChange(int width, int height);
+			bool isInside(int mouseX, int mouseY) const;
+		};
 
-	void enable2d();
+		void screenChange(int width, int height);
 
-	void disable2d();
+		void enable2d();
 
-	void text2D(const char* text, int fontSize, int x, int y, color color = Angel::vec4(1, 1, 1, 1));
+		void disable2d();
 
-	button button2D(const char* text, int fontSize, int sizeX, int sizeY, int x, int y, color buttonColor = Angel::vec4(0, 0, 1, 1), color textColor = Angel::vec4(1, 1, 1, 1));
+		void text2D(const char* text, int fontSize, int x, int y, color color = Angel::vec4(1, 1, 1, 1));
+
+		button button2D(const char* text, int fontSize, int sizeX, int sizeY, int x, int y, color buttonColor = Angel::vec4(0, 0, 1, 1), color textColor = Angel::vec4(1, 1, 1, 1));
+	}
+
 }

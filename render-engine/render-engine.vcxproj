@@ -19,31 +19,34 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="objects\chair1.cpp" />
-    <ClCompile Include="objects\chair.cpp" />
-    <ClCompile Include="objects\lamp.cpp" />
-    <ClCompile Include="objects\airplaneOfDuyen.cpp" />
-    <ClCompile Include="objects\airplaneOfTien.cpp" />
+    <ClCompile Include="objects\airplanes\biplane.cpp" />
     <ClCompile Include="core\axes.cpp" />
     <ClCompile Include="core\camera.cpp" />
     <ClCompile Include="core\InitShader.cpp" />
     <ClCompile Include="core\openGL.cpp" />
     <ClCompile Include="core\textfile.cpp" />
     <ClCompile Include="core\lighting.cpp" />
-    <ClCompile Include="objects\airplane.cpp" />
-    <ClCompile Include="objects\cabinet.cpp" />
-    <ClCompile Include="objects\computer.cpp" />
-    <ClCompile Include="objects\cylinder\cylinder.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="objects\airplanes\airplane.cpp" />
+    <ClCompile Include="objects\airplanes\airplaneOfDuyen.cpp" />
+    <ClCompile Include="objects\airplanes\airplaneOfTien.cpp" />
+    <ClCompile Include="objects\cabinet.cpp" />
+    <ClCompile Include="objects\chair.cpp" />
+    <ClCompile Include="objects\chair1.cpp" />
+    <ClCompile Include="objects\computer.cpp" />
     <ClCompile Include="objects\cube\cube.cpp" />
     <ClCompile Include="core\ui.cpp" />
+    <ClCompile Include="objects\cylinder\cylinder.cpp" />
+    <ClCompile Include="objects\lamp.cpp" />
     <ClCompile Include="objects\plane\plane.cpp" />
     <ClCompile Include="objects\plane\plane2.cpp" />
     <ClCompile Include="objects\shelf.cpp" />
-    <ClCompile Include="objects\sphere.cpp" />
+    <ClCompile Include="objects\sphere\sphere.cpp" />
     <ClCompile Include="objects\table.cpp" />
+    <ClCompile Include="core\shaders.cpp" />
     <ClCompile Include="shelf_test.cpp" />
     <ClCompile Include="objects\testObject.cpp" />
+    <ClCompile Include="objects\sign.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="objects\fShader.glsl" />
@@ -52,6 +55,9 @@
     <None Include="objects\vShader.glsl" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\objects\biplane.h" />
+    <ClInclude Include="include\core\shaders.h" />
+    <ClInclude Include="include\core\stb_image.h" />
     <ClInclude Include="include\objects\chair1.h" />
     <ClInclude Include="include\objects\chair.h" />
     <ClInclude Include="include\objects\airplaneOfDuyen.h" />
@@ -76,10 +82,15 @@
     <ClInclude Include="include\objects\plane.h" />
     <ClInclude Include="include\objects\plane2.h" />
     <ClInclude Include="include\objects\shelf.h" />
+    <ClInclude Include="include\objects\sign.h" />
     <ClInclude Include="include\objects\sphere.h" />
     <ClInclude Include="include\objects\table.h" />
     <ClInclude Include="include\objects\lamp.h" />
     <ClInclude Include="include\objects\testObject.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\resources\sphere.jpeg" />
+    <Image Include="wall.jpg" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

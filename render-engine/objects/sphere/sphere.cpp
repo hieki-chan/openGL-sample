@@ -9,8 +9,6 @@ const int SPHERE_VERTEX_COUNT = SPHERE_STACKS * SPHERE_SLICES * 6;
 point4 sphere_points[SPHERE_VERTEX_COUNT];
 vec3 sphere_normals[SPHERE_VERTEX_COUNT];
 
-GLuint sphere_program;
-GLuint sphere_mloc, sphere_vloc, sphere_ploc;
 GLuint sphere_VAO, sphere_VBO;
 
 mat4 sphereModelMatrix;
@@ -62,18 +60,15 @@ void initSphereBuffers()
     sphere_VAO = initVAO();
     sphere_VBO = initVBO(sizeof(sphere_points) + sizeof(sphere_normals), sphere_points, GL_STATIC_DRAW);
     glBufferSubData(GL_ARRAY_BUFFER, sizeof(sphere_points), sizeof(sphere_normals), sphere_normals);
-    sphere_program = InitShader("objects/cube/cube_vshader.glsl", "objects/cube/cube_fshader.glsl");
+
+    GLuint sphere_program = engine::defaultShader.program;
+
     GLuint loc_vPos = glGetAttribLocation(sphere_program, "vPosition");
     glEnableVertexAttribArray(loc_vPos);
     glVertexAttribPointer(loc_vPos, 4, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(0));
     GLuint loc_vNormal = glGetAttribLocation(sphere_program, "vNormal");
     glEnableVertexAttribArray(loc_vNormal);
     glVertexAttribPointer(loc_vNormal, 3, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(sizeof(sphere_points)));
-    sphere_mloc = glGetUniformLocation(sphere_program, "model");
-    sphere_vloc = glGetUniformLocation(sphere_program, "view");
-    sphere_ploc = glGetUniformLocation(sphere_program, "projection");
-    glEnable(GL_DEPTH_TEST);
-    glUseProgram(sphere_program);
 }
 
 void initSphere()
@@ -82,14 +77,15 @@ void initSphere()
     initSphereBuffers();
 }
 
-void drawSphere(vec3 position, vec3 rotation, vec3 scale, color mainColor)
+void drawSphere(const vec3& position, const vec3& rotation, const vec3& scale, const color& mainColor, engine::shader shader)
 {
-    bind(sphere_program, sphere_VAO);
-    useCameraMatrix(sphere_vloc, sphere_ploc);
+    bind(shader.program, sphere_VAO);
+
+    useCameraMatrix(shader.vloc, shader.ploc);
     mat4 instance = TRS(position, rotation, scale);
-    glUniformMatrix4fv(sphere_mloc, 1, GL_TRUE, sphereModelMatrix * instance);
-    setUniformVec4(sphere_program, "mainColor", mainColor);
-    useLights(sphere_program, "lightPosition", "lightColor", "viewPosition", CAM_POS_3);
+    glUniformMatrix4fv(shader.mloc, 1, GL_TRUE, sphereModelMatrix * instance);
+    setUniformVec4(shader.program, "mainColor", mainColor);
+    useLights(shader.program, "lightPosition", "lightColor", "viewPosition", CAM_POS_3);
     glDrawArrays(GL_TRIANGLES, 0, SPHERE_VERTEX_COUNT);
     unbind();
 }
