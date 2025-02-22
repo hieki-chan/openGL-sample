@@ -31,6 +31,7 @@
 #include "objects/chair.h"
 #include "objects/chair1.h"
 #include "objects/sign.h"
+#include "objects/testObject.h"
 
 using namespace engine;
 using namespace std;
@@ -141,7 +142,8 @@ void display()
 	drawLamp(vec3(2, 2, 0), vec3(), vec3(1, 1, 1), lamp_light_2);
 
 	//drawAirplane(vec3(0, 2, 0), vec3(), vec3(1, 1, 1));
-	drawBiplane(vec3(0, 0, 0), vec3(), vec3(.75f, .75f, .75f));
+	//drawAirplaneOfTien(vec3(0, 2, 0), vec3(), vec3(1, 1, 1));
+	//drawBiplane(vec3(0, 0, 0), vec3(), vec3(.75f, .75f, .75f));
 
 	//drawSign(vec3(0, 1, 0), vec3(0, 0, 0), vec3(3, 1, 1), color(1, 1, 1, 1));
 	//drawChair1(vec3(0, 0, 0), vec3(), vec3(1, 1, 1));
