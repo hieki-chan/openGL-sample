@@ -50,29 +50,7 @@ void drawTV() {
     drawCube(vec3(-2.5, tvHeight - 1, -0.2), vec3(0, 0, 0), vec3(0.2, 3, 0.1), mountColor);
     drawCube(vec3(2.5, tvHeight - 1, -0.2), vec3(0, 0, 0), vec3(0.2, 3, 0.1), mountColor);
 }
-void drawTestObject(vec3 position, vec3 rotation, vec3 scale)
-{
-
-    //mat4 globalTransformMatrix = cylinderTransform(position, rotation, scale);
-    //cubeTransform(position, rotation, scale);
-    //// **Thanh dọc**
-    //for (int i = 0; i <= 5; i++) {
-    //    float zOffset = i * 0.71428;
-    //    drawCube(vec3(9.785, 0.5, 0.864 + zOffset), vec3(0, 0, 0), vec3(0.1, 4, 0.1), frameColor);
-    //}
-
-    //// **Thanh ngang**
-    //for (int i = 0; i <= 3; i++) {
-    //    float zOffset = i * 1.428;
-    //    drawCube(vec3(9.785, -0.5, 0.507 + zOffset), vec3(0, 0, 0), vec3(0.1, 0.1, 0.714), frameColor);
-    //    drawCube(vec3(9.785, 1.5, 0.507 + zOffset), vec3(0, 0, 0), vec3(0.1, 0.1, 0.714), frameColor);
-    //}
-
-    //// **Thanh ngang giữa**
-    //drawCube(vec3(9.785, 0.5, 1.221), vec3(0, 0, 0), vec3(0.1, 0.1, 0.714), frameColor);
-    //drawCube(vec3(9.785, 0.5, 4.078), vec3(0, 0, 0), vec3(0.1, 0.1, 0.714), frameColor);
-    drawTV();
-
+void drawCabinetTV() {
     color cabinetColor = color(0.5, 0.3, 0.2, 1);  // Màu tủ gỗ
     color handleColor = color(1, 0.973, 0.863, 1); // Màu tay cầm
 
@@ -97,4 +75,50 @@ void drawTestObject(vec3 position, vec3 rotation, vec3 scale)
     // **5. Cửa tủ**
     drawLeftDoor();
     drawRightDoor();
+}
+void drawCuaSo() {
+    //// **Thanh dọc**
+    //for (int i = 0; i <= 5; i++) {
+    //    float zOffset = i * 0.71428;
+    //    drawCube(vec3(9.785, 0.5, 0.864 + zOffset), vec3(0, 0, 0), vec3(0.1, 4, 0.1), frameColor);
+    //}
+
+    //// **Thanh ngang**
+    //for (int i = 0; i <= 3; i++) {
+    //    float zOffset = i * 1.428;
+    //    drawCube(vec3(9.785, -0.5, 0.507 + zOffset), vec3(0, 0, 0), vec3(0.1, 0.1, 0.714), frameColor);
+    //    drawCube(vec3(9.785, 1.5, 0.507 + zOffset), vec3(0, 0, 0), vec3(0.1, 0.1, 0.714), frameColor);
+    //}
+
+    //// **Thanh ngang giữa**
+    //drawCube(vec3(9.785, 0.5, 1.221), vec3(0, 0, 0), vec3(0.1, 0.1, 0.714), frameColor);
+    //drawCube(vec3(9.785, 0.5, 4.078), vec3(0, 0, 0), vec3(0.1, 0.1, 0.714), frameColor);
+}
+void drawTestObject(vec3 position, vec3 rotation, vec3 scale)
+{
+
+    mat4 globalTransformMatrix = cylinderTransform(position, rotation, scale);
+    cubeTransform(position, rotation, scale);
+    
+    drawCylinder(vec3(0, 0, 0), vec3(90, 0, 90), vec3(1, 4.5, 1.2), color(1, 1, 1, 1));
+    drawCylinder(vec3(3, -.035, 0), vec3(90, 10, 90), vec3(.8, 2, .8), color(1, 1, 1, 1));
+    drawCylinder(vec3(3, .2, 0), vec3(90, 0, 90), vec3(.8, 2, .8), color(1, 1, 1, 1));
+    drawCylinder(vec3(3, .1, 0), vec3(90, 5, 90), vec3(.9, 2, .9), color(1, 1, 1, 1));
+    drawCylinder(vec3(4, .3, 0), vec3(90, 2, 90), vec3(.6, 2, .6), color(1, 1, 1, 1));
+    drawPlane(vec3(5, .2, 0), vec3(90, -90, 0), vec3(.75, .3, 2), color(1, 1, 1, 1));
+
+    drawSphere(vec3(-2.4, -.1, 0), vec3(0, 0, 0), vec3(3, 1, 1), color(1, 1, 1, 1));
+    drawSphere(vec3(-2.25, .095, 0), vec3(0, 0, 0), vec3(1.65, 1, .95), color(1, 1, 1, 1));
+
+    drawPlane(vec3(.2, .2, -2.5), vec3(0, -25, 180), vec3(1.5, .1, 6), color(1, 1, 1, 1));
+    drawPlane(vec3(-.7, 0, 2), vec3(-90, 80, 0), vec3(.3, .05, .8), color(0, 1, 1, 1));
+    drawPlane(vec3(0, 0, 3.5), vec3(-90, 80, 0), vec3(.3, .05, .8), color(0, 1, 1, 1));
+    drawPlane(vec3(.5, .2, 2.5), vec3(180, -30, 0), vec3(1.5, .1, 6), color(1, 1, 1, 1));
+    drawPlane(vec3(-.7, 0, -2), vec3(-90, 80, 0), vec3(.3, .05, .8), color(0, 1, 1, 1));
+    drawPlane(vec3(0, 0, -3.5), vec3(-90, 80, 0), vec3(.3, .05, .8), color(0, 1, 1, 1));
+
+    drawPlane(vec3(5, .2, -1), vec3(0, 0, 180), vec3(1, .1, 2), color(1, 1, 1, 1));
+    drawPlane(vec3(5, .2, 1), vec3(180, 0, 0), vec3(1, .1, 2), color(1, 1, 1, 1));
+    drawPlane(vec3(5, 1, 0), vec3(90, 0, 180), vec3(1, .1, 2), color(1, 1, 1, 1));
+    
 }
