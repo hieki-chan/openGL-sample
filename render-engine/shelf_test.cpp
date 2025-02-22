@@ -43,6 +43,9 @@ void toggleAxes()
 	enableAxes = !enableAxes;
 }
 
+bool leftMouseButtonDown = false;
+int lastMouseX, lastMouseY;
+
 const char* defaultSelectedInfo = ">> None (Press to select) ";
 const char* selectedInfo = defaultSelectedInfo;
 int selectedIndex = -1;
@@ -78,12 +81,12 @@ directionalLight* sun_light;
 pointLight* lamp_light_1;
 pointLight* lamp_light_2;
 
-void initLights()
+void setupLights()
 {
 	sun_light = oneDirectionalLight(vec3(1, 10, 2), vec3(-.5, -1, -.5));
 	sun_light->ambient =
 		sun_light->diffuse =
-		sun_light->specular = color3(.1f, .1f, .1f);
+		sun_light->specular = color3(.15f, .15f, .15f);
 
 	lamp_light_1 = addPointLight(vec3());
 	lamp_light_1->ambient = color3(1, 1, 1);
@@ -96,11 +99,27 @@ void initLights()
 		lamp_light_2->specular = color3(0, 1, 1);
 }
 
+void setUpCam()
+{
+	int mX = 0;
+	int mY = 0;
+	for (int i = 0; i < 50; i++)
+	{
+		lastMouseX = 0;
+		lastMouseY = 0;
+		cameraMotion(-1, 1, lastMouseX, lastMouseY);
+	}
+
+	for(int i = 0; i < 13; i++)
+		zoomCamera(-0.1f);
+}
+
 void initialize_before_display()
 {
-	initEnvironment();
-	initLights();
+	engine::initEnvironment();
 	engine::initDefaultShaders();
+	setupLights();
+	setUpCam();
 	initCube();
 	initPlane();
 	initPlane2();
@@ -108,7 +127,6 @@ void initialize_before_display()
 	initSphere();
 	initSign();
 }
-
 
 void display()
 {
@@ -213,10 +231,6 @@ void resharp(int w, int h)
 	glutPostRedisplay();
 }
 
-
-bool leftMouseButtonDown = false;
-int lastMouseX, lastMouseY;
-
 void mouse(int button, int state, int x, int y)
 {
 	btnAxes.onEvent(button, state, x, y);
@@ -241,7 +255,6 @@ void mouse(int button, int state, int x, int y)
 	}
 }
 
-
 void motion(int x, int y)
 {
 	if (leftMouseButtonDown)
@@ -251,7 +264,8 @@ void motion(int x, int y)
 int main(int argc, char** argv)
 {
 	glutInit(&argc, argv);
-	glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH);
+	glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE | GLUT_DEPTH | GLUT_MULTISAMPLE);
+	glEnable(GL_MULTISAMPLE);
 	glutInitWindowSize(840, 600);
 	glutInitWindowPosition(250, 250);
 	glutCreateWindow("Render Engine");

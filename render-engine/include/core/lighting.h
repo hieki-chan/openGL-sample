@@ -34,6 +34,7 @@ namespace engine
 		float constant = 1.0f;
 		float linear = 0.09f;
 		float quadratic = 0.032f;
+		float radius = 10.0f;
 	};
 
 	directionalLight* oneDirectionalLight(const vec3& position, const vec3& direction);

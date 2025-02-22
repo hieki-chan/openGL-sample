@@ -27,6 +27,8 @@ struct PointLight
 	float constant;
 	float linear;
 	float quadratic;
+
+	float radius;
 };
 
 in vec4 color;
@@ -89,10 +91,13 @@ vec3 calculateDirectionalLights(DirectionalLight dlight)
 
 vec3 calculatePointLights(PointLight plight)
 {
+	float distance = length(plight.position - FragPos);
+	if(distance > plight.radius)
+		return vec3(0, 0, 0);
+
 	vec3 lightDir = normalize(plight.position - FragPos);
 	vec3 result = shading(lightDir, plight.ambient, plight.diffuse, plight.specular);
 
-	float distance = length(plight.position - FragPos);
 	float attenuation = 1.0 / (plight.constant + plight.linear * distance +  plight.quadratic * (distance * distance));    
 	return result * attenuation;
 }

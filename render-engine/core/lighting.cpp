@@ -90,6 +90,8 @@ void engine::useLights(GLuint shader_program, const char* lightPositionName, con
 		setUniformFloat(shader_program, pointLightIndex + "constant", &pointLights[i].constant);
 		setUniformFloat(shader_program, pointLightIndex + "linear", &(pointLights + i)->linear);
 		setUniformFloat(shader_program, pointLightIndex + "quadratic", &(pointLights + i)->quadratic);
+
+		setUniformFloat(shader_program, pointLightIndex + "radius", &(pointLights + i)->radius);
 	}
 }
 
