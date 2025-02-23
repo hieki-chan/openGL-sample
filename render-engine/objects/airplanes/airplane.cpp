@@ -51,9 +51,5 @@ void drawAirplane(vec3 position, vec3 rotation, vec3 scale)
 	//head
 	drawPlane2(vec3(0, 0, 2.8), vec3(180, 0, 90), vec3(.75, .75, .75), bodyColor);
 
-	// gear
-
-	drawCube(vec3(2, 2, 4), vec3(0, 0, 0), vec3(2, 10, 2), bodyColor);
-	drawCube(vec3(-2, 2, 4), vec3(0, 0, 0), vec3(2, 10, 2), bodyColor);
 }
 

@@ -2,6 +2,9 @@
 
 void drawChair1(vec3 position, vec3 rotation, vec3 scale)
 {
+    mat4 globalTransformMatrix = cylinderTransform(position, rotation, scale);
+    cubeTransform(position, rotation, scale);
+
     color chairColor = color(0.1, 0.1, 0.1, 1);  // Màu ghế đen
     color metalColor = color(0.5, 0.5, 0.5, 1); // Màu kim loại bạc
 
@@ -11,11 +14,7 @@ void drawChair1(vec3 position, vec3 rotation, vec3 scale)
         float angle = i * (360.0 / 5);
         float x = cos(angle * 3.14159265359 / 180.0) * 0.2;
         float z = sin(angle * 3.14159265359 / 180.0) * 0.2;
-        //drawCube(vec3(x, -0.5, z), vec3(0, angle, 0), vec3(0.25, 0.05, 0.1), metalColor); // Thanh ngang
         drawCube(vec3(0, -.5, 0), vec3(0, angle, 0), vec3(0.75, 0.05, 0.1), metalColor); // Thanh ngang
-        //drawCylinder(vec3(x, -0.58, z), vec3(0, 0, 0), vec3(0.08, 0.08, 0.08), metalColor); // Bánh xe
-        //drawCylinder(vec3(x, -0.6, z), vec3(0, 0, 0), vec3(0.05, 0.1, 0.05), metalColor); // Chân đỡ bánh xe
-        //drawSphere(vec3(x, -0.68, z), vec3(), vec3(0.075, 0.075, 0.075), metalColor); // Bánh xe
     }
 
     // **2. Mặt ghế**

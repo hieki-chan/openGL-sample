@@ -1,10 +1,14 @@
-﻿#include "objects/airplaneOfDuyen.h"
+﻿#include "objects/helicopter.h"
 
-vec3 airPlaneOfDuyen_rotate;
+vec3 helicopter_rotate;
 
-void drawAirplaneOfDuyen(vec3 position, vec3 rotation, vec3 scale)
+void drawHelicopter(vec3 position, vec3 rotation, vec3 scale, bool colorPlane)
 {
-    color bodyColor = color(0.33, 0.27, 0.93, 1);
+    color bodyColor;
+    if (colorPlane)
+        bodyColor = color(0.33, 0.27, 0.93, 1);
+    else
+        bodyColor = color(0.6, 1, 0.6, 1);
     mat4 globalTransformMatrix = cubeTransform(position, rotation, scale);
     plane2Transform(position, rotation, scale);
     planeTransform(position, rotation, scale);
@@ -44,21 +48,21 @@ void drawAirplaneOfDuyen(vec3 position, vec3 rotation, vec3 scale)
     drawCube(vec3(0, -0.225, -0.075), vec3(0, 0, 0), vec3(0.35, 0.025, 0.025), vec4(0.91, 0.36, 0.39, 1));
     drawPlane2(vec3(-.19, -0.215, -0.075), vec3(90, 60, 0), vec3(0.025, 0.025, 0.05), vec4(0.91, 0.36, 0.39, 1));
 
-    mat4 currentModelMatrix = cubeTransformMatrix(globalTransformMatrix * Angel::RotateY(airPlaneOfDuyen_rotate.y));
+    mat4 currentModelMatrix = cubeTransformMatrix(globalTransformMatrix * Angel::RotateY(helicopter_rotate.y));
     // Cánh quạt
     drawCube(vec3(0, 0.25, 0), vec3(0, 0, 0), vec3(1, 0.01, 0.0625), WHITE);
     drawCube(vec3(0, 0.25, 0), vec3(0, 90, 0), vec3(1, 0.01, 0.0625), WHITE);
 }
 
-void airplaneOfDuyenKeyboard(unsigned char key, int mouseX, int mouseY)
+void helicopterKeyboard(unsigned char key, int mouseX, int mouseY)
 {
     switch (key)
     {
     case 'x':
-        airPlaneOfDuyen_rotate.y -= 5;
+        helicopter_rotate.y -= 5;
         break;
     case 'X':
-        airPlaneOfDuyen_rotate.y -= 5;
+        helicopter_rotate.y -= 5;
         break;
     default:
         break;
