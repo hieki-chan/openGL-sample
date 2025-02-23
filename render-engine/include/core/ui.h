@@ -12,7 +12,7 @@ namespace engine
 		{
 			int x, y;
 			int width, height;
-			void (*callback)();
+			void (*onClick)();
 
 			void onEvent(int button, int state, int x, int y);
 

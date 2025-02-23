@@ -126,10 +126,10 @@ void ui::button::onEvent(int button, int state, int x, int y)
 {
 	if (button == GLUT_LEFT_BUTTON && state == GLUT_UP && isInside(x, y))
 	{
-		if (callback) 
+		if (onClick) 
 		{
 
-			callback();
+			onClick();
 		}
 	}
 }

@@ -36,6 +36,9 @@
 using namespace engine;
 using namespace std;
 
+ui::button btnDay;
+ui::button btnNight;
+ui::button btnSunset;
 ui::button btnAxes;
 bool enableAxes = true;
 
@@ -43,6 +46,14 @@ void toggleAxes()
 {
 	enableAxes = !enableAxes;
 }
+
+//DAY TIME PROTOTYPE FUNCS
+void day();
+
+void night();
+
+void sunset();
+
 
 bool leftMouseButtonDown = false;
 int lastMouseX, lastMouseY;
@@ -65,7 +76,13 @@ void onGUI()
 	//ui::text2D("w - move right", 10, 10, ui::window_height - 80);
 
 	btnAxes = ui::button2D("Axes", 14, 80, 40, ui::window_width - 90, ui::window_height - 50, color(1, 1, 0, 1), color(0, 0, 0, 1));
-	btnAxes.callback = toggleAxes;
+	btnDay = ui::button2D("Day", 14, 80, 40, ui::window_width - 90, ui::window_height - 100, color(.9f, .9f, .9f, 1), color(0, 0, 0, 1));
+	btnNight = ui::button2D("Night", 14, 80, 40, ui::window_width - 90, ui::window_height - 150, color(.1f, .1f, .1f, 1), color(1, 1, 1, 1));
+	btnSunset = ui::button2D("Sunset", 14, 80, 40, ui::window_width - 90, ui::window_height - 200, color(.1f, .1f, .1f, 1), color(1, 1, 1, 1));
+	btnAxes.onClick = toggleAxes;
+	btnDay.onClick = day;
+	btnNight.onClick = night;
+	btnSunset.onClick = sunset;
 
 	ui::text2D(selectedInfo, 14, 10, ui::window_height - 100);
 	ui::text2D("1 - airplane", 14, 15, ui::window_height - 120);
@@ -98,6 +115,27 @@ void setupLights()
 	lamp_light_2->ambient = color3(1, 1, 1);
 	lamp_light_2->diffuse =
 		lamp_light_2->specular = color3(0, 1, 1);
+}
+
+void day()
+{
+	sun_light->ambient =
+	sun_light->diffuse =
+	sun_light->specular = color3(.9f, .9f, .9f);
+}
+
+void night()
+{
+	sun_light->ambient =
+	sun_light->diffuse =
+	sun_light->specular = color3(.1f, .1f, .1f);
+}
+
+void sunset()
+{
+	sun_light->ambient = color3(1, 1, 1);
+	sun_light->diffuse = 
+	sun_light->specular = color3(.8f, .2f, .0f);
 }
 
 void setUpCam()
@@ -239,6 +277,9 @@ void resharp(int w, int h)
 void mouse(int button, int state, int x, int y)
 {
 	btnAxes.onEvent(button, state, x, y);
+	btnDay.onEvent(button, state, x, y);
+	btnNight.onEvent(button, state, x, y);
+	btnSunset.onEvent(button, state, x, y);
 
 	if (button == GLUT_LEFT_BUTTON && state == GLUT_DOWN)
 	{
