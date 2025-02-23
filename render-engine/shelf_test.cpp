@@ -18,9 +18,10 @@
 
 //air planes
 #include "objects/airplane.h"
-#include "objects/airplaneOfTien.h"	
-#include "objects/airplaneOfDuyen.h"
+#include "objects/helicopter.h"	
+#include "objects/airplane1.h"
 #include "objects/biplane.h"
+#include "objects/b52.h"
 
 //scene objects
 #include "objects/shelf.h"	
@@ -32,6 +33,7 @@
 #include "objects/chair1.h"
 #include "objects/sign.h"
 #include "objects/testObject.h"
+#include "objects/planeStore.h"
 
 using namespace engine;
 using namespace std;
@@ -175,18 +177,43 @@ void display()
 
 	if(enableAxes) drawAxes();
 
-	drawLamp(vec3(-2, 2, 0), vec3(), vec3(1, 1, 1), lamp_light_1);
+	drawLamp(vec3(-32, 35, 20), vec3(), vec3(5, 5, 5), lamp_light_1);
 
-	drawLamp(vec3(2, 2, 0), vec3(), vec3(1, 1, 1), lamp_light_2);
+	drawLamp(vec3(32, 35, 20), vec3(), vec3(5, 5, 5), lamp_light_1);
 
-	//drawAirplane(vec3(0, 2, 0), vec3(), vec3(1, 1, 1));
-	//drawAirplaneOfTien(vec3(0, 2, 0), vec3(), vec3(1, 1, 1));
-	//drawBiplane(vec3(0, 0, 0), vec3(), vec3(.75f, .75f, .75f));
+	drawLamp(vec3(0, 35, 0), vec3(), vec3(5, 5, 5), lamp_light_2);
 
-	//drawSign(vec3(0, 1, 0), vec3(0, 0, 0), vec3(3, 1, 1), color(1, 1, 1, 1));
-	//drawChair1(vec3(0, 0, 0), vec3(), vec3(1, 1, 1));
+	//drawLamp(vec3(2, 2, 0), vec3(), vec3(1, 1, 1), lamp_light_2);
 
-	drawTestObject(vec3(0, 0, 0), vec3(), vec3(1, 1, 1));
+	drawB52(vec3(10, 76, 0), vec3(10, 150, -10), vec3(10, 10, 10));
+
+	//drawTestObject(vec3(0, 0, 0), vec3(), vec3(1, 1, 1));
+
+	drawPlaneStore(vec3(0, 0, 0), vec3(), vec3(1.5, 1.2, 1.5));
+
+	drawTable(vec3(-32, 13, 20), vec3(0, -90, 0), vec3(20, 20, 15));
+
+	drawChair1(vec3(-42, 6.5, 23), vec3(0, 90, 0), vec3(8, 8, 8));
+
+	drawComputer(vec3(-30.5, 17, 20), vec3(0, 180, 0), vec3(10, 10, 10));
+
+	drawCabinet(vec3(-41, 11, -17), vec3(0, 90, 0), vec3(25, 20, 30));
+
+	drawCabinet(vec3(15, 11, -26), vec3(0, 0, 0), vec3(55, 20, 30));
+
+	drawSign(vec3(0, 57.4, 38), vec3(0, 0, 0), vec3(40, 15, 15), color(1, 1, 1, 1));
+
+	drawAirplane(vec3(-40, 15, -26.5), vec3(0, 0, -45), vec3(1.5, 2, 2));
+
+	drawAirplane1(vec3(-40, 15.5, -12), vec3(0, 0, -45), vec3(1.5, 2, 2));
+
+	drawHelicopter(vec3(-40, 24, -8), vec3(0, 90, 0), vec3(10, 10, 10), true);
+
+	drawHelicopter(vec3(-40, 24, -23), vec3(0, 90, 0), vec3(10, 10, 10), false);
+
+	drawB52(vec3(-40, 32, -23.5), vec3(0, 90, 0), vec3(1, 1, 1));
+
+	drawBiplane(vec3(-40, 34, -9), vec3(0, 0, 0), vec3(1.5, 1.5, 1.5));
 
 	onGUI();
 

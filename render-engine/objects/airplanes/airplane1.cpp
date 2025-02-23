@@ -1,6 +1,6 @@
-#include "objects/airplaneOfTien.h"
+#include "objects/airplane1.h"
 
-void drawWingOfTien(color color, mat4 matrix)
+void drawWing1(color color, mat4 matrix)
 {
 	plane2TransformMatrix(matrix);
 
@@ -16,7 +16,7 @@ void drawWingOfTien(color color, mat4 matrix)
 	drawCylinder(vec3(0, -0.25, -.25), vec3(0, 0, 90), vec3(.5, 1, .5), vec4(0.91, 0.36, 0.39, 1));
 }
 
-void drawAirplaneOfTien(vec3 position, vec3 rotation, vec3 scale)
+void drawAirplane1(vec3 position, vec3 rotation, vec3 scale)
 {
 	color bodyColor = WHITE;
 
@@ -24,7 +24,6 @@ void drawAirplaneOfTien(vec3 position, vec3 rotation, vec3 scale)
 
 	plane2Transform(position, rotation, scale);
 
-	//cubeTransform(position, rotation, scale);
 
 	////body
 	drawCylinder(vec3(0, 0, 0), vec3(90, 0, 0), vec3(1.5, 3, 1.5), color(0.33, 0.27, 0.93, 1));
@@ -47,9 +46,9 @@ void drawAirplaneOfTien(vec3 position, vec3 rotation, vec3 scale)
 	// wings
 	mat4 wingMatrix = plane2TransformMatrix(globalTransformMatrix * Translate(0, 0.2, 0));
 	// >> left
-	drawWingOfTien(color(0.33, 0.27, 0.93, 1), wingMatrix * Translate(-2, -.35, .5) * RotateY(90));
+	drawWing1(color(0.33, 0.27, 0.93, 1), wingMatrix * Translate(-2, -.35, .5) * RotateY(90));
 	// >> right
-	drawWingOfTien(color(0.33, 0.27, 0.93, 1), wingMatrix * Translate(2, -.35, .5) * RotateY(-90));
+	drawWing1(color(0.33, 0.27, 0.93, 1), wingMatrix * Translate(2, -.35, .5) * RotateY(-90));
 
 	drawPlane2(vec3(-1, .5, 1), vec3(0, 0, 0), vec3(1, .1, 1), vec4(0.91, 0.36, 0.39, 1));
 	drawCylinder(vec3(-1, 0.5, .5), vec3(0, 0, 90), vec3(.6, .75, .6), color(0.33, 0.27, 0.93, 1));

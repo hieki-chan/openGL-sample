@@ -1,290 +1,81 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
-    <Filter Include="Header Files\core">
-      <UniqueIdentifier>{172fc8ae-46e6-4a30-89d0-6be671e6ec7a}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Header Files\objects">
-      <UniqueIdentifier>{dcbd5b11-6947-4fce-b592-2165f5fe9c3d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\core">
-      <UniqueIdentifier>{7c21eb69-c296-4b66-a443-ae3e116df588}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\objects">
-      <UniqueIdentifier>{3d69d408-a2e6-406d-8888-222df8abe6a5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\objects\cube">
-      <UniqueIdentifier>{e024b91b-6b74-42fb-88b7-329d0a7d93b7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\objects\cylinder">
-      <UniqueIdentifier>{e96b997f-4215-4445-b9b0-c039c13ec24b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\objects\plane">
-      <UniqueIdentifier>{4535ea74-245f-463b-ab74-646a9819485b}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\objects\sphere">
-      <UniqueIdentifier>{a9aedf0d-211c-44ad-a691-09550187d47c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\objects\airplanes">
-      <UniqueIdentifier>{37fa5be5-71fb-4a3c-a8a6-e8068543570c}</UniqueIdentifier>
-    </Filter>
+    <ClCompile Include="objects\airplanes\biplane.cpp" />
+    <ClCompile Include="core\axes.cpp" />
+    <ClCompile Include="core\camera.cpp" />
+    <ClCompile Include="core\InitShader.cpp" />
+    <ClCompile Include="core\openGL.cpp" />
+    <ClCompile Include="core\textfile.cpp" />
+    <ClCompile Include="core\lighting.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="objects\airplanes\airplane.cpp" />
+    <ClCompile Include="objects\airplanes\helicopter.cpp" />
+    <ClCompile Include="objects\airplanes\airplane1.cpp" />
+    <ClCompile Include="objects\cabinet.cpp" />
+    <ClCompile Include="objects\chair.cpp" />
+    <ClCompile Include="objects\chair1.cpp" />
+    <ClCompile Include="objects\computer.cpp" />
+    <ClCompile Include="objects\cube\cube.cpp" />
+    <ClCompile Include="core\ui.cpp" />
+    <ClCompile Include="objects\cylinder\cylinder.cpp" />
+    <ClCompile Include="objects\lamp.cpp" />
+    <ClCompile Include="objects\plane\plane.cpp" />
+    <ClCompile Include="objects\plane\plane2.cpp" />
+    <ClCompile Include="objects\shelf.cpp" />
+    <ClCompile Include="objects\sphere\sphere.cpp" />
+    <ClCompile Include="objects\table.cpp" />
+    <ClCompile Include="core\shaders.cpp" />
+    <ClCompile Include="shelf_test.cpp" />
+    <ClCompile Include="objects\testObject.cpp" />
+    <ClCompile Include="objects\sign.cpp" />
+    <ClCompile Include="objects\airplanes\b52.cpp" />
+    <ClCompile Include="objects\planeStore.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="objects\cube\cube.cpp">
-      <Filter>Source Files\objects\cube</Filter>
-    </ClCompile>
-    <ClCompile Include="core\InitShader.cpp">
-      <Filter>Source Files\core</Filter>
-    </ClCompile>
-    <ClCompile Include="core\camera.cpp">
-      <Filter>Source Files\core</Filter>
-    </ClCompile>
-    <ClCompile Include="core\textfile.cpp">
-      <Filter>Source Files\core</Filter>
-    </ClCompile>
-    <ClCompile Include="core\openGL.cpp">
-      <Filter>Source Files\core</Filter>
-    </ClCompile>
-    <ClCompile Include="core\ui.cpp">
-      <Filter>Source Files\core</Filter>
-    </ClCompile>
-    <ClCompile Include="core\axes.cpp">
-      <Filter>Source Files\core</Filter>
-    </ClCompile>
-    <ClCompile Include="shelf_test.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="core\lighting.cpp">
-      <Filter>Source Files\core</Filter>
-    </ClCompile>
-    <ClCompile Include="objects\shelf.cpp">
-      <Filter>Source Files\objects</Filter>
-    </ClCompile>
-    <ClCompile Include="objects\cabinet.cpp">
-      <Filter>Source Files\objects</Filter>
-    </ClCompile>
-    <ClCompile Include="objects\computer.cpp">
-    <ClCompile Include="objects\shelf.cpp">
-      <Filter>Source Files\objects</Filter>
-    </ClCompile>
-    <ClCompile Include="objects\table.cpp">
-      <Filter>Source Files\objects</Filter>
-    </ClCompile>
-    <ClCompile Include="objects\cylinder\cylinder.cpp">
-      <Filter>Source Files\objects\cylinder</Filter>
-    </ClCompile>
-    <ClCompile Include="objects\plane\plane.cpp">
-      <Filter>Source Files\objects\plane</Filter>
-    </ClCompile>
-    <ClCompile Include="objects\plane\plane2.cpp">
-      <Filter>Source Files\objects\plane</Filter>
-    </ClCompile>
-    <ClCompile Include="objects\lamp.cpp">
-      <Filter>Source Files\objects</Filter>
-    </ClCompile>
-    <ClCompile Include="objects\sphere\sphere.cpp">
-      <Filter>Source Files\objects\sphere</Filter>
-    </ClCompile>
-    <ClCompile Include="objects\chair.cpp">
-      <Filter>Source Files\objects</Filter>
-    </ClCompile>
-    <ClCompile Include="objects\chair1.cpp">
-      <Filter>Source Files\objects</Filter>
-    </ClCompile>
-    <ClCompile Include="core\shaders.cpp">
-      <Filter>Source Files\core</Filter>
-    </ClCompile>
-    <ClCompile Include="objects\sign.cpp">
-      <Filter>Source Files\objects</Filter>
-    </ClCompile>
-    <ClCompile Include="objects\airplaneOfDuyen.cpp">
-      <Filter>Source Files\objects</Filter>
-    </ClCompile>
-    <ClCompile Include="objects\airplaneOfTien.cpp">
-      <Filter>Source Files\objects</Filter>
-    </ClCompile>
-    <ClCompile Include="objects\chair.cpp">
-      <Filter>Source Files\objects</Filter>
-    </ClCompile>
-    <ClCompile Include="objects\chair1.cpp">
-      <Filter>Source Files\objects</Filter>
-    </ClCompile>
-    <ClCompile Include="objects\cylinder\cylinder.cpp">
-      <Filter>Source Files\objects</Filter>
-    </ClCompile>
-    <ClCompile Include="objects\lamp.cpp">
-      <Filter>Source Files\objects</Filter>
-    </ClCompile>
-    <ClCompile Include="objects\plane\plane.cpp">
-      <Filter>Source Files\objects</Filter>
-    </ClCompile>
-    <ClCompile Include="objects\plane\plane2.cpp">
-      <Filter>Source Files\objects</Filter>
-    </ClCompile>
-    <ClCompile Include="objects\testObject.cpp">
-      <Filter>Source Files\objects</Filter>
-    </ClCompile>
-    <ClCompile Include="objects\sphere.cpp">
-      <Filter>Source Files\objects</Filter>
-    <ClCompile Include="objects\airplanes\airplane.cpp">
-      <Filter>Source Files\objects\airplanes</Filter>
-    </ClCompile>
-    <ClCompile Include="objects\airplanes\airplaneOfDuyen.cpp">
-      <Filter>Source Files\objects\airplanes</Filter>
-    </ClCompile>
-    <ClCompile Include="objects\airplanes\airplaneOfTien.cpp">
-      <Filter>Source Files\objects\airplanes</Filter>
-    </ClCompile>
-    <ClCompile Include="objects\airplanes\biplane.cpp">
-      <Filter>Source Files\objects\airplanes</Filter>
-    </ClCompile>
+    <ClInclude Include="include\objects\biplane.h" />
+    <ClInclude Include="include\core\shaders.h" />
+    <ClInclude Include="include\core\stb_image.h" />
+    <ClInclude Include="include\objects\chair1.h" />
+    <ClInclude Include="include\objects\chair.h" />
+    <ClInclude Include="include\objects\helicopter.h" />
+    <ClInclude Include="include\objects\airplane1.h" />
+    <ClInclude Include="core\mat_old_from_angel.h" />
+    <ClInclude Include="include\objects\airplane.h" />
+    <ClInclude Include="include\objects\cabinet.h" />
+    <ClInclude Include="include\objects\computer.h" />
+    <ClInclude Include="include\objects\cylinder.h" />
+    <ClInclude Include="include\core\Angel.h" />
+    <ClInclude Include="include\core\axes.h" />
+    <ClInclude Include="include\core\camera.h" />
+    <ClInclude Include="include\core\CheckError.h" />
+    <ClInclude Include="include\core\environment.h" />
+    <ClInclude Include="include\core\mat.h" />
+    <ClInclude Include="include\core\openGL.h" />
+    <ClInclude Include="include\core\textfile.h" />
+    <ClInclude Include="include\core\vec.h" />
+    <ClInclude Include="include\objects\cube.h" />
+    <ClInclude Include="include\core\ui.h" />
+    <ClInclude Include="include\core\lighting.h" />
+    <ClInclude Include="include\objects\plane.h" />
+    <ClInclude Include="include\objects\plane2.h" />
+    <ClInclude Include="include\objects\shelf.h" />
+    <ClInclude Include="include\objects\sign.h" />
+    <ClInclude Include="include\objects\sphere.h" />
+    <ClInclude Include="include\objects\table.h" />
+    <ClInclude Include="include\objects\lamp.h" />
+    <ClInclude Include="include\objects\testObject.h" />
+    <ClInclude Include="include\objects\b52.h" />
+    <ClInclude Include="include\objects\planeStore.h" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="objects\cube\cube_fshader.glsl">
-      <Filter>Source Files\objects\cube</Filter>
-    </None>
-    <None Include="objects\cube\cube_vshader.glsl">
-      <Filter>Source Files\objects\cube</Filter>
-    </None>
-    <None Include="objects\fShader.glsl">
-      <Filter>Source Files\objects</Filter>
-    </None>
-    <None Include="objects\vShader.glsl">
-      <Filter>Source Files\objects</Filter>
-    </None>
+    <Image Include="..\resources\sphere.jpeg" />
+    <Image Include="wall.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\objects\cube.h">
-      <Filter>Header Files\objects</Filter>
-    </ClInclude>
-    <ClInclude Include="include\core\ui.h">
-      <Filter>Header Files\core</Filter>
-    </ClInclude>
-    <ClInclude Include="include\core\Angel.h">
-      <Filter>Header Files\core</Filter>
-    </ClInclude>
-    <ClInclude Include="include\core\camera.h">
-      <Filter>Header Files\core</Filter>
-    </ClInclude>
-    <ClInclude Include="include\core\CheckError.h">
-      <Filter>Header Files\core</Filter>
-    </ClInclude>
-    <ClInclude Include="include\core\mat.h">
-      <Filter>Header Files\core</Filter>
-    </ClInclude>
-    <ClInclude Include="include\core\openGL.h">
-      <Filter>Header Files\core</Filter>
-    </ClInclude>
-    <ClInclude Include="include\core\textfile.h">
-      <Filter>Header Files\core</Filter>
-    </ClInclude>
-    <ClInclude Include="include\core\vec.h">
-      <Filter>Header Files\core</Filter>
-    </ClInclude>
-    <ClInclude Include="include\core\axes.h">
-      <Filter>Header Files\core</Filter>
-    </ClInclude>
-    <ClInclude Include="include\core\environment.h">
-      <Filter>Header Files\core</Filter>
-    </ClInclude>
-    <ClInclude Include="core\mat_old_from_angel.h">
-      <Filter>Header Files\core</Filter>
-    </ClInclude>
-    <ClInclude Include="include\core\lighting.h">
-      <Filter>Header Files\core</Filter>
-    </ClInclude>
-    <ClInclude Include="include\objects\cylinder.h">
-      <Filter>Header Files\objects</Filter>
-    </ClInclude>
-    <ClInclude Include="include\objects\plane.h">
-      <Filter>Header Files\objects</Filter>
-    </ClInclude>
-    <ClInclude Include="include\objects\shelf.h">
-      <Filter>Header Files\objects</Filter>
-    </ClInclude>
-    <ClInclude Include="include\objects\plane2.h">
-      <Filter>Header Files\objects</Filter>
-    </ClInclude>
-    <ClInclude Include="include\objects\airplane.h">
-      <Filter>Header Files\objects</Filter>
-    </ClInclude>
-    <ClInclude Include="include\objects\cabinet.h">
-      <Filter>Header Files\objects</Filter>
-    </ClInclude>
-    <ClInclude Include="include\objects\computer.h">
-      <Filter>Header Files\objects</Filter>
-    </ClInclude>
-    <ClInclude Include="include\objects\table.h">
-      <Filter>Header Files\objects</Filter>
-    </ClInclude>
-    <ClInclude Include="include\objects\chair.h">
-      <Filter>Header Files\objects</Filter>
-    </ClInclude>
-    <ClInclude Include="include\objects\airplaneOfDuyen.h">
-      <Filter>Header Files\objects</Filter>
-    </ClInclude>
-    <ClInclude Include="include\objects\sphere.h">
-      <Filter>Header Files\objects</Filter>
-    </ClInclude>
-    <ClInclude Include="include\objects\airplaneOfTien.h">
-      <Filter>Header Files\objects</Filter>
-    </ClInclude>
-    <ClInclude Include="include\objects\chair.h">
-      <Filter>Header Files\objects</Filter>
-    </ClInclude>
-    <ClInclude Include="include\objects\chair1.h">
-      <Filter>Header Files\objects</Filter>
-    </ClInclude>
-    <ClInclude Include="include\objects\lamp.h">
-      <Filter>Header Files\objects</Filter>
-    </ClInclude>
-    <ClInclude Include="include\objects\sphere.h">
-      <Filter>Header Files\objects</Filter>
-    </ClInclude>
-    <ClInclude Include="include\objects\testObject.h">
-      <Filter>Header Files\objects</Filter>
-      <Filter>Header Files\objects</Filter>
-    </ClInclude>
-    <ClInclude Include="include\objects\chair1.h">
-      <Filter>Header Files\objects</Filter>
-    </ClInclude>
-    <ClInclude Include="include\objects\lamp.h">
-      <Filter>Header Files\objects</Filter>
-    </ClInclude>
-    <ClInclude Include="include\core\shaders.h">
-      <Filter>Header Files\core</Filter>
-    </ClInclude>
-    <ClInclude Include="include\objects\sign.h">
-      <Filter>Header Files\objects</Filter>
-    </ClInclude>
-    <ClInclude Include="include\core\stb_image.h">
-      <Filter>Header Files\core</Filter>
-    </ClInclude>
-    <ClInclude Include="include\objects\biplane.h">
-      <Filter>Header Files\objects</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="..\resources\sphere.jpeg">
-      <Filter>Resource Files</Filter>
-    </Image>
-    <Image Include="wall.jpg">
-      <Filter>Resource Files</Filter>
-    </Image>
+    <None Include="objects\fShader.glsl" />
+    <None Include="objects\cube\cube_fshader.glsl" />
+    <None Include="objects\cube\cube_vshader.glsl" />
+    <None Include="objects\vShader.glsl" />
   </ItemGroup>
 </Project>
