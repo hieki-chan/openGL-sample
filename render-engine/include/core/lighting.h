@@ -32,8 +32,8 @@ namespace engine
 	{
 	public:
 		float constant = 1.0f;
-		float linear = 0.09f;
-		float quadratic = 0.032f;
+		float linear = 0.032f;
+		float quadratic = 0.012f;
 		float radius = 10.0f;
 	};
 
