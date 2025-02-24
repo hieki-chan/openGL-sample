@@ -18,7 +18,7 @@ void drawRobo(vec3 position, vec3 rotation, vec3 scale)
 
     drawSphere(vec3(.16, .0, .11), vec3(), vec3(.15, .15, .15), color(color2));
 
-    drawSphere(vec3(0, 0, 0), vec3(), vec3(.4, .5, .5), color(color2));
+    drawSphere(vec3(0, 0, 0), vec3(), vec3(.5, .5, .5), color(color2));
 
     drawSphere(vec3(0, -.6, 0), vec3(), vec3(.4, .8, .5), color(color1));
 

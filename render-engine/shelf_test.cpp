@@ -92,10 +92,11 @@ void onGUI()
 	ui::text2D(selectedInfo, 14, 10, ui::window_height - 100);
 	ui::text2D("1 - airplane", 14, 15, ui::window_height - 120);
 	ui::text2D("2 - biplane", 14, 15, ui::window_height - 140);
-	ui::text2D("3 - cabinet", 14, 15, ui::window_height - 160);
-	ui::text2D("4 - robo", 14, 15, ui::window_height - 180);
-	ui::text2D("5", 14, 15, ui::window_height - 200);
-	ui::text2D("6 - None", 14, 15, ui::window_height - 220);
+	ui::text2D("3 - helicopter", 14, 15, ui::window_height - 160);
+	ui::text2D("4 - b52", 14, 15, ui::window_height - 180);
+	ui::text2D("5 - cabinet", 14, 15, ui::window_height - 200);
+	ui::text2D("6 - robo", 14, 15, ui::window_height - 220);
+	ui::text2D("7 - None", 14, 15, ui::window_height - 240);
 }
 
 //LIGHTING
@@ -201,6 +202,10 @@ void display()
 
 	drawTable(vec3(-32, 13, 20), vec3(0, -90, 0), vec3(25, 20, 20));
 
+	drawTable(vec3(33, 13, 26), vec3(0, 180, 0), vec3(25, 20, 20));
+
+	drawChair(vec3(33, 3, 15), vec3(0, 0, 0), vec3(8, 12, 8));
+
 	drawChair1(vec3(-42, 6.5, 23), vec3(0, 90, 0), vec3(8, 8, 8));
 
 	drawRobo(vec3(-42, 14, 23), vec3(), vec3(8, 8, 8));
@@ -213,10 +218,6 @@ void display()
 
 	drawCabinet(vec3(-41, 11, -17), vec3(0, 90, 0), vec3(25, 20, 30));
 
-	drawCabinet(vec3(15, 11, -26), vec3(0, 0, 0), vec3(55, 20, 30));
-
-	drawSign(vec3(0, 57.4, 38), vec3(0, 0, 0), vec3(40, 15, 15), color(1, 1, 1, 1));
-
 	drawAirplane(vec3(-40, 15, -26.5), vec3(0, 0, -45), vec3(1.5, 2, 2));
 
 	drawAirplane1(vec3(-40, 15.5, -12), vec3(0, 0, -45), vec3(1.5, 2, 2));
@@ -228,6 +229,31 @@ void display()
 	drawB52(vec3(-40, 32, -23.5), vec3(0, 90, 0), vec3(1, 1, 1));
 
 	drawBiplane(vec3(-40, 34, -9), vec3(0, 0, 0), vec3(1.5, 1.5, 1.5));
+
+	drawCabinet(vec3(15, 11, -26), vec3(0, 0, 0), vec3(55, 20, 30));
+
+	drawAirplane1(vec3(-6, 15.5, -26), vec3(45, -90, 0), vec3(2, 2, 2));
+
+	drawAirplane1(vec3(6, 15.5, -26), vec3(45, -90, 0), vec3(2, 2, 2));
+
+	drawHelicopter(vec3(25, 14, -24), vec3(0,45, 0), vec3(11, 11, 11), true);
+
+	drawHelicopter(vec3(35, 14, -24), vec3(0,45, 0), vec3(11, 11, 11), true);
+
+	drawHelicopter(vec3(25, 24, -24), vec3(0, 45, 0), vec3(10, 10, 10), false);
+
+	drawHelicopter(vec3(35, 24, -24), vec3(0, 45, 0), vec3(10, 10, 10), false);
+
+	drawB52(vec3(6, 24, -24.5), vec3(30, 10, 0), vec3(1.5, 1.5, 1.5));
+
+	drawB52(vec3(-7, 24, -24.5), vec3(30, 10, 0), vec3(1.5, 1.5, 1.5));
+
+	drawBiplane(vec3(0, 34, -24), vec3(0, -90, 0), vec3(1.5, 1.5, 1.5));
+
+	drawBiplane(vec3(30, 34, -24), vec3(0, -90, 0), vec3(1.5, 1.5, 1.5));
+
+	drawSign(vec3(0, 57.4, 38), vec3(0, 0, 0), vec3(40, 15, 15), color(1, 1, 1, 1));
+
 
 	//drawTestObject(vec3(0, 0, 0), vec3(), vec3(1, 1, 1));
 
@@ -262,18 +288,22 @@ void input(unsigned char key, int mouseX, int mouseY)
 		selectedIndex = 2;
 		break;
 	case '3':
-		selectedInfo = ">> cabinet";
+		selectedInfo = ">> helicopter";
 		selectedIndex = 3;
 		break;
 	case '4':
-		selectedInfo = ">> robo";
+		selectedInfo = ">> b52";
 		selectedIndex = 4;
 		break;
 	case '5':
-		selectedInfo = ">> ";
+		selectedInfo = ">> cabinet";
 		selectedIndex = 5;
 		break;
 	case '6':
+		selectedInfo = ">> robo";
+		selectedIndex = 6;
+		break;
+	case '7':
 		selectedInfo = defaultSelectedInfo;
 		selectedIndex = -1;
 		break;
@@ -289,12 +319,14 @@ void input(unsigned char key, int mouseX, int mouseY)
 	case 2:
 		break;
 	case 3:
-		cabinetKeyboard(key, mouseX, mouseY);
 		break;
 	case 4:
-		roboKeyboard(key, mouseX, mouseY);
 		break;
 	case 5:
+		cabinetKeyboard(key, mouseX, mouseY);
+		break;
+	case 6:
+		roboKeyboard(key, mouseX, mouseY);
 		break;
 	default:
 		break;
