@@ -153,15 +153,15 @@ void setUpCam()
 {
 	int mX = 0;
 	int mY = 0;
-	for (int i = 0; i < 50; i++)
+	for (int i = 0; i < 60; i++)
 	{
 		lastMouseX = 0;
 		lastMouseY = 0;
 		cameraMotion(-1, 1, lastMouseX, lastMouseY);
 	}
 
-	for(int i = 0; i < 13; i++)
-		zoomCamera(-0.1f);
+	for(int i = 0; i < 45; i++)
+		zoomCamera(-1);
 }
 
 void initialize_before_display()
