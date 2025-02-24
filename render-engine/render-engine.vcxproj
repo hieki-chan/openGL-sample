@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="objects\mouse.cpp" />
+    <ClCompile Include="objects\keyboard.cpp" />
     <ClCompile Include="objects\airplanes\b52.cpp" />
     <ClCompile Include="objects\airplanes\biplane.cpp" />
     <ClCompile Include="core\axes.cpp" />
@@ -46,6 +48,7 @@
     <ClCompile Include="objects\table.cpp" />
     <ClCompile Include="core\shaders.cpp" />
     <ClCompile Include="objects\planeStore.cpp" />
+    <ClCompile Include="objects\robo.cpp" />
     <ClCompile Include="shelf_test.cpp" />
     <ClCompile Include="objects\testObject.cpp" />
     <ClCompile Include="objects\sign.cpp" />
@@ -91,6 +94,9 @@
     <ClInclude Include="include\objects\lamp.h" />
     <ClInclude Include="include\objects\testObject.h" />
     <ClInclude Include="include\objects\planeStore.h" />
+    <ClInclude Include="include\objects\keyboard.h" />
+    <ClInclude Include="include\objects\mouse.h" />
+    <ClInclude Include="include\objects\robo.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\resources\sphere.jpeg" />

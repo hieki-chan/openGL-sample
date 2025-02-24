@@ -34,6 +34,9 @@
 #include "objects/sign.h"
 #include "objects/testObject.h"
 #include "objects/planeStore.h"
+#include "objects/keyboard.h"
+#include "objects/mouse.h"
+#include "objects/robo.h"
 
 using namespace engine;
 using namespace std;
@@ -89,8 +92,8 @@ void onGUI()
 	ui::text2D(selectedInfo, 14, 10, ui::window_height - 100);
 	ui::text2D("1 - airplane", 14, 15, ui::window_height - 120);
 	ui::text2D("2 - biplane", 14, 15, ui::window_height - 140);
-	ui::text2D("3", 14, 15, ui::window_height - 160);
-	ui::text2D("4", 14, 15, ui::window_height - 180);
+	ui::text2D("3 - cabinet", 14, 15, ui::window_height - 160);
+	ui::text2D("4 - robo", 14, 15, ui::window_height - 180);
 	ui::text2D("5", 14, 15, ui::window_height - 200);
 	ui::text2D("6 - None", 14, 15, ui::window_height - 220);
 }
@@ -192,19 +195,21 @@ void display()
 
 	drawLamp(vec3(0, 35, 0), vec3(), vec3(5, 5, 5), lamp_light_3);
 
-	//drawLamp(vec3(2, 2, 0), vec3(), vec3(1, 1, 1), lamp_light_2);
-
 	drawB52(vec3(10, 76, 0), vec3(10, 150, -10), vec3(10, 10, 10));
-
-	//drawTestObject(vec3(0, 0, 0), vec3(), vec3(1, 1, 1));
 
 	drawPlaneStore(vec3(0, 0, 0), vec3(), vec3(1.5, 1.2, 1.5));
 
-	drawTable(vec3(-32, 13, 20), vec3(0, -90, 0), vec3(20, 20, 15));
+	drawTable(vec3(-32, 13, 20), vec3(0, -90, 0), vec3(25, 20, 20));
 
 	drawChair1(vec3(-42, 6.5, 23), vec3(0, 90, 0), vec3(8, 8, 8));
 
+	drawRobo(vec3(-42, 14, 23), vec3(), vec3(8, 8, 8));
+
 	drawComputer(vec3(-30.5, 17, 20), vec3(0, 180, 0), vec3(10, 10, 10));
+
+	drawKeyboard(vec3(-34.5, 13.8, 20), vec3(0, -90, 0), vec3(5, 5, 5));
+
+	drawMouse(vec3(-34.5, 13.8, 27), vec3(0, -90, 0), vec3(5, 5, 5));
 
 	drawCabinet(vec3(-41, 11, -17), vec3(0, 90, 0), vec3(25, 20, 30));
 
@@ -223,6 +228,9 @@ void display()
 	drawB52(vec3(-40, 32, -23.5), vec3(0, 90, 0), vec3(1, 1, 1));
 
 	drawBiplane(vec3(-40, 34, -9), vec3(0, 0, 0), vec3(1.5, 1.5, 1.5));
+
+	//drawTestObject(vec3(0, 0, 0), vec3(), vec3(1, 1, 1));
+
 
 	onGUI();
 
@@ -243,12 +251,6 @@ void timer(int value)
 
 void input(unsigned char key, int mouseX, int mouseY)
 {
-	shelfKeyboard(key, mouseX, mouseY);
-
-	cabinetKeyboard(key, mouseX, mouseY);
-
-	lampKeyboard(key, mouseX, mouseY);
-
 	switch (key)
 	{
 	case '1':
@@ -260,11 +262,11 @@ void input(unsigned char key, int mouseX, int mouseY)
 		selectedIndex = 2;
 		break;
 	case '3':
-		selectedInfo = ">> ";
+		selectedInfo = ">> cabinet";
 		selectedIndex = 3;
 		break;
 	case '4':
-		selectedInfo = ">> ";
+		selectedInfo = ">> robo";
 		selectedIndex = 4;
 		break;
 	case '5':
@@ -287,8 +289,10 @@ void input(unsigned char key, int mouseX, int mouseY)
 	case 2:
 		break;
 	case 3:
+		cabinetKeyboard(key, mouseX, mouseY);
 		break;
 	case 4:
+		roboKeyboard(key, mouseX, mouseY);
 		break;
 	case 5:
 		break;

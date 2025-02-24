@@ -31,6 +31,9 @@
     <ClCompile Include="objects\sign.cpp" />
     <ClCompile Include="objects\airplanes\b52.cpp" />
     <ClCompile Include="objects\planeStore.cpp" />
+    <ClCompile Include="objects\keyboard.cpp" />
+    <ClCompile Include="objects\mouse.cpp" />
+    <ClCompile Include="objects\robo.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\objects\biplane.h" />
@@ -67,6 +70,9 @@
     <ClInclude Include="include\objects\testObject.h" />
     <ClInclude Include="include\objects\b52.h" />
     <ClInclude Include="include\objects\planeStore.h" />
+    <ClInclude Include="include\objects\keyboard.h" />
+    <ClInclude Include="include\objects\mouse.h" />
+    <ClInclude Include="include\objects\robo.h" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="..\resources\sphere.jpeg" />
