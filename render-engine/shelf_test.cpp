@@ -80,7 +80,7 @@ void onGUI()
 	btnAxes = ui::button2D("Axes", 14, 80, 40, ui::window_width - 90, ui::window_height - 50, color(1, 1, 0, 1), color(0, 0, 0, 1));
 	btnDay = ui::button2D("Day", 14, 80, 40, ui::window_width - 90, ui::window_height - 100, color(.9f, .9f, .9f, 1), color(0, 0, 0, 1));
 	btnNight = ui::button2D("Night", 14, 80, 40, ui::window_width - 90, ui::window_height - 150, color(.1f, .1f, .1f, 1), color(1, 1, 1, 1));
-	btnSunset = ui::button2D("Sunset", 14, 80, 40, ui::window_width - 90, ui::window_height - 200, color(.1f, .1f, .1f, 1), color(1, 1, 1, 1));
+	btnSunset = ui::button2D("Sunset", 14, 80, 40, ui::window_width - 90, ui::window_height - 200, color(.5f, 0, 0, 1), color(1, 1, 0, 1));
 	btnAxes.onClick = toggleAxes;
 	btnDay.onClick = day;
 	btnNight.onClick = night;
@@ -100,6 +100,7 @@ void onGUI()
 directionalLight* sun_light;
 pointLight* lamp_light_1;
 pointLight* lamp_light_2;
+pointLight* lamp_light_3;
 
 void setupLights()
 {
@@ -109,14 +110,22 @@ void setupLights()
 		sun_light->specular = color3(.15f, .15f, .15f);
 
 	lamp_light_1 = addPointLight(vec3());
+	lamp_light_1->radius = 100;
 	lamp_light_1->ambient = color3(1, 1, 1);
 	lamp_light_1->diffuse =
 		lamp_light_1->specular = color3(1, 1, 0);
 
 	lamp_light_2 = addPointLight(vec3());
+	lamp_light_2->radius = 100;
 	lamp_light_2->ambient = color3(1, 1, 1);
 	lamp_light_2->diffuse =
 		lamp_light_2->specular = color3(0, 1, 1);
+
+	lamp_light_3 = addPointLight(vec3());
+	lamp_light_3->radius = 100;
+	lamp_light_3->ambient = color3(1, 1, 1);
+	lamp_light_3->diffuse =
+		lamp_light_3->specular = color3(1, 0, 1);
 }
 
 void day()
@@ -179,9 +188,9 @@ void display()
 
 	drawLamp(vec3(-32, 35, 20), vec3(), vec3(5, 5, 5), lamp_light_1);
 
-	drawLamp(vec3(32, 35, 20), vec3(), vec3(5, 5, 5), lamp_light_1);
+	drawLamp(vec3(32, 35, 20), vec3(), vec3(5, 5, 5), lamp_light_2);
 
-	drawLamp(vec3(0, 35, 0), vec3(), vec3(5, 5, 5), lamp_light_2);
+	drawLamp(vec3(0, 35, 0), vec3(), vec3(5, 5, 5), lamp_light_3);
 
 	//drawLamp(vec3(2, 2, 0), vec3(), vec3(1, 1, 1), lamp_light_2);
 
