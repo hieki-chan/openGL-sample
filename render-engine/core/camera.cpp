@@ -44,6 +44,11 @@ void engine::setCameraPos(const vec4& position)
 	mainCamera.eye_position = position;
 }
 
+void engine::setTargetPos(const vec4& position)
+{
+	mainCamera.target_position = position;
+}
+
 void engine::zoomCamera(float value)
 {
 	if (value > 0) // Scroll up
@@ -117,6 +122,8 @@ void engine::cameraMotion(int mouseX, int mouseY, int& lastMouseX, int& lastMous
 
 	//std::cout << pitchAngle << std::endl;
 	setCameraPos(vertical);
+
+	//std::cout << CAM_POS_4 << std::endl;
 	
 	lastMouseX = mouseX;
 	lastMouseY = mouseY;

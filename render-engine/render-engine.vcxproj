@@ -49,7 +49,6 @@
     <ClCompile Include="core\shaders.cpp" />
     <ClCompile Include="objects\planeStore.cpp" />
     <ClCompile Include="objects\robo.cpp" />
-    <ClCompile Include="shelf_test.cpp" />
     <ClCompile Include="objects\testObject.cpp" />
     <ClCompile Include="objects\sign.cpp" />
   </ItemGroup>

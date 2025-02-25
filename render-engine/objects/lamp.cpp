@@ -21,7 +21,7 @@ void drawLamp(vec3 position, vec3 rotation, vec3 scale, pointLight* lamp_light)
 	plane2Transform(position, rotation, scale);
 	cubeTransform(position, rotation, scale);
 
-	lamp_light->setTransformMatrix(transform * Translate(0, 0.5, 0));
+	lamp_light->setTransformMatrix(transform * Translate(0, 0, 0));
 
 	drawCylinder(vec3(0, 2.5, 0), vec3(0, 0, 0), vec3(0.4, 0.1, 0.4), metalColor);
 	drawCylinder(vec3(0, 2.55, 0), vec3(0, 0, 0), vec3(0.45, 0.02, 0.45), color(0.5, 0.5, 0.5, 1));

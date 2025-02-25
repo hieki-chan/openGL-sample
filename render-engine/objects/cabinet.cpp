@@ -5,7 +5,7 @@ vec3 cabinet_position;
 vec3 cabinetLeft_position;
 vec3 cabinetRight_position;
 
-void drawCabinet(vec3 position, vec3 rotation, vec3 scale)
+void drawCabinet(vec3 position, vec3 rotation, vec3 scale, bool enableInput)
 {
 	color color1 = color(.8, .8, .8, 1);
 	color color2 = color(.5, .5, .5, 1);
@@ -32,7 +32,7 @@ void drawCabinet(vec3 position, vec3 rotation, vec3 scale)
 
 	//mo hinh phan cap, goi ham nay de thay doi transform cho nhung cube sau
 	//tra ve current model matrix
-	mat4 currentModelMatrix = cubeTransformMatrix(globalTransformMatrix * Angel::Translate(cabinetLeft_position));
+	mat4 currentModelMatrix = cubeTransformMatrix(globalTransformMatrix * (enableInput? Angel::Translate(cabinetLeft_position) : identity()));
 	drawCube(vec3(-.278, -.35, 0), vec3(), vec3(.45, .025, .35), color2);
 	drawCube(vec3(-.278, -.238, -.1635), vec3(), vec3(.45, .2, .025), color2);
 	drawCube(vec3(-.48, -.238, 0), vec3(), vec3(.025, .2, .35), color2);
@@ -42,7 +42,7 @@ void drawCabinet(vec3 position, vec3 rotation, vec3 scale)
 
 	//mo hinh phan cap, goi ham nay de thay doi transform cho nhung cube sau
 	//tra ve current model matrix
-	currentModelMatrix = cubeTransformMatrix(globalTransformMatrix * Angel::Translate(cabinetRight_position));
+	currentModelMatrix = cubeTransformMatrix(globalTransformMatrix * (enableInput ? Angel::Translate(cabinetRight_position) : identity()));
 	drawCube(vec3(.278, -.35, 0), vec3(), vec3(.45, .025, .35), color2);
 	drawCube(vec3(.278, -.238, -.1635), vec3(), vec3(.45, .2, .025), color2);
 	drawCube(vec3(.48, -.238, 0), vec3(), vec3(.025, .2, .35), color2);

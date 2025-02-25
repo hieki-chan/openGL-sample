@@ -11,7 +11,7 @@ void drawPlaneStore(vec3 position, vec3 rotation, vec3 scale)
     color shelfColor = color(0.85, 0.7, 0.5, 1); 
     color color1 = color(0.1, 0.1, 0.1, 1);
     color color2 = color(0.2, 0.2, 0.2, 1);
-    color color3 = color(1, 1, 0.7, 1);
+    color wallColor = color(255, 109, 220, 255) / 255.0f;
     color color4 = color(0.85, 0.75, 0.6, 1);
     color red = color(1, 0 , 0, 1);
 
@@ -23,8 +23,8 @@ void drawPlaneStore(vec3 position, vec3 rotation, vec3 scale)
     drawCube(vec3(0, 40.5, 0), vec3(0, 0, 0), vec3(72, 1.5, 52), frameColor);
     drawCube(vec3(0, 48, 0), vec3(0, 0, 0), vec3(70, 15, 50), frameColor1);
     drawCube(vec3(0, 55, 0), vec3(0, 0, 0), vec3(72, 1.5, 52), frameColor);
-    drawCube(vec3(-33, 20, 0), vec3(0, 0, 0), vec3(2, 40, 48), color3);
-    drawCube(vec3(0, 20, -23), vec3(0, 0, 0), vec3(68, 40, 2), color3);
+    drawCube(vec3(-33, 20, 0), vec3(0, 0, 0), vec3(2, 40, 48), wallColor);
+    drawCube(vec3(0, 20, -23), vec3(0, 0, 0), vec3(68, 40, 2), wallColor);
 
     drawCube(vec3(-33, 5, -23), vec3(0, 0, 0), vec3(3, 8, 3), color1);
     drawCube(vec3(-33, 5, 23), vec3(0, 0, 0), vec3(3, 8, 3), color1);

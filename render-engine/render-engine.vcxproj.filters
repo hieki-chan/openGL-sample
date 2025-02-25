@@ -26,7 +26,6 @@
     <ClCompile Include="objects\sphere\sphere.cpp" />
     <ClCompile Include="objects\table.cpp" />
     <ClCompile Include="core\shaders.cpp" />
-    <ClCompile Include="shelf_test.cpp" />
     <ClCompile Include="objects\testObject.cpp" />
     <ClCompile Include="objects\sign.cpp" />
     <ClCompile Include="objects\airplanes\b52.cpp" />

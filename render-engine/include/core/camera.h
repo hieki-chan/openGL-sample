@@ -50,6 +50,8 @@ namespace engine
 
 	void setCameraPos(const vec4& position);
 
+	void setTargetPos(const vec4& position);
+
 	void zoomCamera(float value);
 
 	void setZoomSpeed(float speed);

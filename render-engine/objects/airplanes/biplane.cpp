@@ -44,7 +44,7 @@ void drawBiplane(const vec3& position, const vec3& rotation, const vec3& scale)
 	drawCylinder(vec3(0, 0, 2 + .25f / 2), vec3(90, 0, 0), vec3(bSize, .25f, bSize), color(0, 0, 0, 1));
 	
 	//properller
-	properller_rotation += 1;
+	properller_rotation += 4;
 	cylinderTransformMatrix(globalTransform * RotateZ(properller_rotation));
 	color pColor = color(155, 149, 227, 255) / 255.0f;
 	drawSphere(vec3(0, 0, 2.3f), vec3(0, 0, 0), vec3(.5f, .5f, .5f), pColor);
