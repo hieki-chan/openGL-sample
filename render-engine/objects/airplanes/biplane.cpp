@@ -1,5 +1,7 @@
 #include "objects/biplane.h"
 
+vec3 biplane_rotate;
+
 color biplane_wingColor = color(1, 1, 1, 1);
 
 void biplaneWing(float y, float z);
@@ -10,8 +12,11 @@ void drawFontGear(float x, float rot, color gColor = color(.38f, .38f, .38f, 1))
 
 float properller_rotation = 0;
 
-void drawBiplane(const vec3& position, const vec3& rotation, const vec3& scale)
+void drawBiplane(vec3 position, vec3 rotation, vec3 scale, bool enableInput)
 {
+	if (enableInput)
+		rotation += biplane_rotate;
+
 	mat4 globalTransform = cylinderTransform(position, rotation, scale);
 	cubeTransform(position, rotation, scale);
 	plane2Transform(position, rotation, scale);
@@ -92,4 +97,19 @@ void drawFontGear(float x, float rot, color gColor)
 	drawCylinder(vec3(x - .5f * (x > 0 ? 1 : -1), -.5f, 1.15f), vec3(0, 0, rot), vec3(.2f, 1.0f, .2f), gColor);
 	drawPlane2(vec3(x, -.75f, 1.15f), vec3(90, 0, 90), vec3(0.85f, .3f, .3f), color(1, 0, 0, 1));
 	drawCylinder(vec3(x, -1.0f, 1.15f), vec3(0, 0, 90), vec3(.75f, .25f, .75f), gColor);
+}
+
+void biplaneKeyboard(unsigned char key, int mouseX, int mouseY)
+{
+	switch (key)
+	{
+	case 'q':
+		biplane_rotate.y += 5;
+		break;
+	case 'e':
+		biplane_rotate.y -= 5;
+		break;
+	default:
+		break;
+	}
 }

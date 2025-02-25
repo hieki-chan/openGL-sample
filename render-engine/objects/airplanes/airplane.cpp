@@ -51,5 +51,7 @@ void drawAirplane(vec3 position, vec3 rotation, vec3 scale)
 	//head
 	drawPlane2(vec3(0, 0, 2.8), vec3(180, 0, 90), vec3(.75, .75, .75), bodyColor);
 
+	cylinderReset();
+	plane2Reset();
 }
 

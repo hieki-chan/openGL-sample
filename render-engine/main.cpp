@@ -228,7 +228,7 @@ void display()
 	drawAirplane(vec3(-40, 15, -26.5), vec3(0, 0, -45), vec3(1.5, 2, 2));
 
 	if (selectedIndex == 1)
-		drawAirplane1(vec3(30.5f, 14.5f, 21), vec3(0, 0, 0), vec3(1, 1.5f, 1.5f));	//selected airplane1
+		drawAirplane1(vec3(30.5f, 14.5f, 21), vec3(0, 0, 0), vec3(1, 1.5f, 1.5f), true);	//selected airplane1
 
 	drawAirplane1(vec3(-40, 15.5, -12), vec3(0, 0, -45), vec3(1.5, 2, 2));
 
@@ -241,7 +241,7 @@ void display()
 	drawBiplane(vec3(-40, 34, -9), vec3(0, 0, 0), vec3(1.5, 1.5, 1.5));
 
 	if (selectedIndex == 2)
-		drawBiplane(vec3(30.5f, 15.0f, 21), vec3(0, 0, 0), vec3(1.0f, 1.0f, 1.0f));		//selected biplane
+		drawBiplane(vec3(30.5f, 15.0f, 21), vec3(0, 0, 0), vec3(1.0f, 1.0f, 1.0f), true);		//selected biplane
 
 	drawCabinet(vec3(15, 11, -26), vec3(0, 0, 0), vec3(55, 20, 30), true); //cabinet
 
@@ -250,7 +250,7 @@ void display()
 	drawAirplane1(vec3(6, 15.5, -26), vec3(45, -90, 0), vec3(2, 2, 2));
 
 	if(selectedIndex == 3)
-		drawHelicopter(vec3(30.5f, 15.75f, 21), vec3(0, 90, 0), vec3(9.0f, 9.0f, 9.0f), true);		//selected helicopter
+		drawHelicopter(vec3(30.5f, 15.75f, 21), vec3(0, 90, 0), vec3(9.0f, 9.0f, 9.0f), true, true);		//selected helicopter
 
 	drawHelicopter(vec3(25, 14, -24), vec3(0, 45, 0), vec3(11, 11, 11), true);
 
@@ -261,7 +261,7 @@ void display()
 	drawHelicopter(vec3(35, 24, -24), vec3(0, 45, 0), vec3(10, 10, 10), false);
 
 	if (selectedIndex == 4)
-		drawB52(vec3(30.5f, 14.25f, 21), vec3(0, 90, 0), vec3(1.25f, 1.25f, 1.25f));		//selected b52
+		drawB52(vec3(30.5f, 14.25f, 21), vec3(0, 90, 0), vec3(1.25f, 1.25f, 1.25f), true);		//selected b52
 
 	drawB52(vec3(6, 24, -24.5), vec3(30, 10, 0), vec3(1.5, 1.5, 1.5));
 
@@ -301,32 +301,32 @@ void input(unsigned char key, int mouseX, int mouseY)
 	case '1':
 		selectedInfo = ">> airplane";
 		selectedIndex = 1;
-		selectedInputInfo = "";
+		selectedInputInfo = "q, e: rotate";
 		break;
 	case '2':
 		selectedInfo = ">> biplane";
 		selectedIndex = 2;
-		selectedInputInfo = "";
+		selectedInputInfo = "q, e: rotate";
 		break;
 	case '3':
 		selectedInfo = ">> helicopter";
 		selectedIndex = 3;
-		selectedInputInfo = "";
+		selectedInputInfo = "q, e: rotate - x, X (shift + x): wing rotate";
 		break;
 	case '4':
 		selectedInfo = ">> b52";
 		selectedIndex = 4;
-		selectedInputInfo = "";
+		selectedInputInfo = "q, e: rotate";
 		break;
 	case '5':
 		selectedInfo = ">> cabinet";
 		selectedIndex = 5;
-		selectedInputInfo = "t: close - T (shift + t): open";
+		selectedInputInfo = "t, p: close - T (shift + t), p (shift + p): open";
 		break;
 	case '6':
 		selectedInfo = ">> robo";
 		selectedIndex = 6;
-		selectedInputInfo = "adsw: move - q,e: rotate";
+		selectedInputInfo = "a d s w: move - q, e: rotate";
 		break;
 	case '7':
 		selectedInfo = defaultSelectedInfo;
@@ -352,12 +352,16 @@ void input(unsigned char key, int mouseX, int mouseY)
 	switch (selectedIndex)
 	{
 	case 1:
+		airplane1Keyboard(key, mouseX, mouseY);
 		break;
 	case 2:
+		biplaneKeyboard(key, mouseX, mouseY);
 		break;
 	case 3:
+		helicopterKeyboard(key, mouseX, mouseY);
 		break;
 	case 4:
+		b52Keyboard(key, mouseX, mouseY);
 		break;
 	case 5:
 		cabinetKeyboard(key, mouseX, mouseY);

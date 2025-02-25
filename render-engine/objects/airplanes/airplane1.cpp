@@ -1,5 +1,7 @@
 #include "objects/airplane1.h"
 
+vec3 airplane1_rotate;
+
 void drawWing1(color color, mat4 matrix)
 {
 	plane2TransformMatrix(matrix);
@@ -16,9 +18,12 @@ void drawWing1(color color, mat4 matrix)
 	drawCylinder(vec3(0, -0.25, -.25), vec3(0, 0, 90), vec3(.5, 1, .5), vec4(0.91, 0.36, 0.39, 1));
 }
 
-void drawAirplane1(vec3 position, vec3 rotation, vec3 scale)
+void drawAirplane1(vec3 position, vec3 rotation, vec3 scale, bool enableInput)
 {
 	color bodyColor = WHITE;
+
+	if(enableInput)
+		rotation += airplane1_rotate;
 
 	mat4 globalTransformMatrix = cylinderTransform(position, rotation, scale);
 
@@ -65,6 +70,22 @@ void drawAirplane1(vec3 position, vec3 rotation, vec3 scale)
 	drawPlane(vec3(.5, 1, -1.64), vec3(0, -90, 0), vec3(.7, .1, 1), vec4(0.91, 0.36, 0.39, 1));
 	drawPlane(vec3(-.5, 1, -1.64), vec3(0, 90, -180), vec3(.7, .1, 1), vec4(0.91, 0.36, 0.39, 1));
 
-	
-}
+	cylinderReset();
+	plane2Reset();
+	planeReset();
 
+}
+void airplane1Keyboard(unsigned char key, int mouseX, int mouseY)
+{
+	switch (key)
+	{
+	case 'q':
+		airplane1_rotate.y += 5;
+		break;
+	case 'e':
+		airplane1_rotate.y -= 5;
+		break;
+	default:
+		break;
+	}
+}

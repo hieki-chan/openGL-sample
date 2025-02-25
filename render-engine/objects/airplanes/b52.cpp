@@ -1,11 +1,16 @@
 #include "objects/b52.h"
-void drawB52(vec3 position, vec3 rotation, vec3 scale)
+
+vec3 b52_rotate;
+
+void drawB52(vec3 position, vec3 rotation, vec3 scale, bool enableInput)
 {
     color bodyPlane = color(0.3, 0.3, 0.3, 1);
     color wingPlane = color(0.4, 0.4, 0.4, 1);
 
+    if (enableInput)
+        rotation += b52_rotate;
+
     mat4 globalTransformMatrix = cylinderTransform(position, rotation, scale);
-    cubeTransform(position, rotation, scale);
     planeTransform(position, rotation, scale);
     sphereTransform(position, rotation, scale);
 
@@ -84,4 +89,22 @@ void drawB52(vec3 position, vec3 rotation, vec3 scale)
     drawPlane(vec3(5, .2, 1), vec3(180, 0, 0), vec3(1, .1, 2), color(0.2, 0.2, 0.2, 1));
     drawPlane(vec3(5, 1, 0), vec3(90, 0, 180), vec3(1, .1, 2), color(0.2, 0.2, 0.2, 1));
 
+    cylinderReset();
+    sphereReset();
+    planeReset();
+}
+
+void b52Keyboard(unsigned char key, int mouseX, int mouseY)
+{
+    switch (key)
+    {
+    case 'q':
+        b52_rotate.y += 5;
+        break;
+    case 'e':
+        b52_rotate.y -= 5;
+        break;
+    default:
+        break;
+    }
 }
