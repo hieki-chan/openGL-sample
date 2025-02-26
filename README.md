@@ -4,6 +4,11 @@
 	<img src="resources/sphere.jpeg" alt="Sphere Image">
 </p>
 
+<p align="center">
+	<p>Example scene:</p>
+	<img src="resources/scene.png" alt="Sphere Image">
+</p>
+
 best way to lean OpenGL : ```https://learnopengl.com```
 
 
